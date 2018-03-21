@@ -19,7 +19,7 @@ import { MainComponent } from './main.component';
     imports     : [
         RouterModule
     ],
-    exports: [MainComponent]
+    exports: [ MainComponent  ]
 })
 
 export class MainModule {
