@@ -21,42 +21,37 @@
             <span>APPS</span>
           </li>
 
-          <li class="nav-item" role="tab" id="heading-dashboards">
-
-            <a class="nav-link ripple with-arrow collapsed" data-toggle="collapse" data-target="#collapse-dashboards" href="#" aria-expanded="false"
-              aria-controls="collapse-dashboards">
+          <li class="nav-item">
+            <a class="nav-link ripple "  [routerLink]="['accueil']" data-page-url="/apps-contacts.html">
               <i class="icon s-4 icon-tile-four"></i>
-              <span>Dashboards</span>
+              <span>Accueil</span>
             </a>
-
-            <ul id="collapse-dashboards" class="collapse" role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
-             
-              <li class="nav-item">
-                <a class="nav-link ripple " href="#" data-page-url="/apps-contacts.html">
-  
-                  <span>Project Dashboard</span>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link ripple " href="#" data-page-url="/apps-contacts.html">
-                  <span>Server</span>
-                </a>
-              </li>
-
-            </ul>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link ripple " href="#" data-page-url="/apps-contacts.html">
+            <a class="nav-link ripple "  [routerLink]="['client']" data-page-url="/apps-contacts.html">
               <i class="icon s-4 icon-calendar-today"></i>
-              <span>Calendar</span>
+              <span>Client</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link ripple "  [routerLink]="['collaborateur']" data-page-url="/apps-contacts.html">
+              <i class="icon s-4 icon-calendar-today"></i>
+              <span>Collaborateur</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link ripple "  [routerLink]="['parametres']" data-page-url="/apps-contacts.html">
+                <i class="icon s-4 icon-calendar-today"></i>
+                <span>Parametres</span>
+              </a>
+            </li>
 
         </ul>
 
       </div>
     </div>
-  
+    
   <!-- End Aside  -->

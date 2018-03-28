@@ -1,9 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainModule } from './main/main.module';
 import { LoginComponent } from './login/login.component';
+import { CollaborateurModule } from './main/content/collaborateur/collaborateur.module';
+import { ClientModule } from './main/content/apps/client/client.module';
+import { CollaborateurComponent } from './main/content/collaborateur/collaborateur.component';
+import { ClientComponent } from './main/content/apps/client/client.component';
+import { AccueilModule } from './main/content/apps/accueil/accueil.module';
+import { AccueilComponent } from './main/content/apps/accueil/accueil.component';
+import { ParametresModule } from './main/content/apps/parametres/parametres.module';
+
+
+const appRouter: Routes  = [
+    { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+    { path: 'accueil', component: AccueilComponent },
+    { path: 'collaborateur', component: CollaborateurComponent },
+    { path: 'client', component: ClientComponent },
+    { path: '**', component: CollaborateurComponent }
+];
 
 @NgModule({
   declarations: [
@@ -12,7 +29,12 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    MainModule
+    MainModule,
+    CollaborateurModule,
+    ClientModule,
+    AccueilModule,
+    ParametresModule,
+    RouterModule.forRoot(appRouter)
   ],
   providers: [],
   bootstrap: [AppComponent]
