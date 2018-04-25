@@ -1,1 +1,100 @@
-<h1>Hello client</h1>
+
+<div class="content">
+    <div class="doc data-table-doc page-layout simple full-width">
+
+
+<div class="page-header bg-secondary text-auto p-6"><h2 class="doc-title" id="content"> Gestion Des Clients : </h2>
+</div>
+
+<div class="page-content row p-6 container">
+
+        <div class="col-12">
+
+            <div class="example">
+                <div class="description">
+                    <div class="description-text">
+                        <h3>List Clients :  </h3>
+                    </div>
+                </div>
+                <div class="source-preview-wrapper">
+                    <div class="preview">
+                        <div class="preview-elements">
+                    <table id="sample-data-table" class="table">
+                        <thead>
+                                                <tr>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Nom</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Prenom</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Adresse</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Ville</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">N° Télephone</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Profession</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Email</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Action</span>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                            <tbody>
+                            <tr *ngFor='let c of clients'>
+                                                    <td>{{c.nom}}</td>
+                                                    <td>{{c.prenom}}</td>
+                                                    <td>{{c.adresse}}</td>
+                                                    <td>{{c.ville}}</td>
+                                                    <td>{{c.numTel}}</td>
+                                                    <td>{{c.profession}}</td>
+                                                    <td>{{c.email}}</td>
+                                                    <td>
+                                                        <button  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)"></button>
+                                                        <button  class="icon-account-off" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)"></button>
+                                                    </td>
+                            </tr>
+                            </tbody>
+                    </table>
+
+                <script type="text/javascript">
+                    $('#sample-data-table').DataTable({
+                        responsive: true
+                    });
+                </script>
+                    </div>
+                
+                </div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<app-supprimer [idClient]="idCourant" (onRefrech)="onRefrech($event)" ></app-supprimer>
+<app-modifier [client]="cl"></app-modifier>

@@ -12,11 +12,16 @@ import { ClientComponent } from './main/content/apps/client/client.component';
 import { AccueilModule } from './main/content/apps/accueil/accueil.module';
 import { AccueilComponent } from './main/content/apps/accueil/accueil.component';
 import { ParametresModule } from './main/content/apps/parametres/parametres.module';
+import { HttpModule } from '@angular/http';
+import { ClientService } from '../service/client.service';
+//import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 const appRouter: Routes  = [
     { path: '', redirectTo: 'accueil', pathMatch: 'full' },
     { path: 'accueil', component: AccueilComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'collaborateur', component: CollaborateurComponent },
     { path: 'client', component: ClientComponent },
     { path: '**', component: CollaborateurComponent }
@@ -25,7 +30,8 @@ const appRouter: Routes  = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -34,9 +40,12 @@ const appRouter: Routes  = [
     ClientModule,
     AccueilModule,
     ParametresModule,
-    RouterModule.forRoot(appRouter)
+    RouterModule.forRoot(appRouter),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    ClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

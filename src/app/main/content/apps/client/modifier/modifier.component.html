@@ -1,0 +1,56 @@
+<div id="modifierClient" class="modal fade" tabindex="-1" role="dialog"
+aria-labelledby="editClientLiveLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+   <div class="modal-content">
+       <div class="modal-header">
+           <h5 class="modal-title" id="editClientLiveLabel">Modifier Un Client</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+           </button>
+       </div>
+       <div class="modal-body">
+           <form  [formGroup]="form" >
+             <div class="form-row">
+                 <div class="form-group col-md-6">
+                     <input type="text" class="form-control" id="inputNom"  [value]="client?.nom"  [(ngModel)]="client.nom" name="nom"  formControlName="nom" required>
+                     <label for="inputNom" class="col-form-label">Nom</label>
+                 </div>
+                 <div class="form-group col-md-6">
+                     <input type="text" class="form-control" id="inputPrenom" placeholder="Prenom" value="{{client?.prenom}}" name="prenom" value="{{client?.prenom}}"  formControlName="prenom"   required>
+                     <label for="inputPrenom" class="col-form-label" >Prenom</label>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="adresse" value="{{client?.adresse}}" formControlName="adresse"  required>
+                 <label for="inputAddress" class="col-form-label">Address</label>
+             </div>
+             <div class="form-group">
+                 <input type="text" class="form-control" id="inputVille"
+                        placeholder="Ex : Agadir" value="{{client?.ville}}" formControlName="ville"  required>
+                 <label for="inputVille" class="col-form-label">Ville</label>
+             </div>
+           <div class="form-group">
+             <input type="email" class="form-control" id="inputEmail" placeholder="exemple@exemple.com"  name="email" value="{{client?.email}}" formControlName="email" >                              
+             <label for="inputEmail" class="col-form-label">Email</label>   
+           </div>
+           <div class="form-row">
+             <div class="form-group col-md-6">
+                 <input type="text" class="form-control" id="inputNom" placeholder="Profession" name="profession" value="{{client?.profession}}" formControlName="profession" >
+                 <label for="inputProf" class="col-form-label">Profession</label>
+             </div>
+             <div class="form-group col-md-6">
+                 <input type="text" class="form-control" id="inputPrenom" placeholder="0606060606" name="numTel" value="{{client?.numTel}}" formControlName="numTel" >
+                 <label for="inputTele" class="col-form-label">Num Tele </label>
+             </div>
+             <div class="form-group col-md-6">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+               <button type="button" class="btn btn-primary" (click)="modifierClient()">Modifier</button>
+           </div>
+         </div> 
+         </form>
+              
+     </div>
+       
+   </div>
+</div>
+</div>

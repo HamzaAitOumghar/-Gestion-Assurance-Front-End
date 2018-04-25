@@ -1,3 +1,4 @@
 
-<app-main></app-main>
+<app-main *ngIf="router.url !== '/login'"></app-main>
 
+<app-login *ngIf="router.url === '/login'"></app-login>
