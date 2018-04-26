@@ -14,6 +14,8 @@ import { AccueilComponent } from './main/content/apps/accueil/accueil.component'
 import { ParametresModule } from './main/content/apps/parametres/parametres.module';
 import { HttpModule } from '@angular/http';
 import { ClientService } from '../service/client.service';
+import { DossiersComponent } from './main/content/apps/dossiers/dossiers.component';
+
 //import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -24,6 +26,7 @@ const appRouter: Routes  = [
     { path: 'login', component: LoginComponent },
     { path: 'collaborateur', component: CollaborateurComponent },
     { path: 'client', component: ClientComponent },
+    { path: 'dossiers', component: DossiersComponent },
     { path: '**', component: CollaborateurComponent }
 ];
 

@@ -9,6 +9,7 @@ import { MainComponent } from './main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CollaborateurComponent } from './content/collaborateur/collaborateur.component';
 import { ClientComponent } from './content/apps/client/client.component';
+import { DossiersComponent } from './content/apps/dossiers/dossiers.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ClientComponent } from './content/apps/client/client.component';
     NavbarComponent,
     ToolbarComponent,
     ContentComponent,
-    MainComponent
+    MainComponent,
+    DossiersComponent
     ],
     imports     : [
         BrowserModule,
