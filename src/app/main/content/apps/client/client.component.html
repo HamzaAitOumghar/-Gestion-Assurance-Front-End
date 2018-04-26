@@ -96,5 +96,5 @@
     </div>
 </div>
 </div>
-<app-supprimer [idClient]="idCourant" (onRefrech)="onRefrech($event)" ></app-supprimer>
-<app-modifier [client]="cl"></app-modifier>
+<app-supprimer [idClient]="idCourant"></app-supprimer>
+<app-modifier *ngIf="cl" [client]="cl"></app-modifier>

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class SupprimerComponent implements OnInit {
  @Input() idClient:any
- @Output() onRefrech = new EventEmitter<boolean>();
+ //@Output() onRefrech = new EventEmitter<boolean>();
 
  constructor(private clientService:ClientService,private router:Router){
 
@@ -23,7 +23,7 @@ export class SupprimerComponent implements OnInit {
   supprimerClient(id){
     this.clientService.deleteClient(id).subscribe(
       data=>{
-        this.onRefrech.emit(true);
+        //this.onRefrech.emit(true);
       },err=>{
         console.log("Erreur !"+err);
       }

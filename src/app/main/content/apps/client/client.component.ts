@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { ClientService } from '../../../../../service/client.service';
 import { Client } from '../../../../entities/Client';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ModifierComponent } from './modifier/modifier.component';
 
 @Component({
   selector: 'app-client',
@@ -15,8 +16,13 @@ export class ClientComponent implements OnInit {
   clients :Client[];
   public idCourant :any;
   public cl :Client;
-  public form:FormGroup;
-  constructor(private clientService:ClientService,private router: Router) { }
+
+  
+  constructor(private clientService:ClientService,private router: Router) {
+
+
+   }
+ 
 
   ngOnInit() {
     this.clientService.getClient().map(resp=>resp.json())
@@ -29,6 +35,7 @@ export class ClientComponent implements OnInit {
       );
      ;
   }
+
   
   onRefrech($event){
       this.ngOnInit();      
@@ -36,13 +43,8 @@ export class ClientComponent implements OnInit {
   affecatationIdClient(id){
      this.idCourant=id;
   }
-  affecatationClient(c:Client){
+  affecatationClient(c){
     this.cl=c;
-  
  }
- openModel(cl){
-
-    this.affecatationClient(cl);
-
- }
+ 
 }

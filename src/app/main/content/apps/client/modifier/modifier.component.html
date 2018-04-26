@@ -9,10 +9,10 @@ aria-labelledby="editClientLiveLabel" aria-hidden="true">
            </button>
        </div>
        <div class="modal-body">
-           <form  [formGroup]="form" >
+           <form  *ngIf="client" [formGroup]="form">
              <div class="form-row">
                  <div class="form-group col-md-6">
-                     <input type="text" class="form-control" id="inputNom"  [value]="client?.nom"  [(ngModel)]="client.nom" name="nom"  formControlName="nom" required>
+                     <input type="text" class="form-control" id="inputNom"  [value]="client?.nom" name="nom"  formControlName="nom" required>
                      <label for="inputNom" class="col-form-label">Nom</label>
                  </div>
                  <div class="form-group col-md-6">
