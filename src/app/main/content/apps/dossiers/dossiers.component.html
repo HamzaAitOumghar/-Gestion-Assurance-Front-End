@@ -1,3 +1,84 @@
-<p>
-  dossiers works!
-</p>
+
+<div class="content">
+  <div class="doc data-table-doc page-layout simple full-width">
+
+
+<div class="page-header bg-secondary text-auto p-6"><h2 class="doc-title" id="content"> Gestion Des Dossiers : </h2>
+</div>
+
+<div class="page-content row p-6 container">
+
+      <div class="col-12">
+
+          <div class="example">
+              <div class="description">
+                  <div class="description-text">
+                      <h3>List Dossiers  :  </h3>
+                  </div>
+              </div>
+              <div class="source-preview-wrapper">
+                  <div class="preview">
+                      <div class="preview-elements">
+                  <table id="sample-data-table" class="table">
+                      <thead>
+                                              <tr>
+                                                  <th class="secondary-text">
+                                                      <div class="table-header">
+                                                          <span class="column-title">Numero Dossier</span>
+                                                      </div>
+                                                  </th>
+                                                  <th class="secondary-text">
+                                                      <div class="table-header">
+                                                          <span class="column-title">Status</span>
+                                                      </div>
+                                                  </th>
+                                                  <th class="secondary-text">
+                                                      <div class="table-header">
+                                                          <span class="column-title">Data Creaction </span>
+                                                      </div>
+                                                  </th>
+                                                  <th class="secondary-text">
+                                                      <div class="table-header">
+                                                          <span class="column-title">Client</span>
+                                                      </div>
+                                                  </th>
+                                                  <th class="secondary-text">
+                                                    <div class="table-header">
+                                                        <span class="column-title">Action</span>
+                                                    </div>
+                                                </th>
+                                              </tr>
+                                          </thead>
+                          <tbody>
+                          <tr *ngFor='let c of dossiers'>
+                                                  <td>{{c[1]}}</td>
+                                                  <td>{{c[2]}}</td>
+                                                  <td>{{c[3]}}</td>
+                                                  <td>
+                                                    <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c[4])"></a>
+                                                  </td>
+                                                  
+                                                  <td>
+                                                      <button  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" ></button>
+                                                      <button  class="icon-account-off" data-toggle="modal" data-target="#exampleModalLive"></button>
+                                                  </td>
+                          </tr>
+                          </tbody>
+                  </table>
+
+              <script type="text/javascript">
+                  $('#sample-data-table').DataTable({
+                      responsive: true
+                  });
+              </script>
+                  </div>
+              
+              </div>
+            </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>

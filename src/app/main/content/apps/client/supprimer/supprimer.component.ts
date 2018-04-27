@@ -27,8 +27,9 @@ export class SupprimerComponent implements OnInit {
       },err=>{
         console.log("Erreur !"+err);
       }
-
     );
+    window.location.reload();
+
 }
 
 

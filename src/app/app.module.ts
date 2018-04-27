@@ -15,6 +15,7 @@ import { ParametresModule } from './main/content/apps/parametres/parametres.modu
 import { HttpModule } from '@angular/http';
 import { ClientService } from '../service/client.service';
 import { DossiersComponent } from './main/content/apps/dossiers/dossiers.component';
+import { DossierService } from '../service/dossier.service';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -47,7 +48,8 @@ const appRouter: Routes  = [
     HttpModule
   ],
   providers: [
-    ClientService
+    ClientService,
+    DossierService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CollaborateurComponent } from './content/collaborateur/collaborateur.component';
 import { ClientComponent } from './content/apps/client/client.component';
 import { DossiersComponent } from './content/apps/dossiers/dossiers.component';
+import { AfficheClientComponent } from './content/apps/dossiers/affiche-client/affiche-client.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DossiersComponent } from './content/apps/dossiers/dossiers.component';
     ToolbarComponent,
     ContentComponent,
     MainComponent,
-    DossiersComponent
+    DossiersComponent,
+    AfficheClientComponent
     ],
     imports     : [
         BrowserModule,

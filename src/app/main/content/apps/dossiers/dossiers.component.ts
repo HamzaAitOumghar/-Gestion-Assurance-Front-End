@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Dossier } from '../../../../entities/Dossier';
+import { DossierService } from '../../../../../service/dossier.service';
+declare var $;
 
 @Component({
   selector: 'app-dossiers',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DossiersComponent implements OnInit {
 
-  constructor() { }
+ public dossiers:Dossier[];
+ public idClient:number;
+  constructor(private dossierService:DossierService,private router: Router) {
+    $(function() {
+      $('#sample-data-table').DataTable({
+        responsive: true
+      });
+    });
+   }
 
   ngOnInit() {
+      this.dossierService.getDossiers().subscribe(
+        data=>{
+          this.dossiers=data;
+          console.log(this.dossiers[0]);
+      },error=>{
+          console.log("Erreur !"+error);
+      }
+      );
   }
-
+  affectationClient(id){
+    this.idClient=id;
+  }
 }
