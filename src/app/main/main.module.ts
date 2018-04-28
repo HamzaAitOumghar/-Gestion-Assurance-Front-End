@@ -11,6 +11,7 @@ import { CollaborateurComponent } from './content/collaborateur/collaborateur.co
 import { ClientComponent } from './content/apps/client/client.component';
 import { DossiersComponent } from './content/apps/dossiers/dossiers.component';
 import { AfficheClientComponent } from './content/apps/dossiers/affiche-client/affiche-client.component';
+import { SupprimerDossierComponent } from './content/apps/dossiers/supprimer-dossier/supprimer-dossier.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AfficheClientComponent } from './content/apps/dossiers/affiche-client/a
     ContentComponent,
     MainComponent,
     DossiersComponent,
-    AfficheClientComponent
+    AfficheClientComponent,
+    SupprimerDossierComponent
     ],
     imports     : [
         BrowserModule,

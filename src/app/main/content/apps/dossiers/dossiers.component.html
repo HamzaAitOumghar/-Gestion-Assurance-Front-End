@@ -1,84 +1,120 @@
 
-<div class="content">
-  <div class="doc data-table-doc page-layout simple full-width">
+    <div class="content-wrapper">
 
+        
 
-<div class="page-header bg-secondary text-auto p-6"><h2 class="doc-title" id="content"> Gestion Des Dossiers : </h2>
-</div>
+      <div class="content">
+          <div id="file-manager" class="page-layout simple right-sidebar">
 
-<div class="page-content row p-6 container">
+  <div class="page-content-wrapper">
 
-      <div class="col-12">
+      <!-- HEADER -->
+      <div class="page-header bg-secondary text-auto p-6">
 
-          <div class="example">
-              <div class="description">
-                  <div class="description-text">
-                      <h3>List Dossiers  :  </h3>
+          <!-- HEADER CONTENT-->
+          <div class="header-content d-flex flex-column justify-content-between">
+
+              <!-- TOOLBAR -->
+              <div class="toolbar row no-gutters justify-content-between">
+
+                  <button type="button" class="btn btn-icon">
+                      <i class="icon icon-menu"></i>
+                  </button>
+
+                  <div class="right-side row no-gutters">
+
+                      <button type="button" class="btn btn-icon">
+                          <i class="icon icon-magnify"></i>
+                      </button>
+
+                      <button type="button" class="btn btn-icon">
+                          <i class="icon icon-view-module"></i>
+                      </button>
+
                   </div>
-              </div>
-              <div class="source-preview-wrapper">
-                  <div class="preview">
-                      <div class="preview-elements">
-                  <table id="sample-data-table" class="table">
-                      <thead>
-                                              <tr>
-                                                  <th class="secondary-text">
-                                                      <div class="table-header">
-                                                          <span class="column-title">Numero Dossier</span>
-                                                      </div>
-                                                  </th>
-                                                  <th class="secondary-text">
-                                                      <div class="table-header">
-                                                          <span class="column-title">Status</span>
-                                                      </div>
-                                                  </th>
-                                                  <th class="secondary-text">
-                                                      <div class="table-header">
-                                                          <span class="column-title">Data Creaction </span>
-                                                      </div>
-                                                  </th>
-                                                  <th class="secondary-text">
-                                                      <div class="table-header">
-                                                          <span class="column-title">Client</span>
-                                                      </div>
-                                                  </th>
-                                                  <th class="secondary-text">
-                                                    <div class="table-header">
-                                                        <span class="column-title">Action</span>
-                                                    </div>
-                                                </th>
-                                              </tr>
-                                          </thead>
-                          <tbody>
-                          <tr *ngFor='let c of dossiers'>
-                                                  <td>{{c[1]}}</td>
-                                                  <td>{{c[2]}}</td>
-                                                  <td>{{c[3]}}</td>
-                                                  <td>
-                                                    <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c[4])"></a>
-                                                  </td>
-                                                  
-                                                  <td>
-                                                      <button  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" ></button>
-                                                      <button  class="icon-account-off" data-toggle="modal" data-target="#exampleModalLive"></button>
-                                                  </td>
-                          </tr>
-                          </tbody>
-                  </table>
 
-              <script type="text/javascript">
-                  $('#sample-data-table').DataTable({
-                      responsive: true
-                  });
-              </script>
-                  </div>
-              
               </div>
-            </div>
+              <!-- / TOOLBAR -->
+
+              <!-- BREADCRUMB -->
+              <div class="breadcrumb text-truncate row no-gutters align-items-center pl-0 pl-sm-20">
+
+                  <span class="h4">Dossiers</span>
+
+                 
+
+              </div>
+              <!-- / BREADCRUMB -->
 
           </div>
+          <!-- / HEADER CONTENT -->
+
+          <!-- ADD FILE BUTTON -->
+          <button id="add-file-button" type="button" class="btn btn-danger btn-fab" aria-label="Add file">
+              <i class="icon icon-plus"></i>
+          </button>
+          <!-- / ADD FILE BUTTON -->
+
       </div>
+      <!-- / HEADER -->
+
+      <!-- CONTENT -->
+      <div class="page-content">
+          <!-- LIST VIEW -->
+<table class="table ">
+
+  <thead>
+
+      <tr>
+          <th></th>
+          <th>Numero Dossier</th>
+          <th class="d-none d-md-table-cell">Status</th>
+          <th class="d-none d-sm-table-cell">Data Creaction</th>
+          <th class="d-none d-sm-table-cell">Client</th>
+          <th class="d-none d-lg-table-cell">Action</th>
+          
+      </tr>
+
+  </thead>
+
+  <tbody>
+
+      
+
+          <tr *ngFor='let c of dossiers'>
+
+              <td class="file-icon">
+                  <i class="icon-folder"></i>
+              </td>
+              <td class="name">{{c[1]}}</td>
+              <td class="type d-none d-md-table-cell">{{c[2]}}</td>
+              <td class="owner d-none d-sm-table-cell">{{c[3]}}</td>
+              <td class="size d-none d-sm-table-cell">
+
+                <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c[4])"></a>
+
+              </td>
+              <td class="last-modified d-none d-lg-table-cell">
+
+                <a  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affectationClient(c[4])"></a>
+                <a  class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c[4])"></a>
+
+              </td>
+              
+
+          </tr>
+
+    
+      
+  </tbody>
+</table>
+<!-- / LIST VIEW -->
+      </div>
+      <!-- / CONTENT -->
+
   </div>
-</div>
-</div>
+
+ 
+
 <app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>
+<app-supprimer-dossier [idClient]="idClient" *ngIf="idClient"></app-supprimer-dossier>

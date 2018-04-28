@@ -24,6 +24,12 @@ public getDetailsClient(id){
         resp=>resp.json()
     ) ;
 }
+
+public supprimerClient(id){
+    return this.http.delete("http://localhost:8080/dossiers/"+id).map(
+        resp=>resp.json()
+    ) ;
+}
  
 }
 
