@@ -35,12 +35,50 @@
             </a>
           </li>
 
+      
+          
+           
+          <li class="nav-item" role="tab" id="heading-ecommerce">
+
+              <a class="nav-link ripple with-arrow collapsed"
+                 
+                data-toggle="collapse"
+                 data-target="#collapse-ecommerce"
+                 href="#"
+                 aria-expanded="false"
+                 aria-controls="collapse-ecommerce">
+                 <i class="icon s-4 icon-folder"></i>
+                 <span>Dossier</span>
+              </a>
+          
+              <ul id="collapse-ecommerce"
+                  class="collapse"
+                  role="tabpanel"
+                  aria-labelledby="heading-ecommerce"
+                  data-children=".nav-item">
+                  
+                      
+                  <li class="nav-item">
+                      <a class="nav-link ripple " href="#"
+                      [routerLink]="['dossiers']"
+                         data-page-url="/user-interface-elements-dropdowns.html">
+                          
+                          <span>Tous Les Dossiers</span>
+                      </a>
+                  </li>
           <li class="nav-item">
-            <a class="nav-link ripple "  [routerLink]="['dossiers']" data-page-url="/apps-contacts.html">
-              <i class="icon s-4 icon-folder"></i>
-              <span>Dossiers</span>
-            </a>
+              <a class="nav-link ripple " href="#"
+                 data-page-url="/user-interface-elements-dropdowns.html">
+                  
+                  <span>Ajouter Dossier</span>
+              </a>
           </li>
+          </ul>
+          </li>
+          
+
+
+
 
         </ul>
 

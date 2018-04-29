@@ -20,7 +20,7 @@ export class DossierService {
   }
 
 public getDetailsClient(id){
-    return this.http.get("http://localhost:8080/dossiers/detailsClient/"+id).map(
+    return this.http.get("http://localhost:8080/clients/"+id).map(
         resp=>resp.json()
     ) ;
 }

@@ -15,9 +15,32 @@ export class DossiersComponent implements OnInit {
  public idClient:number;
   constructor(private dossierService:DossierService,private router: Router) {
     $(function() {
-      $('#sample-data-table').DataTable({
-        responsive: true
-      });
+      $('#e-commerce-products-table').DataTable(
+        {
+          dom         : 'rtip',
+       
+          initComplete: function ()
+          {
+              var api = this.api(),
+                  searchBox = $('#products-search-input');
+
+              // Bind an external input as a table wide search box
+              if ( searchBox.length > 0 )
+              {
+                  searchBox.on('keyup', function (event)
+                  {
+                      api.search(event.target.value).draw();
+                  });
+              }
+          },
+          lengthMenu  : [10, 20, 30, 50, 100],
+          pageLength  : 10,
+          scrollY     : 'auto',
+          scrollX     : false,
+          responsive  : true,
+          autoWidth   : false
+      }
+      );
     });
    }
 

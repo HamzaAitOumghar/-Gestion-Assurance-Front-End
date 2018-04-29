@@ -1,120 +1,126 @@
-
-    <div class="content-wrapper">
+<div class="content-wrapper">
 
         
 
-      <div class="content">
-          <div id="file-manager" class="page-layout simple right-sidebar">
+    <div class="content">
+        <div id="e-commerce-products" class="page-layout carded full-width">
 
-  <div class="page-content-wrapper">
+    <div class="top-bg bg-secondary"></div>
+    <div class="page-content">
 
-      <!-- HEADER -->
-      <div class="page-header bg-secondary text-auto p-6">
+        <!-- HEADER -->
+        <div class="header bg-secondary text-auto row no-gutters align-items-center justify-content-between">
 
-          <!-- HEADER CONTENT-->
-          <div class="header-content d-flex flex-column justify-content-between">
+            <!-- APP TITLE -->
+            <div class="col-12 col-sm">
 
-              <!-- TOOLBAR -->
-              <div class="toolbar row no-gutters justify-content-between">
+                <div class="logo row no-gutters align-items-start">
+                    <div class="logo-icon mr-3 mt-1">
+                        <i class="icon-cube-outline s-6"></i>
+                    </div>
+                    <div class="logo-text">
+                        <div class="h4">Dossier</div>
+                        <div class="">Total Dossiers: 20</div>
+                    </div>
+                </div>
 
-                  <button type="button" class="btn btn-icon">
-                      <i class="icon icon-menu"></i>
-                  </button>
+            </div>
+        <!-- / APP TITLE -->
 
-                  <div class="right-side row no-gutters">
+        <!-- SEARCH -->
+        <div class="col search-wrapper px-2">
 
-                      <button type="button" class="btn btn-icon">
-                          <i class="icon icon-magnify"></i>
-                      </button>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-icon">
+                        <i class="icon icon-magnify"></i>
+                    </button>
+                </span>
+                <input id="products-search-input" type="text" class="form-control" placeholder="Search"
+                       aria-label="Search"/>
+            </div>
 
-                      <button type="button" class="btn btn-icon">
-                          <i class="icon icon-view-module"></i>
-                      </button>
+        </div>
+        <!-- / SEARCH -->
 
-                  </div>
+        <div class="col-auto">
+            <a href="apps-e-commerce-product.html" class="btn btn-secondary">Ajouter Un Dossier</a>
+        </div>
 
-              </div>
-              <!-- / TOOLBAR -->
+        </div>
+    <!-- / HEADER -->
 
-              <!-- BREADCRUMB -->
-              <div class="breadcrumb text-truncate row no-gutters align-items-center pl-0 pl-sm-20">
+        <div class="page-content-card">
 
-                  <span class="h4">Dossiers</span>
+            <table id="e-commerce-products-table" class="table dataTable">
 
-                 
+                <thead>
 
-              </div>
-              <!-- / BREADCRUMB -->
+                    <tr>
 
-          </div>
-          <!-- / HEADER CONTENT -->
+                        <th>
+                            <div class="table-header">
+                                <span class="column-title">ID</span>
+                            </div>
+                        </th>
 
-          <!-- ADD FILE BUTTON -->
-          <button id="add-file-button" type="button" class="btn btn-danger btn-fab" aria-label="Add file">
-              <i class="icon icon-plus"></i>
-          </button>
-          <!-- / ADD FILE BUTTON -->
+                        <th>
+                            <div class="table-header">
+                                <span class="column-title">Status</span>
+                            </div>
+                        </th>
 
-      </div>
-      <!-- / HEADER -->
+                        <th>
+                            <div class="table-header">
+                                <span class="column-title">Date Creation</span>
+                            </div>
+                        </th>
 
-      <!-- CONTENT -->
-      <div class="page-content">
-          <!-- LIST VIEW -->
-<table class="table ">
+                        <th>
+                            <div class="table-header">
+                                <span class="column-title">Client</span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="table-header">
+                                <span class="column-title">Actions</span>
+                            </div>
+                        </th>
 
-  <thead>
+                    </tr>
+                </thead>
 
-      <tr>
-          <th></th>
-          <th>Numero Dossier</th>
-          <th class="d-none d-md-table-cell">Status</th>
-          <th class="d-none d-sm-table-cell">Data Creaction</th>
-          <th class="d-none d-sm-table-cell">Client</th>
-          <th class="d-none d-lg-table-cell">Action</th>
-          
-      </tr>
+                <tbody>
 
-  </thead>
+                    <tr *ngFor='let c of dossiers'>
+                        <td class="name">{{c.numero}}</td>
+                        <td class="type d-none d-md-table-cell">{{c.status}}</td>
+                        <td class="owner d-none d-sm-table-cell">{{c.dateCreation}}</td>
+                        <td class="size d-none d-sm-table-cell">
+        
+                        <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c.client.idClient)"></a>
+        
+                        </td>
+                        <td class="last-modified d-none d-lg-table-cell">
+        
+                        <a  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affectationClient(c.client.idClient)"></a>
+                        <a  class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)"></a>
+        
+                        </td>
+                        
+        
+                    </tr>
 
-  <tbody>
+                </tbody>
+            </table>
 
-      
+        </div>
 
-          <tr *ngFor='let c of dossiers'>
+        </div>
+        <!-- / CONTENT -->
+        </div>
+    </div> 
 
-              <td class="file-icon">
-                  <i class="icon-folder"></i>
-              </td>
-              <td class="name">{{c[1]}}</td>
-              <td class="type d-none d-md-table-cell">{{c[2]}}</td>
-              <td class="owner d-none d-sm-table-cell">{{c[3]}}</td>
-              <td class="size d-none d-sm-table-cell">
-
-                <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c[4])"></a>
-
-              </td>
-              <td class="last-modified d-none d-lg-table-cell">
-
-                <a  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affectationClient(c[4])"></a>
-                <a  class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c[4])"></a>
-
-              </td>
-              
-
-          </tr>
-
-    
-      
-  </tbody>
-</table>
-<!-- / LIST VIEW -->
-      </div>
-      <!-- / CONTENT -->
-
-  </div>
-
- 
-
+</div>
 <app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>
 <app-supprimer-dossier [idClient]="idClient" *ngIf="idClient"></app-supprimer-dossier>

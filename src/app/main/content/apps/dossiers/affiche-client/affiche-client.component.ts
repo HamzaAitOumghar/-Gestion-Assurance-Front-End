@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DossierService } from '../../../../../../service/dossier.service';
+import { Client } from '../../../../../entities/Client';
+import { ClientService } from '../../../../../../service/client.service';
 
 @Component({
   selector: 'app-affiche-client',
@@ -8,12 +10,12 @@ import { DossierService } from '../../../../../../service/dossier.service';
 })
 export class AfficheClientComponent implements OnInit {
 
-  detailsClient;
+  detailsClient:Client;
   @Input() idClient;
-  constructor(private dossierService:DossierService) { }
+  constructor(private dossierService:DossierService,private clientService:ClientService) { }
 
   ngOnChanges(){
-    this.dossierService.getDetailsClient(this.idClient).subscribe(
+    this.clientService.getClientById(this.idClient).subscribe(
       data=>{
         this.detailsClient=data
       }

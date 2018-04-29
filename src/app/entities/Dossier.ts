@@ -1,19 +1,22 @@
+import { Client } from "./Client";
+
 export class Dossier{
 
   private  _idDossier:number ;
   private  _numero:number;
   private  _status:string;
   private 	_dateCreation:Date ;
+  private   _client:Client;
 
 
 
-	constructor(idDossier: number , numero: number, status: string, dateCreation: Date ) {
+	constructor(idDossier: number , numero: number, status: string, dateCreation: Date , client: Client) {
 		this._idDossier = idDossier;
 		this._numero = numero;
 		this._status = status;
 		this._dateCreation = dateCreation;
+		this._client = client;
 	}
-
 
     /**
      * Getter idDossier
@@ -48,6 +51,14 @@ export class Dossier{
 	}
 
     /**
+     * Getter client
+     * @return {Client}
+     */
+	public get client(): Client {
+		return this._client;
+	}
+
+    /**
      * Setter idDossier
      * @param {number } value
      */
@@ -78,6 +89,15 @@ export class Dossier{
 	public set dateCreation(value: Date ) {
 		this._dateCreation = value;
 	}
+
+    /**
+     * Setter client
+     * @param {Client} value
+     */
+	public set client(value: Client) {
+		this._client = value;
+	}
+  
 	
 
 }
