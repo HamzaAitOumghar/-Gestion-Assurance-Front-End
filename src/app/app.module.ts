@@ -16,6 +16,8 @@ import { HttpModule } from '@angular/http';
 import { ClientService } from '../service/client.service';
 import { DossiersComponent } from './main/content/apps/dossiers/dossiers.component';
 import { DossierService } from '../service/dossier.service';
+import { AjouterDossierComponent } from './main/content/apps/dossiers/ajouter-dossier/ajouter-dossier.component';
+import { AjouterComponent } from './main/content/apps/client/ajouter/ajouter.component';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -28,6 +30,8 @@ const appRouter: Routes  = [
     { path: 'collaborateur', component: CollaborateurComponent },
     { path: 'client', component: ClientComponent },
     { path: 'dossiers', component: DossiersComponent },
+    { path: 'dossiers/ajouter', component: AjouterDossierComponent },
+    { path: 'client/ajouter', component: AjouterComponent },
     { path: '**', component: CollaborateurComponent }
 ];
 

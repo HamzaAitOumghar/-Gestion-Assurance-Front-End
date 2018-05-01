@@ -49,7 +49,6 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
         this.client.numTel=this.form.value.numTel;
         this.client.profession=this.form.value.profession;
         this.client.email=this.form.value.email;
-        console.log(this.client);
         this.serviceClient.modifierClient(this.client.idClient,this.client).subscribe(
 
     );

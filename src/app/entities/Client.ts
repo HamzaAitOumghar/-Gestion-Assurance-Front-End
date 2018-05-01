@@ -12,7 +12,7 @@ export class Client{
   private  _email:String;
   private _dossiers:Dossier[] ;
   
-    constructor(idClient:number,nom:String,prenom:String,adresse:String,ville:String,numTel:String,profession:String,email:String){
+    constructor(idClient:number=null,nom:String="",prenom:String="",adresse:String="",ville:String="",numTel:String="",profession:String="",email:String=""){
             this._idClient=idClient;
             this._nom=nom;
             this._prenom=prenom;
@@ -22,8 +22,7 @@ export class Client{
             this._profession=profession;
             this._email=email;
     }
-  
-
+    
 
     /**
      * Getter idClient

@@ -6,6 +6,7 @@ import { AjouterComponent } from './ajouter/ajouter.component';
 import { SupprimerComponent } from './supprimer/supprimer.component';
 import { ModifierComponent } from './modifier/modifier.component';
 import { ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,7 @@ import { ReactiveFormsModule }   from '@angular/forms';
     ],
     imports     : [
         BrowserModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,FormsModule
     ]
 })
 

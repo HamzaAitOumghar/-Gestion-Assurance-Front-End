@@ -31,7 +31,8 @@
 
       ],
       "scripts": [
-  	 "./assets/vendor/jquery/dist/jquery.min.js",      
+        "./assets/vendor/jquery/dist/jquery.min.js",  
+        "./assets/vendor/jquery/jquery-ui.min.js",          
          "./assets/vendor/mobile-detect/mobile-detect.min.js",
          "./assets/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js",
          "./assets/vendor/popper.js/index.js",
