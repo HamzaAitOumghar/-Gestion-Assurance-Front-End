@@ -13,14 +13,15 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
-    ClientComponent,
-    AjouterComponent,
-    SupprimerComponent,
-    ModifierComponent
+        ClientComponent,
+        AjouterComponent,
+        SupprimerComponent,
+        ModifierComponent
     ],
     imports     : [
         BrowserModule,
-        ReactiveFormsModule,FormsModule
+        ReactiveFormsModule,
+        FormsModule
     ]
 })
 

@@ -22,10 +22,8 @@ import { AjouterDossierComponent } from './content/apps/dossiers/ajouter-dossier
     ToolbarComponent,
     ContentComponent,
     MainComponent,
-    DossiersComponent,
-    AfficheClientComponent,
-    SupprimerDossierComponent,
-    AjouterDossierComponent
+
+   
     ],
     imports     : [
         BrowserModule,

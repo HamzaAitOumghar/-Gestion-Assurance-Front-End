@@ -18,6 +18,8 @@ import { DossiersComponent } from './main/content/apps/dossiers/dossiers.compone
 import { DossierService } from '../service/dossier.service';
 import { AjouterDossierComponent } from './main/content/apps/dossiers/ajouter-dossier/ajouter-dossier.component';
 import { AjouterComponent } from './main/content/apps/client/ajouter/ajouter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DossierModule } from './main/content/apps/dossiers/dossier.module';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -46,10 +48,13 @@ const appRouter: Routes  = [
     MainModule,
     CollaborateurModule,
     ClientModule,
+    DossierModule,
     AccueilModule,
     ParametresModule,
     RouterModule.forRoot(appRouter),
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ClientService,

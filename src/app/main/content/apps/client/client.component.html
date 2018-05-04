@@ -24,8 +24,8 @@
             <!-- / APP TITLE -->
 
 
-            <div class="col-auto">
-                <a href="client/ajouter" class="btn btn-secondary">Ajouter Un Client</a>
+            <div class="col-auto align-self-center">
+                <a href="client/ajouter" class="btn bg-secondary-50 ">Ajouter Un Client</a>
             </div>
 
         </div>
@@ -58,6 +58,16 @@
                                                             <span class="column-title">Prenom</span>
                                                         </div>
                                                     </th>
+                                                    <th class="secondary-text">
+                                                            <div class="table-header">
+                                                                <span class="column-title">CIN</span>
+                                                            </div>
+                                                        </th>
+                                                        <th class="secondary-text">
+                                                                <div class="table-header">
+                                                                    <span class="column-title">Date De Naissance</span>
+                                                                </div>
+                                                            </th>
                                                     <th class="secondary-text">
                                                         <div class="table-header">
                                                             <span class="column-title">Adresse</span>
@@ -94,6 +104,8 @@
                             <tr *ngFor='let c of clients'>
                                                     <td>{{c.nom}}</td>
                                                     <td>{{c.prenom}}</td>
+                                                    <td>{{c.cin}}</td>
+                                                    <td>{{c.dateNaissance}}</td>
                                                     <td>{{c.adresse}}</td>
                                                     <td>{{c.ville}}</td>
                                                     <td>{{c.numTel}}</td>

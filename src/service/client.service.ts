@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Client } from '../app/entities/Client';
 import { SupprimerComponent } from '../app/main/content/apps/client/supprimer/supprimer.component';
@@ -22,10 +22,11 @@ export class ClientService {
       resp=>resp.json()
     );
   }
-  public ajouterClient(client:Client){
+  public ajouterClient(client){
+    console.log("Client :"+JSON.stringify(client));
     return this.http.post("http://localhost:8080/ajouterClient",client).map(
-      resp=>resp.json()
-    );
+      resp=>resp.json());
+   
   }
   public modifierClient(id:number,client:Client){
     return this.http.put("http://localhost:8080//clients/"+id,client).map(

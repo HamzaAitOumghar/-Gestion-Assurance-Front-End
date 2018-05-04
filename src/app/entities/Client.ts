@@ -10,6 +10,41 @@ export class Client{
   private  _numTel:String;
   private  _profession:String;
   private  _email:String;
+  private  _cin:String;
+  private  _dateNaissance:String;
+
+    /**
+     * Getter cin
+     * @return {String}
+     */
+	public get cin(): String {
+		return this._cin;
+	}
+
+    /**
+     * Setter cin
+     * @param {String} value
+     */
+	public set cin(value: String) {
+		this._cin = value;
+	}
+
+    /**
+     * Getter dateNaissance
+     * @return {String}
+     */
+	public get dateNaissance(): String {
+		return this._dateNaissance;
+	}
+
+    /**
+     * Setter dateNaissance
+     * @param {String} value
+     */
+	public set dateNaissance(value: String) {
+		this._dateNaissance = value;
+	}
+  
   private _dossiers:Dossier[] ;
   
     constructor(idClient:number=null,nom:String="",prenom:String="",adresse:String="",ville:String="",numTel:String="",profession:String="",email:String=""){
