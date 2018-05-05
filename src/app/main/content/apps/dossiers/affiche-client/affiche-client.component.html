@@ -15,21 +15,21 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nom</th>
-                        <th>Prenom</th>
+                        <th>Nom Complet </th>
+                        <th>Date Naissance</th>
                         <th>Num Tel</th>
                         <th>Profession</th>
-                        <th>Email</th>
+                        <th>Cin</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="detailsClient">
                     <tr>
                         <th scope="row">1</th>
-                        <td>{{detailsClient.nom}}</td>
-                        <td>{{detailsClient.prenom}}</td>
+                        <td>{{detailsClient.nom}} {{detailsClient.prenom}}</td>
+                        <td>{{detailsClient.dateNaissance}}</td>
                         <td>{{detailsClient.numTel}}</td>
                         <td>{{detailsClient.profession}}</td>
-                        <td>{{detailsClient.email}}</td>
+                        <td>{{detailsClient.cin}}</td>
                     </tr>
                 </tbody>
             </table>

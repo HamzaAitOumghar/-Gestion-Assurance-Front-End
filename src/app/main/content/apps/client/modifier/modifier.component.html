@@ -1,56 +1,102 @@
-<div id="modifierClient" class="modal fade" tabindex="-1" role="dialog"
-aria-labelledby="editClientLiveLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-   <div class="modal-content">
-       <div class="modal-header">
-           <h5 class="modal-title" id="editClientLiveLabel">Modifier Un Client</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-           </button>
-       </div>
-       <div class="modal-body">
-           <form  *ngIf="client" [formGroup]="form">
-             <div class="form-row">
-                 <div class="form-group col-md-6">
-                     <input type="text" class="form-control" id="inputNom"  [value]="client?.nom" name="nom"  formControlName="nom" required>
-                     <label for="inputNom" class="col-form-label">Nom</label>
-                 </div>
-                 <div class="form-group col-md-6">
-                     <input type="text" class="form-control" id="inputPrenom" placeholder="Prenom" value="{{client?.prenom}}" name="prenom" value="{{client?.prenom}}"  formControlName="prenom"   required>
-                     <label for="inputPrenom" class="col-form-label" >Prenom</label>
-                 </div>
-             </div>
-             <div class="form-group">
-                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="adresse" value="{{client?.adresse}}" formControlName="adresse"  required>
-                 <label for="inputAddress" class="col-form-label">Address</label>
-             </div>
-             <div class="form-group">
-                 <input type="text" class="form-control" id="inputVille"
-                        placeholder="Ex : Agadir" value="{{client?.ville}}" formControlName="ville"  required>
-                 <label for="inputVille" class="col-form-label">Ville</label>
-             </div>
-           <div class="form-group">
-             <input type="email" class="form-control" id="inputEmail" placeholder="exemple@exemple.com"  name="email" value="{{client?.email}}" formControlName="email" >                              
-             <label for="inputEmail" class="col-form-label">Email</label>   
-           </div>
-           <div class="form-row">
-             <div class="form-group col-md-6">
-                 <input type="text" class="form-control" id="inputNom" placeholder="Profession" name="profession" value="{{client?.profession}}" formControlName="profession" >
-                 <label for="inputProf" class="col-form-label">Profession</label>
-             </div>
-             <div class="form-group col-md-6">
-                 <input type="text" class="form-control" id="inputPrenom" placeholder="0606060606" name="numTel" value="{{client?.numTel}}" formControlName="numTel" >
-                 <label for="inputTele" class="col-form-label">Num Tele </label>
-             </div>
-             <div class="form-group col-md-6">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-               <button type="button" class="btn btn-primary" (click)="modifierClient()">Modifier</button>
-           </div>
-         </div> 
-         </form>
-              
-     </div>
-       
-   </div>
-</div>
+<div id="modifierClient" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editClientLiveLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto" id="editClientLiveLabel">Modification : </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form *ngIf="client" [formGroup]="form">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputNom" class="col-form-label">Nom</label>
+                            <input type="text" class="form-control" id="inputNom" [value]="client?.nom" name="nom" formControlName="nom" required>
+                            <div *ngIf="this.form.get('nom').hasError('required')" class="valid-feedback text-primary-900">
+                                    ce champ est obligatoire
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                                <label for="inputPrenom" class="col-form-label">Prenom</label>
+
+                            <input type="text" class="form-control" id="inputPrenom" placeholder="Prenom" value="{{client?.prenom}}" name="prenom" value="{{client?.prenom}}"
+                                formControlName="prenom">
+                                <div *ngIf="this.form.get('prenom').hasError('required')" class="valid-feedback text-primary-900">
+                                        ce champ est obligatoire
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-6">
+                                <label for="inputAddress" class="col-form-label">Address</label>
+
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="adresse" value="{{client?.adresse}}"
+                                formControlName="adresse" required>
+                        </div>
+
+                        <div class="form-group col-3">
+                                <label for="inputVille" class="col-form-label">Ville</label>
+
+                            <input type="text" class="form-control" id="inputVille" placeholder="Ex : Agadir" value="{{client?.ville}}" formControlName="ville"
+                                required>
+                        </div>
+                        <div class="form-group col-3">
+                                <label for="inputEmail" class="col-form-label">Email</label>
+    
+                            <input type="email" class="form-control" id="inputEmail" placeholder="exemple@exemple.com" name="email" value="{{client?.email}}"
+                                formControlName="email">
+                        </div>
+
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                <label for="inputProf" class="col-form-label">Profession</label>
+
+                            <input type="text" class="form-control" id="inputNom" placeholder="Profession" name="profession" value="{{client?.profession}}"
+                                formControlName="profession">
+                        </div>
+                        <div class="form-group col-md-6">
+                                <label for="inputTele" class="col-form-label">Num Tele </label>
+
+                            <input type="text" class="form-control" id="inputPrenom" placeholder="0606060606" name="numTel" value="{{client?.numTel}}"
+                                formControlName="numTel">
+                                <div *ngIf="this.form.get('numTel').hasError('required')" class="valid-feedback text-primary-900">
+                                        ce champ est obligatoire
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                    <label for="inputProf" class="col-form-label">CIN</label>
+                                    <input type="text" class="form-control" id="inputCin"  name="cin" value="{{client?.cin}}"
+                                        formControlName="cin">
+                                        <div *ngIf="this.form.get('cin').hasError('required')" class="valid-feedback text-primary-900">
+                                                ce champ est obligatoire
+                                        </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                        <label for="inputTele" class="col-form-label">Date de Naissance</label>
+                                    <input type="date" class="form-control" id="inputDateNaissance"  name="dateNaissance" value="{{client?.dateNaissance}}"
+                                        formControlName="dateNaissance">
+                                        <div *ngIf="this.form.get('dateNaissance').hasError('required')" class="valid-feedback text-primary-900">
+                                                ce champ est obligatoire
+                                        </div>
+                                </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-outline-secondary" (click)="modifierClient()" [disabled]="!form.valid">Modifier</button>
+                    </div>
+
+                </form>
+                <div class="{{messageStyle}}" role="alert">
+                    {{messageErrorText}}
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

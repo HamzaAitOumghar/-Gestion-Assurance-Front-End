@@ -10,11 +10,18 @@
             </div>
             <div class="modal-body">
                 <p>voulez vous supprimer ce client de façon permanente ?</p>
+                <div ngClass="{{messageStyle}}" role="alert">
+                        {{messageErrorText }}
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                <button type="button" class="btn btn-primary" (click)="supprimerClient(idClient)" data-dismiss="modal">Supprimer</button>
+                <div class="mx-auto">   
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-outline-secondary" (click)="supprimerClient(idClient)">Supprimer</button>
+                </div>
+                
             </div>
+            
         </div>
     </div>
 </div>

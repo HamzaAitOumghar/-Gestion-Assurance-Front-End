@@ -1,8 +1,8 @@
 import { NgModule,Component, OnInit, Input, AfterViewInit,AfterContentInit } from '@angular/core';
 import { Client } from '../../../../../entities/Client';
 import { ClientService } from '../../../../../../service/client.service';
-import {FormGroup,FormControl} from '@angular/forms';
-
+import {FormGroup,FormControl, Validators} from '@angular/forms';
+declare var $;
 @Component({
   selector: 'app-modifier',
   templateUrl: './modifier.component.html',
@@ -11,6 +11,8 @@ import {FormGroup,FormControl} from '@angular/forms';
 export class ModifierComponent implements OnInit ,AfterViewInit{
 
    form:FormGroup;
+   messageStyle:string="d-none";
+   messageErrorText:string;
 
   @Input() client:Client;
   constructor(private serviceClient:ClientService) { 
@@ -27,13 +29,15 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
   }
   ngOnChanges(){
     this.form=new FormGroup({
-      nom:new FormControl(this.client.nom),
-      prenom:new FormControl(this.client.prenom),
+      nom:new FormControl(this.client.nom,Validators.required),
+      prenom:new FormControl(this.client.prenom,Validators.required),
       adresse:new FormControl(this.client.adresse),
       ville:new FormControl(this.client.ville),
-      numTel:new FormControl(this.client.numTel),
+      numTel:new FormControl(this.client.numTel,Validators.required),
       profession:new FormControl(this.client.profession),
       email:new FormControl(this.client.email),
+      cin:new FormControl(this.client.cin,Validators.required),
+      dateNaissance:new FormControl(this.client.dateNaissance,Validators.required)
   });
   }
  
@@ -49,9 +53,31 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
         this.client.numTel=this.form.value.numTel;
         this.client.profession=this.form.value.profession;
         this.client.email=this.form.value.email;
-        this.serviceClient.modifierClient(this.client.idClient,this.client).subscribe(
+        this.client.cin=this.form.value.cin;
+        this.client.dateNaissance=this.form.value.dateNaissance;
 
-    );
+        this.serviceClient.modifierClient(this.client.idClient,this.client).subscribe(
+            res=>{
+              this.messageStyle="alert alert-success text-center";
+              this.messageErrorText="Client a été bien modifier";
+                $(function() {
+                  $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+                    $(".alert").slideUp(500);
+                    });
+                      
+                }); 
+            },
+            err=>{
+              this.messageStyle="alert alert-danger text-center";
+              this.messageErrorText="Erreur Dans l'ajout du client";
+                $(function() {
+                  $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+                    $(".alert").slideUp(500);
+                    });  
+                }); 
+            }
+        
+        );
 
    }
 }

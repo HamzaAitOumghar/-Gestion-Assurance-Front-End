@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ClientService } from '../../../../../../service/client.service';
 import { Client } from '../../../../../entities/Client';
 declare var $;
@@ -11,18 +11,28 @@ declare var $;
 export class AjouterComponent implements OnInit {
   form:FormGroup;
   messageStyle:string="d-none";
+  messageErrorText:string;
   constructor(private clientService:ClientService) { 
     this.form=new FormGroup({
-      nom:new FormControl(),
-      prenom:new FormControl(),
+      nom:new FormControl('',Validators.required),
+      prenom:new FormControl('',Validators.required),
       adresse:new FormControl(),
       ville:new FormControl(),
-      numTel:new FormControl(),
+      numTel:new FormControl('',Validators.compose([ Validators.required,Validators.pattern('\\d{10}')])),
       profession:new FormControl(),
-      email:new FormControl(),
-
+      email:new FormControl('',this.customEmailValidator),
+      dateNaissance:new FormControl('',Validators.required),
+      cin:new FormControl('',Validators.required)
       });
-  } 
+  }
+  
+  private customEmailValidator(control: AbstractControl): ValidationErrors {
+    if (!control.value) {
+      return null;
+    }
+  
+    return Validators.email(control);
+  }
 
   ngOnInit() {
     
@@ -38,20 +48,32 @@ export class AjouterComponent implements OnInit {
     numTel:this.form.value.numTel,
     email:this.form.value.email,
     profession:this.form.value.profession,
+    cin:this.form.value.cin,
+    dateNaissance:this.form.value.dateNaissance
     }
  
     this.clientService.ajouterClient(client).subscribe(
-        (resp:Request)=>{
-          console.log("->"+JSON.stringify(resp));
+        resp=>{
+          this.messageStyle="alert alert-success text-center";
+          this.messageErrorText="Client Bient Ajouter";
+            $(function() {
+              $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+                $(".alert").slideUp(500);
+                });  
+            }); 
+          this.form.reset();
+        },
+        err=>{
+          this.messageStyle="alert alert-danger text-center";
+          this.messageErrorText="Erreur Dans l'ajout du client";
+            $(function() {
+              $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+                $(".alert").slideUp(500);
+                });  
+            }); 
         }
     );
-    this.form.reset();
-    this.messageStyle="alert alert-success text-center";
-    $(function() {
-      $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-        $(".alert").slideUp(500);
-         });  
-    }); 
+   
    
 
   }
