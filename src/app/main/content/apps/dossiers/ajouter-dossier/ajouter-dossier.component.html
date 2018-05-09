@@ -17,12 +17,17 @@
                 <div>Dossier Detail</div>
             </div>
 
-            <button type="submit" class="btn bg-secondary-50" form="formAuto" [disabled]="!formDossier.valid" (click)="enregistrer()">
+            <button type="submit" class="btn bg-secondary-50" form="formAuto"  (click)="enregistrer()">
                 Enregistrer
             </button>
 
         </div>
         <!-- / HEADER -->
+
+        <!--
+[disabled]="!formDossier.valid"
+
+        -->
 
         <!--Content-->
         <div class="page-content">
@@ -99,12 +104,18 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="product-images-tab-pane" role="tabpanel" aria-labelledby="product-images-tab">
-
+  
+                    <div ngClass="{{messageStyle}}" role="alert">
+                        {{messageErrorText }}
+                    </div>
+    
                     <div class="card p-6">
 
                         <form [formGroup]="formAuto" id="formAuto" >
                             <div class="row">
+                                    <div class="col-4">
                                * Tous Les Champs Sont Obligatoire !
+                                    </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
@@ -200,15 +211,19 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="contrat-sante" role="tabpanel" aria-labelledby="contratSante">
-
+  
+                    <div ngClass="{{messageStyle}}" role="alert">
+                        {{messageErrorText }}
+                    </div>
+    
                     <div class="card p-6">
                         <form *ngIf="formSante" [formGroup]="formSante">
 
                             <div class="form-group">
                                 <label class="form-control-label" for="date">Date : </label>
 
-                                <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateSante" />
-                                <div *ngIf="this.formSante.get('dateSante').hasError('required')" class="valid-feedback text-primary-900">
+                                <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateContrat" />
+                                <div *ngIf="this.formSante.get('dateContrat').hasError('required')" class="valid-feedback text-primary-900">
                                     ce champ est obligatoire
                                 </div>
                             </div>

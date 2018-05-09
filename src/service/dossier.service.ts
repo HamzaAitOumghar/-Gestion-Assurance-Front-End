@@ -12,8 +12,8 @@ export class DossierService {
     private http: Http
   ) { }
 
-  public addDossiers(dossier){
-    return this.http.post("http://localhost:8080/dossiers/ajouter",dossier).map(
+  public addDossiers(dossier,idDossier){
+    return this.http.post("http://localhost:8080/dossiers/ajouter/"+idDossier,dossier).map(
         resp=>resp.json()
     ) ;
 }

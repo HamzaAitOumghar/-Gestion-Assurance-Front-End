@@ -11,8 +11,8 @@ export class SanteService{
         private http: Http
       ) { }
     
-      public ajouterContratSante(sante){
-        return this.http.post("http://localhost:8080/Sante/ajouter",sante).map(
+      public ajouterContratSante(sante,idDossier){
+        return this.http.post("http://localhost:8080/Sante/ajouter/"+idDossier,sante).map(
             resp=>resp.json());
       }
 

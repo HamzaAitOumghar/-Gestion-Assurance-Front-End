@@ -12,8 +12,8 @@ export class VehiculeService{
       ) { }
     
 
-      public ajouterVehicule(vehicule){
-        return this.http.post("http://localhost:8080/Vehicule/ajouter",vehicule).map(
+      public ajouterVehicule(vehicule,idAuto){
+        return this.http.post("http://localhost:8080/Vehicule/ajouter/"+idAuto,vehicule).map(
             resp=>resp.json());
       }
 

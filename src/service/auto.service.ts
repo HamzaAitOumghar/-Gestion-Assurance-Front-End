@@ -11,8 +11,8 @@ export class AutoService{
         private http: Http
       ) { }
 
-      public ajouterContratAuto(auto){
-        return this.http.post("http://localhost:8080/auto/ajouter",auto).map(
+      public ajouterContratAuto(auto,idDossier){
+        return this.http.post("http://localhost:8080/auto/ajouter/"+idDossier,auto).map(
             resp=>resp.json());
       }
 
