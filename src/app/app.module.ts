@@ -20,6 +20,9 @@ import { AjouterDossierComponent } from './main/content/apps/dossiers/ajouter-do
 import { AjouterComponent } from './main/content/apps/client/ajouter/ajouter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DossierModule } from './main/content/apps/dossiers/dossier.module';
+import { AutoService } from '../service/auto.service';
+import { SanteService } from '../service/sante.service';
+import { VehiculeService } from '../service/vehicule.service';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -58,7 +61,10 @@ const appRouter: Routes  = [
   ],
   providers: [
     ClientService,
-    DossierService
+    DossierService,
+    AutoService,
+    SanteService,
+    VehiculeService
   ],
   bootstrap: [AppComponent]
 })

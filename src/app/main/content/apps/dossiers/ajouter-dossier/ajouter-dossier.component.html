@@ -17,7 +17,7 @@
                 <div>Dossier Detail</div>
             </div>
 
-            <button type="submit" class="btn bg-secondary-50" form="formAuto" [disabled]="!formDossier.valid" >
+            <button type="submit" class="btn bg-secondary-50" form="formAuto" [disabled]="!formDossier.valid" (click)="enregistrer()">
                 Enregistrer
             </button>
 
@@ -25,7 +25,7 @@
         <!-- / HEADER -->
 
         <!--Content-->
-        <div class="page-content">  
+        <div class="page-content">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
 
@@ -47,44 +47,51 @@
             <div class="tab-content">
 
                 <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
+                    
+                    <div ngClass="{{messageStyle}}" role="alert">
+                        {{messageErrorText }}
+                    </div>
+    
+    
 
                     <div class="card p-6">
 
-                        <form *ngIf="formDossier" [formGroup]="formDossier" (submit)="enregistrer()">
+                        <form *ngIf="formDossier" [formGroup]="formDossier">
 
                             <div class="form-group">
-                                <input type="text" class="form-control" aria-describedby="Dossier numero" formControlName="numDossier" />
+                                <input type="text" class="form-control" aria-describedby="Dossier numero" formControlName="numero" />
                                 <label class="form-control-label" for="numDossier">Numero de Dossier : </label>
-                                <div *ngIf="this.formDossier.get('numDossier').hasError('pattern')" class="valid-feedback text-danger-900">
+                                <div *ngIf="this.formDossier.get('numero').hasError('pattern')" class="valid-feedback text-danger-900">
                                     veuillez saisir un nombre valide !
                                 </div>
-                                <div *ngIf="this.formDossier.get('numDossier').hasError('required')" class="valid-feedback text-primary-900">
-                                    ce champ est obligatoire                                
+                                <div *ngIf="this.formDossier.get('numero').hasError('required')" class="valid-feedback text-primary-900">
+                                    ce champ est obligatoire
                                 </div>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Date Creation</label>
-                                <input type="date" class="form-control" aria-describedby="date Dossier" formControlName="dateDossier" />
-                                <div *ngIf="this.formDossier.get('dateDossier').hasError('required')" class="valid-feedback text-primary-A400">
-                                    ce champ est obligatoire                                
+                                <input type="date" class="form-control" aria-describedby="date Dossier" formControlName="dateCreation" />
+                                <div *ngIf="this.formDossier.get('dateCreation').hasError('required')" class="valid-feedback text-primary-A400">
+                                    ce champ est obligatoire
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" aria-describedby="status Dossier" formControlName="statusDossier" />
+                                <input type="text" class="form-control" aria-describedby="status Dossier" formControlName="status" />
                                 <label class="form-control-label">Status</label>
-                                <div *ngIf="this.formDossier.get('statusDossier').hasError('required')" class="valid-feedback text-primary-A400">
-                                    ce champ est obligatoire                                
+                                <div *ngIf="this.formDossier.get('status').hasError('required')" class="valid-feedback text-primary-A400">
+                                    ce champ est obligatoire
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" id="clientsId" aria-describedby="CLIENT DOSSIER" formControlName="idClient" />
-                                <label class="form-control-label" for="clientsId">Client ID</label>
-                                <div *ngIf="this.formDossier.get('idClient').hasError('required')" class="valid-feedback text-primary-A400">
-                                    ce champ est obligatoire                                
+                                <!-- <input type="text" class="form-control" id="clientsId" aria-describedby="CLIENT DOSSIER" formControlName="idClient" /> -->
+                                <label class="form-control-label" for="clientsId">Client (Taper le Nom :)  </label>
+                                <ng2-completer formControlName="client"  [minSearchLength]="0" [dataService]="searchData" inputClass="form-control" textNoResults="Client Non Trouvée !" [datasource]="searchData"></ng2-completer>
+                                <div *ngIf="this.formDossier.get('client').hasError('required')" class="valid-feedback text-primary-A400">
+                                    ce champ est obligatoire
                                 </div>
                             </div>
 
@@ -95,8 +102,10 @@
 
                     <div class="card p-6">
 
-                        <form [formGroup]="formAuto" id="formAuto" (submit)="enregistrer()">
-
+                        <form [formGroup]="formAuto" id="formAuto" >
+                            <div class="row">
+                               * Tous Les Champs Sont Obligatoire !
+                            </div>
                             <div class="row">
                                 <div class="col-4">
 
@@ -118,7 +127,7 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Date 1ere Mise en Service: </label>
-                                        <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="date1Service" />
+                                        <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="datePremierMiseService" />
 
                                     </div>
                                 </div>
@@ -131,7 +140,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" aria-describedby="width" formControlName="immatriculation" />
+                                        <input type="text" class="form-control" aria-describedby="width" formControlName="matriculation" />
                                         <label class="form-control-label">Immatriculation</label>
                                     </div>
 
@@ -161,14 +170,14 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="usage" />
+                                <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="usageVehicule" />
                                 <label class="form-control-label">Usage</label>
                             </div>
                             <div class="row">
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Moteur</label>
-                                        <select class="form-control" formControlName="moteur">
+                                        <select class="form-control" formControlName="typeMoteur">
                                             <option value="Essence">Essence</option>
                                             <option value="Diesel">Diesel</option>
                                         </select>
@@ -193,32 +202,35 @@
                 <div class="tab-pane fade" id="contrat-sante" role="tabpanel" aria-labelledby="contratSante">
 
                     <div class="card p-6">
-                            <form *ngIf="formSante" [formGroup]="formSante" (submit)="enregistrer()">
+                        <form *ngIf="formSante" [formGroup]="formSante">
 
-                                    <div class="form-group">
-                                            <label class="form-control-label" for="date">Date : </label>
-                                
-                                            <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateSante" />
-                                            <div *ngIf="this.formSante.get('dateSante').hasError('required')" class="valid-feedback text-primary-900">
-                                                    ce champ est obligatoire                                
-                                            </div>
-                                    </div>
-                                    <div class="form-group">
-                                            <input type="text" class="form-control" aria-describedby="Status Contrat Sante" formControlName="status" />
-                                            <label class="form-control-label" for="status">Status : </label>
-                                            <div *ngIf="this.formSante.get('status').hasError('required')" class="valid-feedback text-primary-900">
-                                                ce champ est obligatoire                                
-                                            </div>
-                                    </div>
-                                    <div class="form-group">
-                                            <input type="text" class="form-control" aria-describedby="Montant Sante" formControlName="montant" />
-                                            <label class="form-control-label" for="montant">Montant : </label>
-                                           
-                                            <div *ngIf="this.formSante.get('montant').hasError('required')" class="valid-feedback text-primary-900">
-                                                ce champ est obligatoire                                
-                                            </div>
-                                    </div>
-                            </form>
+                            <div class="form-group">
+                                <label class="form-control-label" for="date">Date : </label>
+
+                                <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateSante" />
+                                <div *ngIf="this.formSante.get('dateSante').hasError('required')" class="valid-feedback text-primary-900">
+                                    ce champ est obligatoire
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" aria-describedby="Status Contrat Sante" formControlName="status" />
+                                <label class="form-control-label" for="status">Status : </label>
+                                <div *ngIf="this.formSante.get('status').hasError('required')" class="valid-feedback text-primary-900">
+                                    ce champ est obligatoire
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" aria-describedby="Montant Sante" formControlName="montant" />
+                                <label class="form-control-label" for="montant">Montant : </label>
+
+                                <div *ngIf="this.formSante.get('montant').hasError('required')" class="valid-feedback text-primary-900">
+                                    ce champ est obligatoire
+                                </div>
+                                <div *ngIf="this.formSante.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
+                                    le montant saisi est invalid !
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 

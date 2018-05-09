@@ -13,6 +13,7 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
    form:FormGroup;
    messageStyle:string="d-none";
    messageErrorText:string;
+   
 
   @Input() client:Client;
   constructor(private serviceClient:ClientService) { 
@@ -58,6 +59,7 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
 
         this.serviceClient.modifierClient(this.client.idClient,this.client).subscribe(
             res=>{
+              
               this.messageStyle="alert alert-success text-center";
               this.messageErrorText="Client a été bien modifier";
                 $(function() {

@@ -12,6 +12,11 @@ export class DossierService {
     private http: Http
   ) { }
 
+  public addDossiers(dossier){
+    return this.http.post("http://localhost:8080/dossiers/ajouter",dossier).map(
+        resp=>resp.json()
+    ) ;
+}
 
   public getDossiers(){
       return this.http.get("http://localhost:8080/dossiers").map(

@@ -8,6 +8,7 @@ import { AjouterDossierComponent } from './ajouter-dossier/ajouter-dossier.compo
 import { SupprimerDossierComponent } from './supprimer-dossier/supprimer-dossier.component';
 import { RouterModule } from '@angular/router';
 import { DossiersComponent } from './dossiers.component';
+import { Ng2CompleterModule } from "ng2-completer";
 
 
 
@@ -24,7 +25,8 @@ import { DossiersComponent } from './dossiers.component';
         BrowserModule,
         ReactiveFormsModule,
         FormsModule,
-        RouterModule
+        RouterModule,
+        Ng2CompleterModule
     ]
 })
 

@@ -16,6 +16,7 @@ export class ClientService {
   public getClient(){
       return   this.http.get("http://localhost:8080/clients") ;
   }
+ 
 
   public deleteClient(id:number){
     return this.http.delete("http://localhost:8080/clients/"+id).map(
