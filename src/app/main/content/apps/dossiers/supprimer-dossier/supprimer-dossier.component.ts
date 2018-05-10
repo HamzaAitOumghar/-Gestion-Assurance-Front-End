@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DossierService } from '../../../../../../service/dossier.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { DossierService } from '../../../../../../service/dossier.service';
 export class SupprimerDossierComponent implements OnInit {
 
   @Input() idClient;
+  @Output() refrech: EventEmitter<any> = new EventEmitter();
+
   constructor(private serviceDossier:DossierService) { 
   }
 
@@ -16,14 +18,13 @@ export class SupprimerDossierComponent implements OnInit {
   }
 
   supprimerDossier(id){
-    this.serviceDossier.supprimerClient(id).subscribe(
+    this.serviceDossier.supprimerDossier(id).subscribe(
       data=>{
-        //this.onRefrech.emit(true);
+        this.refrech.emit();
       },err=>{
         console.log("Erreur !"+err);
       }
     );
-    window.location.reload();
   }
 
 }

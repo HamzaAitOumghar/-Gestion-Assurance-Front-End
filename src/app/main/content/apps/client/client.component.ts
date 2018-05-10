@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter} from '@angular/core';
 import { ClientService } from '../../../../../service/client.service';
 import { Client } from '../../../../entities/Client';
 import { Router } from '@angular/router';
@@ -15,18 +15,16 @@ declare var $;
 
 export class ClientComponent implements OnInit {
   
-
+  
   clients :Client[];
   public idCourant :any;
   public cl :Client;
 
 
-
-
   constructor(private clientService:ClientService,private router: Router) {
     $(function() {
       $('#sample-data-table').DataTable({
-        responsive: true
+        responsive: true,
       });
     });
    }

@@ -7,6 +7,7 @@ import { SupprimerComponent } from './supprimer/supprimer.component';
 import { ModifierComponent } from './modifier/modifier.component';
 import { ReactiveFormsModule }   from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { DetailClientComponent } from './detail-client/detail-client.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
         ClientComponent,
         AjouterComponent,
         SupprimerComponent,
-        ModifierComponent
+        ModifierComponent,
+        DetailClientComponent
     ],
     imports     : [
         BrowserModule,

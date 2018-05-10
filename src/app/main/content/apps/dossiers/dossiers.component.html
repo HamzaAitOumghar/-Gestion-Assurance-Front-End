@@ -103,7 +103,7 @@
                         </td>
                         <td class="last-modified d-none d-lg-table-cell">
         
-                        <a  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affectationClient(c.client.idClient)"></a>
+                        <a  class="icon-account-edit" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)"></a>
                         <a  class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)"></a>
         
                         </td>
@@ -123,4 +123,5 @@
 
 </div>
 <app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>
-<app-supprimer-dossier [idClient]="idClient" *ngIf="idClient"></app-supprimer-dossier>
+<app-supprimer-dossier [idClient]="idClient" (refrech)="onRefrech($event)" *ngIf="idClient"></app-supprimer-dossier>
+<app-modifier-dossier [dossier]="dossierModifier" *ngIf="dossierModifier"></app-modifier-dossier>

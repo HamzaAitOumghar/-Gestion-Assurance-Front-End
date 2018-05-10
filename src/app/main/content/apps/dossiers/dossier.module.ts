@@ -9,6 +9,7 @@ import { SupprimerDossierComponent } from './supprimer-dossier/supprimer-dossier
 import { RouterModule } from '@angular/router';
 import { DossiersComponent } from './dossiers.component';
 import { Ng2CompleterModule } from "ng2-completer";
+import { ModifierDossierComponent } from './modifier-dossier/modifier-dossier.component';
 
 
 
@@ -18,7 +19,8 @@ import { Ng2CompleterModule } from "ng2-completer";
         AfficheClientComponent,
         AjouterDossierComponent,
         SupprimerDossierComponent,
-        DossiersComponent
+        DossiersComponent,
+        ModifierDossierComponent
 
     ],
     imports:[

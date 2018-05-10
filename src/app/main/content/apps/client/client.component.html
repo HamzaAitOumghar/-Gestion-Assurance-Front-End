@@ -68,34 +68,16 @@
                                                                     <span class="column-title">Date De Naissance</span>
                                                                 </div>
                                                             </th>
-                                                    <th class="secondary-text">
-                                                        <div class="table-header">
-                                                            <span class="column-title">Adresse</span>
-                                                        </div>
-                                                    </th>
-                                                    <th class="secondary-text">
-                                                        <div class="table-header">
-                                                            <span class="column-title">Ville</span>
-                                                        </div>
-                                                    </th>
-                                                    <th class="secondary-text">
-                                                        <div class="table-header">
-                                                            <span class="column-title">N° Télephone</span>
-                                                        </div>
-                                                    </th>
-                                                    <th class="secondary-text">
-                                                        <div class="table-header">
-                                                            <span class="column-title">Profession</span>
-                                                        </div>
-                                                    </th>
-                                                    <th class="secondary-text">
-                                                        <div class="table-header">
-                                                            <span class="column-title">Email</span>
-                                                        </div>
-                                                    </th>
+                                                 
+                                                 
                                                     <th class="secondary-text">
                                                         <div class="table-header">
                                                             <span class="column-title">Action</span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="secondary-text">
+                                                        <div class="table-header">
+                                                            <span class="column-title">Detail</span>
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -106,14 +88,13 @@
                                                     <td>{{c.prenom}}</td>
                                                     <td>{{c.cin}}</td>
                                                     <td>{{c.dateNaissance}}</td>
-                                                    <td>{{c.adresse}}</td>
-                                                    <td>{{c.ville}}</td>
-                                                    <td>{{c.numTel}}</td>
-                                                    <td>{{c.profession}}</td>
-                                                    <td>{{c.email}}</td>
+                                                 
                                                     <td>
                                                         <button  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)"></button>
                                                         <button  class="icon-account-off" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)"></button>
+                                                    </td>
+                                                    <td>
+                                                        <a  class="icon-eye" data-toggle="modal" data-target="#clientDetailAffiche" (click)="affecatationIdClient(c.idClient)"></a>
                                                     </td>
                             </tr>
                             </tbody>
@@ -134,5 +115,6 @@
     </div>
 </div>
 </div>
-<app-supprimer [idClient]="idCourant"></app-supprimer>
+<app-supprimer *ngIf="idCourant" (refrech)="onRefrech($event)" [idClient]="idCourant"></app-supprimer>
 <app-modifier *ngIf="cl" [client]="cl"></app-modifier>
+<app-detail-client *ngIf="idCourant" [idClient]="idCourant"></app-detail-client>

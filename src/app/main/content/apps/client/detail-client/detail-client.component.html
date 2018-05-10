@@ -1,0 +1,46 @@
+<div id="clientDetailAffiche" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="clientDetailAffiche"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="clientDetailAffiche">Détails Client :</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+               
+              <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th>Nom Complet </th>
+                        <th>Date Naissance</th>
+                        <th>N° Telephone</th>
+                        <th>Adresse</th>
+                        <th>Email</th>
+                        <th>Profession</th>
+                        <th>Cin</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="detailsClient">
+                    <tr>
+                       
+                      <th>{{detailsClient.nom}}{{detailsClient.prenom}}</th>
+                      <th>{{detailsClient.dateNaissance}}</th>
+                      <th>{{detailsClient.numTel}}</th>
+                      <th>{{detailsClient.adresse}},{{detailsClient.ville}}</th>
+                      <th>{{detailsClient.email}}</th>
+                      <th>{{detailsClient.profession}}</th>
+                      <th>{{detailsClient.cin}}</th>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="modal-footer mx-auto">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ferme</button>
+            </div>
+        </div>
+    </div>
+</div>
+

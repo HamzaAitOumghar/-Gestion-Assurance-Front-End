@@ -11,7 +11,9 @@ declare var $;
 
 
 export class SupprimerComponent implements OnInit {
- @Input() idClient:any
+ @Input() idClient:any;
+ @Output() refrech: EventEmitter<any> = new EventEmitter();
+
  messageStyle:string="d-none";
  messageErrorText:string;
 
@@ -45,6 +47,7 @@ export class SupprimerComponent implements OnInit {
                   });  
                   $('#exampleModalLive').modal('hide');
                 }); 
+                this.refrech.emit();
       },()=>{
         console.log("work");
           this.messageStyle="alert alert-success text-center";

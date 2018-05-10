@@ -13,6 +13,7 @@ export class DossiersComponent implements OnInit {
 
  public dossiers:Dossier[];
  public idClient:number;
+ dossierModifier:Dossier;
   constructor(private dossierService:DossierService,private router: Router) {
     $(function() {
       $('#e-commerce-products-table').DataTable(
@@ -56,5 +57,17 @@ export class DossiersComponent implements OnInit {
   }
   affectationClient(id){
     this.idClient=id;
+  }
+  affectationDossier(dossier){
+    console.log("Before : ");
+    console.log(this.dossierModifier);
+    this.dossierModifier=dossier;
+    console.log("After : ");
+    console.log(this.dossierModifier);
+  }
+
+  
+  onRefrech($event){
+    this.ngOnInit();      
   }
 }
