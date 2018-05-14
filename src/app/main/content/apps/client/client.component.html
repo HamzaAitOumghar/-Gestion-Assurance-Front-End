@@ -90,21 +90,25 @@
                                                     <td>{{c.dateNaissance}}</td>
                                                  
                                                     <td>
-                                                        <button  class="icon-account-edit" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)"></button>
-                                                        <button  class="icon-account-off" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)"></button>
+                                                            <div class="dropdown ">
+                                                                    <button type="button" class="btn btn-icon" aria-label="btnGroup" data-toggle="dropdown" > 
+                                                                        <i class="icon icon-dots-vertical"></i>
+                                                                     </button>
+                                                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroup"  >
+                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)" >Modifier Contrat</button>
+                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)">Supprimer Contrat</button>
+                                                                     </div>
+                                                                       
+                                                                </div> 
                                                     </td>
                                                     <td>
                                                         <a  class="icon-eye" data-toggle="modal" data-target="#clientDetailAffiche" (click)="affecatationIdClient(c.idClient)"></a>
+                    
                                                     </td>
                             </tr>
                             </tbody>
                     </table>
 
-                <script type="text/javascript">
-                    $('#sample-data-table').DataTable({
-                        responsive: true
-                    });
-                </script>
                     </div>
                 
                 </div>

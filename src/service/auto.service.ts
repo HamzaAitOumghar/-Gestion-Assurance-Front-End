@@ -16,4 +16,10 @@ export class AutoService{
             resp=>resp.json());
       }
 
+      public getAllContratAuto(){
+          return this.http.get("http://localhost:8080/auto").map(
+            resp=>resp.json()
+          );
+      }
+
 }

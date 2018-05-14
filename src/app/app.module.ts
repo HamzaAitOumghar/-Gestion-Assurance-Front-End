@@ -23,6 +23,7 @@ import { DossierModule } from './main/content/apps/dossiers/dossier.module';
 import { AutoService } from '../service/auto.service';
 import { SanteService } from '../service/sante.service';
 import { VehiculeService } from '../service/vehicule.service';
+import { DetailsDossierComponent } from './main/content/apps/dossiers/details-dossier/details-dossier.component';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -36,6 +37,7 @@ const appRouter: Routes  = [
     { path: 'client', component: ClientComponent },
     { path: 'dossiers', component: DossiersComponent },
     { path: 'dossiers/ajouter', component: AjouterDossierComponent },
+    { path: 'dossiers/details', component: DetailsDossierComponent },
     { path: 'client/ajouter', component: AjouterComponent },
     { path: '**', component: CollaborateurComponent }
 ];

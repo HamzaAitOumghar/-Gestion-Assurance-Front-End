@@ -15,5 +15,9 @@ export class SanteService{
         return this.http.post("http://localhost:8080/Sante/ajouter/"+idDossier,sante).map(
             resp=>resp.json());
       }
-
+    public getAllContratSante(){
+        return this.http.get("").map(
+            resp=>resp.json()
+        );
+    }
 }

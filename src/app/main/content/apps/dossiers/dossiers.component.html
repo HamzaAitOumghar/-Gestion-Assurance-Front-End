@@ -1,125 +1,137 @@
 <div class="content-wrapper">
 
-        
+
 
     <div class="content">
         <div id="e-commerce-products" class="page-layout carded full-width">
 
-    <div class="top-bg bg-secondary"></div>
-    <div class="page-content">
+            <div class="top-bg bg-secondary"></div>
+            <div class="page-content">
 
-        <!-- HEADER -->
-        <div class="header bg-secondary text-auto row no-gutters align-items-center justify-content-between">
+                <!-- HEADER -->
+                <div class="header bg-secondary text-auto row no-gutters align-items-center justify-content-between">
 
-            <!-- APP TITLE -->
-            <div class="col-12 col-sm">
+                    <!-- APP TITLE -->
+                    <div class="col-12 col-sm">
 
-                <div class="logo row no-gutters align-items-start">
-                    <div class="logo-icon mr-3 mt-1">
-                        <i class="icon-cube-outline s-6"></i>
+                        <div class="logo row no-gutters align-items-start">
+                            <div class="logo-icon mr-3 mt-1">
+                                <i class="icon-cube-outline s-6"></i>
+                            </div>
+                            <div class="logo-text">
+                                <div class="h4">Dossier</div>
+                                <div class="">Total Dossiers: 20</div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="logo-text">
-                        <div class="h4">Dossier</div>
-                        <div class="">Total Dossiers: 20</div>
+                    <!-- / APP TITLE -->
+
+                    <!-- SEARCH -->
+                    <div class="col search-wrapper px-2">
+
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-icon">
+                                    <i class="icon icon-magnify"></i>
+                                </button>
+                            </span>
+                            <input id="products-search-input" type="text" class="form-control" placeholder="Search" aria-label="Search" />
+                        </div>
+
                     </div>
+                    <!-- / SEARCH -->
+
+                    <div class="col-auto">
+                        <a [routerLink]="['ajouter']" class="btn btn-secondary">Ajouter Un Dossier</a>
+                    </div>
+
+                </div>
+                <!-- / HEADER -->
+
+                <div class="page-content-card">
+
+                    <table id="e-commerce-products-table" class="table dataTable">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    <div class="table-header">
+                                        <span class="column-title">ID</span>
+                                    </div>
+                                </th>
+
+                                <th>
+                                    <div class="table-header">
+                                        <span class="column-title">Status</span>
+                                    </div>
+                                </th>
+
+                                <th>
+                                    <div class="table-header">
+                                        <span class="column-title">Date Creation</span>
+                                    </div>
+                                </th>
+
+                                <th>
+                                    <div class="table-header">
+                                        <span class="column-title">Client</span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="table-header">
+                                        <span class="column-title">Actions</span>
+                                    </div>
+                                </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr *ngFor='let c of dossiers'>
+                                <td class="name">{{c.numero}}</td>
+                                <td class="type d-none d-md-table-cell">{{c.status}}</td>
+                                <td class="owner d-none d-sm-table-cell">{{c.dateCreation}}</td>
+                                <td class="size d-none d-sm-table-cell">
+
+                                    <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c.client.idClient)"></a>
+
+                                </td>
+                                <td class="last-modified d-none d-lg-table-cell">
+
+                                        <div class="dropdown ">
+                                                <button type="button" class="btn btn-icon" aria-label="btnGroup" data-toggle="dropdown" > 
+                                                    <i class="icon icon-dots-vertical"></i>
+                                                 </button>
+                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroup"  >
+                                                         <button class="dropdown-item" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)" >Modifier Dossier</button>
+                                                         <button class="dropdown-item" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)">Supprimer Dossier</button>
+                                                         <a class="dropdown-item" href="dossiers/details?id={{c.id}}" >Details Dossier</a>
+
+                                                </div>
+                                                   
+                                            </div> 
+
+                                    <!-- <a class="icon-account-edit" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)"></a>
+                                    <a class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)"></a> --> 
+
+                                </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
                 </div>
 
             </div>
-        <!-- / APP TITLE -->
-
-        <!-- SEARCH -->
-        <div class="col search-wrapper px-2">
-
-            <div class="input-group">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-icon">
-                        <i class="icon icon-magnify"></i>
-                    </button>
-                </span>
-                <input id="products-search-input" type="text" class="form-control" placeholder="Search"
-                       aria-label="Search"/>
-            </div>
-
+            <!-- / CONTENT -->
         </div>
-        <!-- / SEARCH -->
-
-        <div class="col-auto">
-            <a [routerLink]="['ajouter']" class="btn btn-secondary">Ajouter Un Dossier</a>
-        </div>
-
-        </div>
-    <!-- / HEADER -->
-
-        <div class="page-content-card">
-
-            <table id="e-commerce-products-table" class="table dataTable">
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            <div class="table-header">
-                                <span class="column-title">ID</span>
-                            </div>
-                        </th>
-
-                        <th>
-                            <div class="table-header">
-                                <span class="column-title">Status</span>
-                            </div>
-                        </th>
-
-                        <th>
-                            <div class="table-header">
-                                <span class="column-title">Date Creation</span>
-                            </div>
-                        </th>
-
-                        <th>
-                            <div class="table-header">
-                                <span class="column-title">Client</span>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="table-header">
-                                <span class="column-title">Actions</span>
-                            </div>
-                        </th>
-
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr *ngFor='let c of dossiers'>
-                        <td class="name">{{c.numero}}</td>
-                        <td class="type d-none d-md-table-cell">{{c.status}}</td>
-                        <td class="owner d-none d-sm-table-cell">{{c.dateCreation}}</td>
-                        <td class="size d-none d-sm-table-cell">
-        
-                        <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c.client.idClient)"></a>
-        
-                        </td>
-                        <td class="last-modified d-none d-lg-table-cell">
-        
-                        <a  class="icon-account-edit" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)"></a>
-                        <a  class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)"></a>
-        
-                        </td>
-                        
-        
-                    </tr>
-
-                </tbody>
-            </table>
-
-        </div>
-
-        </div>
-        <!-- / CONTENT -->
-        </div>
-    </div> 
+    </div>
 
 </div>
 <app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>

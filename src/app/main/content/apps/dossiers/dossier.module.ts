@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { DossiersComponent } from './dossiers.component';
 import { Ng2CompleterModule } from "ng2-completer";
 import { ModifierDossierComponent } from './modifier-dossier/modifier-dossier.component';
+import { DetailsDossierComponent } from './details-dossier/details-dossier.component';
+import { VehiculeComponent } from './details-dossier/vehicule/vehicule.component';
 
 
 
@@ -20,7 +22,9 @@ import { ModifierDossierComponent } from './modifier-dossier/modifier-dossier.co
         AjouterDossierComponent,
         SupprimerDossierComponent,
         DossiersComponent,
-        ModifierDossierComponent
+        ModifierDossierComponent,
+        DetailsDossierComponent,
+        VehiculeComponent
 
     ],
     imports:[

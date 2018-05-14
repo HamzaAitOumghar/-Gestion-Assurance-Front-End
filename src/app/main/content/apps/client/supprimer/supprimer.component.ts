@@ -26,7 +26,6 @@ export class SupprimerComponent implements OnInit {
   supprimerClient(id){
     this.clientService.deleteClient(id).subscribe(
       data=>{      
-        console.log("work");
         this.messageStyle="alert alert-success text-center";
         this.messageErrorText="Client a été bien Supprimer !";
         $(function() {
@@ -34,31 +33,21 @@ export class SupprimerComponent implements OnInit {
             $(".alert").slideUp(500);
             });  
           
-            
+           
         }); 
         
       },err=>{
-        console.log("Hamza Echec");
               this.messageStyle="alert alert-danger text-center";
               this.messageErrorText="Erreur Dans suppression du client";
               $(function() {
                 $(".alert").fadeTo(2000, 500).slideUp(5000, function(){
                   $(".alert").slideUp(5000);
                   });  
-                  $('#exampleModalLive').modal('hide');
                 }); 
-                this.refrech.emit();
       },()=>{
-        console.log("work");
-          this.messageStyle="alert alert-success text-center";
-              this.messageErrorText="Client a été bien Supprimer !";
-              $(function() {
-                $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-                  $(".alert").slideUp(500);
-                  });  
-                
-                  
-              }); 
+        this.refrech.emit();
+        $('#exampleModalLive').modal('hide');
+
       }
     );
     return;

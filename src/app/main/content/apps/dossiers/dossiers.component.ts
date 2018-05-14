@@ -59,11 +59,8 @@ export class DossiersComponent implements OnInit {
     this.idClient=id;
   }
   affectationDossier(dossier){
-    console.log("Before : ");
-    console.log(this.dossierModifier);
     this.dossierModifier=dossier;
-    console.log("After : ");
-    console.log(this.dossierModifier);
+  
   }
 
   

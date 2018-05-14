@@ -1,0 +1,331 @@
+<div class="content-wrapper">
+    <div class="content">
+
+        <div class="page-header bg-secondary text-auto row no-gutters align-items-center justify-content-between p-6">
+
+            <div class="row no-gutters align-items-center">
+
+                <a href="#" class="btn btn-icon mr-4">
+                    <i class="icon icon-arrow-left"></i>
+                </a>
+
+                <div class="product-image mr-4">
+                    <img src="../assets/images/ecommerce/product-image-placeholder.png">
+                </div>
+
+                <div>Dossier Detail</div>
+            </div>
+
+        </div>
+
+
+        <div class="page-content col-12 mt-2">
+
+            <div class="card-deck mt-2">
+                <div class="card">
+
+                    <div class="card-header text-center">List Des Contrat Auto !</div>
+                    <div *ngIf="auto==null">
+                        Pas de contrat Auto dans le dossiers
+                    </div>
+                    <div class="card-body" *ngIf="auto!=null">
+                        <div class="row flex-row flex-nowrap">
+                            <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let au of auto'>
+
+                                <div class="widget widget2 card">
+
+                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+
+                                        <div class="col">
+                                            <span class="text-center">Contrat Auto N° {{au.idAuto}}</span>
+                                        </div>
+                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+
+                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                            <a class="dropdown-item" href="#">Modifier</a>
+                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                       <div><span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Effet police : {{au.dateEffetPolice}}</span></div> 
+                                       <div><span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin : {{au.dateEchange}}</span></div> 
+                                       <div><span class="badge badge-info mt-3" >Vehicule</span></div> 
+                                       <div><a data-toggle="modal" data-target="#vehicule" (click)="affectationVehicule(au.vehicules)"><span class="badge badge-secondary mt-1"><span class="icon-car"></span></span></a></div> 
+ 
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <app-vehicule [Vehicule]="vehi"></app-vehicule>
+
+                </div>
+            </div>
+            <!-- <div class="card-deck mt-2">
+                    <div class="card">
+                      
+                        <div class="card-header">List Des Contrat Sante !</div>
+                        <div class="card-body">
+                            <div class="col-12 col-sm-6 col-xl-3 p-3">
+    
+                                <div class="widget widget2 card">
+    
+                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+    
+                                        <div class="col">
+                                            <span class="h6">Contrat Auto N° 1</span>
+                                        </div>
+                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+    
+                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                            <a class="dropdown-item" href="#">Modifier</a>
+                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                        </div>
+                                    </div>
+    
+                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="title text-danger">4</div>
+                                        <div class="sub-title h6 text-muted">TASKS</div>
+                                    </div>
+    
+                                    <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                        <span class="text-muted">Yesterday's:</span>
+                                        <span class="ml-2">2</span>
+                                    </div>
+                                </div>
+                                <div class="widget widget2 card">
+    
+                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+    
+                                        <div class="col">
+                                            <span class="h6">Contrat Auto N° 1</span>
+                                        </div>
+                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+    
+                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                            <a class="dropdown-item" href="#">Modifier</a>
+                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                        </div>
+                                    </div>
+    
+                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="title text-danger">4</div>
+                                        <div class="sub-title h6 text-muted">TASKS</div>
+                                    </div>
+    
+                                    <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                        <span class="text-muted">Yesterday's:</span>
+                                        <span class="ml-2">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="card-deck mt-2 md-2">
+                    <div class="card">
+               
+                        <div class="card-header">List Des Contrat Habitation</div>
+                        <div class="card-body">
+                            <div class="row flex-row flex-nowrap">
+                                    <div class="col-12 col-sm-6 col-xl-3 p-3">
+    
+                                            <div class="widget widget2 card">
+                
+                                                <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                
+                                                    <div class="col">
+                                                        <span class="h6">Contrat Auto N° 1</span>
+                                                    </div>
+                                                    <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="icon icon-dots-vertical"></i>
+                                                    </button>
+                
+                                                    <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                        <a class="dropdown-item" href="#">Modifier</a>
+                                                        <a class="dropdown-item" href="#">Supprimer</a>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                                    <div class="title text-danger">4</div>
+                                                    <div class="sub-title h6 text-muted">TASKS</div>
+                                                </div>
+                
+                                                <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                                    <span class="text-muted">Yesterday's:</span>
+                                                    <span class="ml-2">2</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-xl-3 p-3">
+                
+                                                <div class="widget widget2 card">
+                    
+                                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                    
+                                                        <div class="col">
+                                                            <span class="h6">Contrat Auto N° 1</span>
+                                                        </div>
+                                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="icon icon-dots-vertical"></i>
+                                                        </button>
+                    
+                                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                            <a class="dropdown-item" href="#">Modifier</a>
+                                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                                        <div class="title text-danger">4</div>
+                                                        <div class="sub-title h6 text-muted">TASKS</div>
+                                                    </div>
+                    
+                                                    <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                                        <span class="text-muted">Yesterday's:</span>
+                                                        <span class="ml-2">2</span>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-xl-3 p-3">
+                
+                                                <div class="widget widget2 card">
+                    
+                                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                    
+                                                        <div class="col">
+                                                            <span class="h6">Contrat Auto N° 1</span>
+                                                        </div>
+                                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="icon icon-dots-vertical"></i>
+                                                        </button>
+                    
+                                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                            <a class="dropdown-item" href="#">Modifier</a>
+                                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                                        <div class="title text-danger">4</div>
+                                                        <div class="sub-title h6 text-muted">TASKS</div>
+                                                    </div>
+                    
+                                                    <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                                        <span class="text-muted">Yesterday's:</span>
+                                                        <span class="ml-2">2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-xl-3 p-3">
+                    
+                                                    <div class="widget widget2 card">
+                        
+                                                        <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                        
+                                                            <div class="col">
+                                                                <span class="h6">Contrat Auto N° 1</span>
+                                                            </div>
+                                                            <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="icon icon-dots-vertical"></i>
+                                                            </button>
+                        
+                                                            <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                                <a class="dropdown-item" href="#">Modifier</a>
+                                                                <a class="dropdown-item" href="#">Supprimer</a>
+                                                            </div>
+                                                        </div>
+                        
+                                                        <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                                            <div class="title text-danger">4</div>
+                                                            <div class="sub-title h6 text-muted">TASKS</div>
+                                                        </div>
+                        
+                                                        <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                                            <span class="text-muted">Yesterday's:</span>
+                                                            <span class="ml-2">2</span>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-xl-3 p-3">
+                
+                                                    <div class="widget widget2 card">
+                        
+                                                        <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                        
+                                                            <div class="col">
+                                                                <span class="h6">Contrat Auto N° 1</span>
+                                                            </div>
+                                                            <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="icon icon-dots-vertical"></i>
+                                                            </button>
+                        
+                                                            <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                                <a class="dropdown-item" href="#">Modifier</a>
+                                                                <a class="dropdown-item" href="#">Supprimer</a>
+                                                            </div>
+                                                        </div>
+                        
+                                                        <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                                            <div class="title text-danger">4</div>
+                                                            <div class="sub-title h6 text-muted">TASKS</div>
+                                                        </div>
+                        
+                                                        <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                                            <span class="text-muted">Yesterday's:</span>
+                                                            <span class="ml-2">2</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-xl-3 p-3">
+                        
+                                                        <div class="widget widget2 card">
+                            
+                                                            <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                            
+                                                                <div class="col">
+                                                                    <span class="h6">Contrat Auto N° 1</span>
+                                                                </div>
+                                                                <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="icon icon-dots-vertical"></i>
+                                                                </button>
+                            
+                                                                <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                                    <a class="dropdown-item" href="#">Modifier</a>
+                                                                    <a class="dropdown-item" href="#">Supprimer</a>
+                                                                </div>
+                                                            </div>
+                            
+                                                            <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                                                <div class="title text-danger">4</div>
+                                                                <div class="sub-title h6 text-muted">TASKS</div>
+                                                            </div>
+                            
+                                                            <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
+                                                                <span class="text-muted">Yesterday's:</span>
+                                                                <span class="ml-2">2</span>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div> -->
+
+
+
+        </div>
+
+
+    </div>
+</div>

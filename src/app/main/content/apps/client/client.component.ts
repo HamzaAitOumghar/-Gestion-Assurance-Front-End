@@ -24,7 +24,24 @@ export class ClientComponent implements OnInit {
   constructor(private clientService:ClientService,private router: Router) {
     $(function() {
       $('#sample-data-table').DataTable({
-        responsive: true,
+        columnDefs: [
+          {
+            targets           : 4,
+            filterable        : false,
+            sortable          : false
+          },
+          {
+          targets           : 5,
+          responsivePriority: 1,
+          filterable        : false,
+          sortable          : false
+          }
+      ],
+      
+               pageLength  : 10,
+                scrollX     : false,
+                responsive  : true,
+                autoWidth   : false
       });
     });
    }
@@ -44,6 +61,7 @@ export class ClientComponent implements OnInit {
 
   
   onRefrech($event){
+    console.log("BENATIA");
       this.ngOnInit();      
     }
   affecatationIdClient(id){
