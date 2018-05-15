@@ -12,6 +12,8 @@ import { Ng2CompleterModule } from "ng2-completer";
 import { ModifierDossierComponent } from './modifier-dossier/modifier-dossier.component';
 import { DetailsDossierComponent } from './details-dossier/details-dossier.component';
 import { VehiculeComponent } from './details-dossier/vehicule/vehicule.component';
+import { ModifierContratComponent } from './details-dossier/modifier-contrat/modifier-contrat.component';
+import { SupprimercontratComponent } from './details-dossier/supprimercontrat/supprimercontrat.component';
 
 
 
@@ -24,7 +26,9 @@ import { VehiculeComponent } from './details-dossier/vehicule/vehicule.component
         DossiersComponent,
         ModifierDossierComponent,
         DetailsDossierComponent,
-        VehiculeComponent
+        VehiculeComponent,
+        ModifierContratComponent,
+        SupprimercontratComponent
 
     ],
     imports:[

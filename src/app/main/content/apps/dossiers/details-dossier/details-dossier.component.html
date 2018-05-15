@@ -44,8 +44,8 @@
                                         </button>
 
                                         <div class="dropdown-menu" aria-labelledby="btnGroup">
-                                            <a class="dropdown-item" href="#">Modifier</a>
-                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modifierContrat" (click)="affectationAuto(au)">Modifier</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#supprimerContrat" (click)="affectationAuto(au)">Supprimer</a>
                                         </div>
                                     </div>
 
@@ -53,7 +53,7 @@
                                        <div><span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Effet police : {{au.dateEffetPolice}}</span></div> 
                                        <div><span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin : {{au.dateEchange}}</span></div> 
                                        <div><span class="badge badge-info mt-3" >Vehicule</span></div> 
-                                       <div><a data-toggle="modal" data-target="#vehicule" (click)="affectationVehicule(au.vehicules)"><span class="badge badge-secondary mt-1"><span class="icon-car"></span></span></a></div> 
+                                       <div id="clickVehicule"><a data-toggle="modal" data-target="#vehicule" (click)="affectationVehicule(au.vehicules)"><span class="badge badge-secondary mt-1"><span class="icon-car"></span></span></a></div> 
  
                                     </div>
                                 </div>
@@ -61,75 +61,56 @@
 
                         </div>
                     </div>
-                    <app-vehicule [Vehicule]="vehi"></app-vehicule>
-
+                    <app-vehicule [vehicule]="vehi" *ngIf="vehi"></app-vehicule>
+                    <app-modifier-contrat [auto]="autoModifier" *ngIf="autoModifier" (refrech)='this.ngOnInit()' ></app-modifier-contrat>
+                    <app-supprimercontrat [ContratAuto]="autoModifier" (refrech)='this.ngOnInit()' ></app-supprimercontrat>
                 </div>
             </div>
-            <!-- <div class="card-deck mt-2">
+             <div class="card-deck mt-2">
                     <div class="card">
                       
-                        <div class="card-header">List Des Contrat Sante !</div>
-                        <div class="card-body">
-                            <div class="col-12 col-sm-6 col-xl-3 p-3">
+                        <div class="card-header text-center">List Des Contrat Sante !</div>
+                        <div *ngIf="sante==null">
+                            Pas de contrat Sante dans le dossiers
+                        </div>
+                        <div class="card-body" *ngIf="sante!=null">
+                            
+                            <div class="row flex-row flex-nowrap">
+                                <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let s of sante'>
+
+                                    <div class="widget widget2 card">
     
-                                <div class="widget widget2 card">
+                                        <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
     
-                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+                                            <div class="col">
+                                                <span class="text-center">Contrat Sante N° {{s.numContratSante}} </span>
+                                            </div>
+                                            <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="icon icon-dots-vertical"></i>
+                                            </button>
     
-                                        <div class="col">
-                                            <span class="h6">Contrat Auto N° 1</span>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                                <a class="dropdown-item">Modifier</a>
+                                                <a class="dropdown-item">Supprimer</a>
+                                            </div>
                                         </div>
-                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon icon-dots-vertical"></i>
-                                        </button>
     
-                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
-                                            <a class="dropdown-item" href="#">Modifier</a>
-                                            <a class="dropdown-item" href="#">Supprimer</a>
+                                        <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                           <div><span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Contrat : {{s.dateContrat}} </span></div> 
+                                           <div><span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Status {{s.status }}</span></div> 
+                                           <div><span class="badge badge-info mt-3" >Montant {{ s.montant}}</span></div> 
+     
                                         </div>
-                                    </div>
-    
-                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                                        <div class="title text-danger">4</div>
-                                        <div class="sub-title h6 text-muted">TASKS</div>
-                                    </div>
-    
-                                    <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
-                                        <span class="text-muted">Yesterday's:</span>
-                                        <span class="ml-2">2</span>
-                                    </div>
-                                </div>
-                                <div class="widget widget2 card">
-    
-                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
-    
-                                        <div class="col">
-                                            <span class="h6">Contrat Auto N° 1</span>
-                                        </div>
-                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon icon-dots-vertical"></i>
-                                        </button>
-    
-                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
-                                            <a class="dropdown-item" href="#">Modifier</a>
-                                            <a class="dropdown-item" href="#">Supprimer</a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                                        <div class="title text-danger">4</div>
-                                        <div class="sub-title h6 text-muted">TASKS</div>
-                                    </div>
-    
-                                    <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
-                                        <span class="text-muted">Yesterday's:</span>
-                                        <span class="ml-2">2</span>
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
             </div>
+
+            <!--
             <div class="card-deck mt-2 md-2">
                     <div class="card">
                

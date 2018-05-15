@@ -8,10 +8,15 @@ import { Vehicule } from '../../../../../../entities/Vehicule';
 })
 export class VehiculeComponent implements OnInit {
 
-  @Input() Vehicule;
+  @Input() vehicule:Vehicule;
   constructor() { }
 
   ngOnInit() {
   }
 
+  ngOnChanges(){
+    console.log("Hello");
+    console.log(this.vehicule);
+    
+  }
 }

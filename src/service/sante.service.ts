@@ -16,7 +16,7 @@ export class SanteService{
             resp=>resp.json());
       }
     public getAllContratSante(){
-        return this.http.get("").map(
+        return this.http.get("http://localhost:8080/Sante").map(
             resp=>resp.json()
         );
     }

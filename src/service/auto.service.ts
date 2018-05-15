@@ -21,5 +21,15 @@ export class AutoService{
             resp=>resp.json()
           );
       }
+      public deleteContratAuto(id){
+          return this.http.delete("http://localhost:8080/auto/delete/"+id).map(
+              resp=>resp.json()
+          )
+      }
+      public modifierContratAuto(id,auto){
+        return this.http.put("http://localhost:8080/auto/modifier/"+id,auto).map(
+            resp=>resp.json()
+        )
+    }
 
 }

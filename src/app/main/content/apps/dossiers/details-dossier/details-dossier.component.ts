@@ -17,6 +17,8 @@ export class DetailsDossierComponent implements OnInit {
   auto:Auto[]=null;
   sante:Sante[];
   vehi:Vehicule;
+  autoModifier:Auto;
+
   constructor(private santeService:SanteService,private autoService:AutoService,private activateRoute:ActivatedRoute) {
       this.activateRoute.params.subscribe(
         (param:Params)=>{
@@ -32,16 +34,42 @@ export class DetailsDossierComponent implements OnInit {
           console.log(err);
         }
         ,()=>{
-            console.log(this.auto);
+            
         }
-      )
+      );
+
+      this.santeService.getAllContratSante().subscribe(
+        resp=>{
+          this.sante=resp;
+        },
+        err=>{
+          console.log(err);
+        }
+      );
    }
 
    affectationVehicule(ve){
       this.vehi=ve;
    }
 
+   affectationAuto(au){
+     this.autoModifier=au;
+   }
+
   ngOnInit() {
+    this.autoService.getAllContratAuto().subscribe(
+      resp=>{
+        console.log("Reception :");
+        console.log(resp);
+        this.auto=resp;
+      },
+      err=>{
+        console.log(err);
+      }
+      ,()=>{
+          console.log(this.auto);
+      }
+    );
   }
 
 }

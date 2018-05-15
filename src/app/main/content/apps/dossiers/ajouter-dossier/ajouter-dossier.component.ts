@@ -105,7 +105,6 @@ export class AjouterDossierComponent implements OnInit {
             typeMoteur:this.formAuto.value.typeMoteur
           }
         }
-        console.log(auto);
      }
 
      if(this.formSante.value.dateContrat !="" &&
