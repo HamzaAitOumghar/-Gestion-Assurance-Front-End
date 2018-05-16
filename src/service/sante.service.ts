@@ -20,4 +20,17 @@ export class SanteService{
             resp=>resp.json()
         );
     }
+
+    public modifierContratSante(idSante,sante){
+        return this.http.put("http://localhost:8080/Sante/modifier/"+idSante,sante).map(
+            resp=>resp.json());
+    }
+    public deleteContratSante(idSante){
+        return this.http.delete("http://localhost:8080/Sante/delete/"+idSante).map(
+            resp=>resp.json());
+    }
+    
+
+
+
 }

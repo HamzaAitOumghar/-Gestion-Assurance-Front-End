@@ -18,6 +18,7 @@ export class DetailsDossierComponent implements OnInit {
   sante:Sante[];
   vehi:Vehicule;
   autoModifier:Auto;
+  santeModifier:Sante;
 
   constructor(private santeService:SanteService,private autoService:AutoService,private activateRoute:ActivatedRoute) {
       this.activateRoute.params.subscribe(
@@ -55,7 +56,9 @@ export class DetailsDossierComponent implements OnInit {
    affectationAuto(au){
      this.autoModifier=au;
    }
-
+   affectationSante(s){
+     this.santeModifier=s;
+   }
   ngOnInit() {
     this.autoService.getAllContratAuto().subscribe(
       resp=>{
@@ -68,6 +71,14 @@ export class DetailsDossierComponent implements OnInit {
       }
       ,()=>{
           console.log(this.auto);
+      }
+    );
+    this.santeService.getAllContratSante().subscribe(
+      resp=>{
+        this.sante=resp;
+      },
+      err=>{
+        console.log(err);
       }
     );
   }

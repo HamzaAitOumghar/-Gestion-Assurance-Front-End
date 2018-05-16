@@ -14,6 +14,8 @@ import { DetailsDossierComponent } from './details-dossier/details-dossier.compo
 import { VehiculeComponent } from './details-dossier/vehicule/vehicule.component';
 import { ModifierContratComponent } from './details-dossier/modifier-contrat/modifier-contrat.component';
 import { SupprimercontratComponent } from './details-dossier/supprimercontrat/supprimercontrat.component';
+import { ModifierContratSanteComponent } from './details-dossier/modifier-contrat-sante/modifier-contrat-sante.component';
+import { SupprimerContratSanteComponent } from './details-dossier/supprimer-contrat-sante/supprimer-contrat-sante.component';
 
 
 
@@ -28,7 +30,9 @@ import { SupprimercontratComponent } from './details-dossier/supprimercontrat/su
         DetailsDossierComponent,
         VehiculeComponent,
         ModifierContratComponent,
-        SupprimercontratComponent
+        SupprimercontratComponent,
+        ModifierContratSanteComponent,
+        SupprimerContratSanteComponent
 
     ],
     imports:[

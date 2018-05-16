@@ -1,0 +1,50 @@
+<div id="modifierContratSante" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modifierContratSante" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title mx-auto" id="editClientLiveLabel">Modification : </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <form *ngIf="formSante" [formGroup]="formSante">
+
+              <div class="form-group">
+                  <label class="form-control-label" for="date">Date : </label>
+
+                  <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateContrat" />
+                  <div *ngIf="this.formSante.get('dateContrat').hasError('required')" class="valid-feedback text-primary-900">
+                      ce champ est obligatoire
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label" for="status">Status : </label>
+                  <input type="text" class="form-control" aria-describedby="Status Contrat Sante" formControlName="status" />
+                  <div *ngIf="this.formSante.get('status').hasError('required')" class="valid-feedback text-primary-900">
+                      ce champ est obligatoire
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label" for="montant">Montant : </label>
+                  <input type="text" class="form-control" aria-describedby="Montant Sante" formControlName="montant" />
+                  <div *ngIf="this.formSante.get('montant').hasError('required')" class="valid-feedback text-primary-900">
+                      ce champ est obligatoire
+                  </div>
+                  <div *ngIf="this.formSante.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
+                      le montant saisi est invalid !
+                  </div>
+              </div>
+          </form>
+          
+        <div ngClass="{{messageStyle}}" role="alert">
+                {{messageErrorText }}
+            </div>
+          </div>
+          <div class="modal-footer mx-auto">
+              <button type="button" class="btn btn-secondary" [disabled]="!formSante.valid" (click)="modifierContratSante()">Modifier</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          </div>
+      </div>
+  </div>
+</div>
