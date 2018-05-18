@@ -8,11 +8,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CollaborateurComponent } from './content/collaborateur/collaborateur.component';
-import { ClientComponent } from './content/apps/client/client.component';
-import { DossiersComponent } from './content/apps/dossiers/dossiers.component';
-import { AfficheClientComponent } from './content/apps/dossiers/affiche-client/affiche-client.component';
-import { SupprimerDossierComponent } from './content/apps/dossiers/supprimer-dossier/supprimer-dossier.component';
-import { AjouterDossierComponent } from './content/apps/dossiers/ajouter-dossier/ajouter-dossier.component';
 
 
 @NgModule({

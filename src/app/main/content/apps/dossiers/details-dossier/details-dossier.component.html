@@ -24,7 +24,11 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header text-center">List Des Contrat Auto !</div>
+                    <div class="card-header text-center h2">List Des Contrat Auto !
+                        <button type="button" class="btn btn-primary btn-fab btn-sm">
+                            <i class="icon-plus"  data-toggle="modal" data-target="#ajouterContratAuto"></i>
+                        </button>
+                    </div>
                     <div *ngIf="auto==null">
                         Pas de contrat Auto dans le dossiers
                     </div>
@@ -64,6 +68,7 @@
                     <app-vehicule [vehicule]="vehi" *ngIf="vehi"></app-vehicule>
                     <app-modifier-contrat [auto]="autoModifier" *ngIf="autoModifier" (refrech)='this.ngOnInit()' ></app-modifier-contrat>
                     <app-supprimercontrat [ContratAuto]="autoModifier" (refrech)='this.ngOnInit()' ></app-supprimercontrat>
+                    <app-ajouter-contrat-auto [idDossier]="dossierId" (refrech)='this.ngOnInit()'></app-ajouter-contrat-auto>
                 </div>
             </div>
              <div class="card-deck mt-2">

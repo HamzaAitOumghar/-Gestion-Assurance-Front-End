@@ -1,0 +1,125 @@
+<div id="ajouterContratAuto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ajouterContratAuto" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title mx-auto" id="ajouterContratAuto">Modification Contrat : </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body" >
+              <form [formGroup]="formAuto" id="formAuto" >
+                  <div class="row">
+                          <div class="col-4">
+                     * Tous Les Champs Sont Obligatoire !
+                          </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-4">
+
+                          <div class="form-group">
+                              <label class="form-control-label"> Date Effet de Police</label>
+                              <input type="date" class="form-control" aria-describedby="width" formControlName="dateEffetPolice" />
+                          </div>
+
+                      </div>
+                      <div class="col-4">
+
+                          <div class="form-group">
+                              <label class="form-control-label">Date d'echange</label>
+                              <input type="date" class="form-control" aria-describedby="width" formControlName="dateEchange" />
+                          </div>
+
+                      </div>
+
+                      <div class="col-4">
+                          <div class="form-group">
+                              <label class="form-control-label">Date 1ere Mise en Service: </label>
+                              <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="datePremierMiseService" />
+
+                          </div>
+                      </div>
+
+                  </div>
+
+
+                  <div class="row">
+
+                      <div class="col-4">
+
+                          <div class="form-group">
+                                  <label class="form-control-label">Immatriculation</label>
+                       
+                  
+                              <input type="text" class="form-control" aria-describedby="width" formControlName="matriculation" />
+                          </div>
+
+                      </div>
+
+                      <div class="col-4">
+
+                          <div class="form-group">
+                                  <label class="form-control-label">Marque</label>
+                  
+                              <input type="text" class="form-control" aria-describedby="height" formControlName="marque" />
+                          </div>
+
+                      </div>
+
+                      <div class="col-4">
+
+                          <div class="form-group">
+                                  <label class="form-control-label">Nbr Place</label>
+                  
+                              <input type="text" class="form-control" aria-describedby="depth" formControlName="nbrPlace" />
+                              <div *ngIf="this.formAuto.get('nbrPlace').hasError('pattern')" class="valid-feedback text-danger-900">
+                                  veuillez saisir un nombre valide !
+                              </div>
+                          </div>
+
+                      </div>
+
+                  </div>
+
+                  <div class="form-group">
+                          <label class="form-control-label">Usage</label>
+                  
+                      <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="usageVehicule" />
+                  </div>
+                  <div class="row">
+                      <div class="col-4">
+                          <div class="form-group">
+                              <label class="form-control-label">Moteur</label>
+                              <select class="form-control" formControlName="typeMoteur">
+                                  <option value="Essence">Essence</option>
+                                  <option value="Diesel">Diesel</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-4">
+                          <div class="form-group">
+                                  <label class="col-form-label"> Nbr Chevaux</label>
+                  
+                              <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="nbrChevaux" />
+                              <div *ngIf="this.formAuto.get('nbrChevaux').hasError('pattern')" class="valid-feedback text-danger-900">
+                                  veuillez saisir un nombre valide !
+                              </div>
+                          </div>
+                      </div>
+
+
+
+                  </div>
+              </form>
+          </div>
+         
+          <div class="modal-footer mx-auto">
+              <button type="button" class="btn btn-secondary" [disabled]="!formAuto.valid" (click)="ajouterContratAuto()">Ajouter</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          </div>
+          <div ngClass="{{messageStyle}}" role="alert">
+                  {{messageErrorText }}
+              </div>
+      </div>
+  </div>
+</div>
