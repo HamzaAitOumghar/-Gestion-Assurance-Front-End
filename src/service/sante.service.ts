@@ -20,6 +20,11 @@ export class SanteService{
             resp=>resp.json()
         );
     }
+    public getAllContratSanteInDossier(idDossier){
+        return this.http.get("http://localhost:8080/Sante/"+idDossier).map(
+            resp=>resp.json()
+        );
+    }
 
     public modifierContratSante(idSante,sante){
         return this.http.put("http://localhost:8080/Sante/modifier/"+idSante,sante).map(

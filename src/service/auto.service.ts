@@ -21,6 +21,11 @@ export class AutoService{
             resp=>resp.json()
           );
       }
+      public getAllContratAutoInDossier(idDossier){
+        return this.http.get("http://localhost:8080/auto/"+idDossier).map(
+          resp=>resp.json()
+        );
+    }
       public deleteContratAuto(id){
           return this.http.delete("http://localhost:8080/auto/delete/"+id).map(
               resp=>resp.json()

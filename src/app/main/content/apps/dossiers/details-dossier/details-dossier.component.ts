@@ -25,7 +25,6 @@ export class DetailsDossierComponent implements OnInit {
     this.activateRoute.queryParams.subscribe(
       (param) => {
         this.dossierId = param['id'];
-        console.log("Hamza "+this.dossierId);
       },
       (err)=>{
 
@@ -34,7 +33,7 @@ export class DetailsDossierComponent implements OnInit {
       }
 
     );
-    this.autoService.getAllContratAuto().subscribe(
+    this.autoService.getAllContratAutoInDossier(this.dossierId).subscribe(
       resp => {
         this.auto = resp;
       },
@@ -46,7 +45,7 @@ export class DetailsDossierComponent implements OnInit {
       }
     );
 
-    this.santeService.getAllContratSante().subscribe(
+    this.santeService.getAllContratSanteInDossier(this.dossierId).subscribe(
       resp => {
         this.sante = resp;
       },
@@ -68,7 +67,18 @@ export class DetailsDossierComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.autoService.getAllContratAuto().subscribe(
+    this.activateRoute.queryParams.subscribe(
+      (param) => {
+        this.dossierId = param['id'];
+      },
+      (err)=>{
+
+      },
+      ()=>{
+      }
+
+    );
+    this.autoService.getAllContratAutoInDossier(this.dossierId).subscribe(
       resp => {
         this.auto = resp;
       },
@@ -76,9 +86,11 @@ export class DetailsDossierComponent implements OnInit {
         console.log(err);
       }
       , () => {
+
       }
     );
-    this.santeService.getAllContratSante().subscribe(
+
+    this.santeService.getAllContratSanteInDossier(this.dossierId).subscribe(
       resp => {
         this.sante = resp;
       },
