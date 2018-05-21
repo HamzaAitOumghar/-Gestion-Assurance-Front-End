@@ -26,7 +26,7 @@
 
                     <div class="card-header text-center h2">List Des Contrat Auto !
                         <button type="button" class="btn btn-primary btn-fab btn-sm">
-                            <i class="icon-plus"  data-toggle="modal" data-target="#ajouterContratAuto"></i>
+                            <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratAuto"></i>
                         </button>
                     </div>
                     <div *ngIf="(auto|json)=='[]'">
@@ -54,11 +54,29 @@
                                     </div>
 
                                     <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                                       <div><span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Effet police : {{au.dateEffetPolice}}</span></div> 
-                                       <div><span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin : {{au.dateEchange}}</span></div> 
-                                       <div><span class="badge badge-info mt-3" >Vehicule</span></div> 
-                                       <div id="clickVehicule"><a data-toggle="modal" data-target="#vehicule" (click)="affectationVehicule(au.vehicules)"><span class="badge badge-secondary mt-1"><span class="icon-car"></span></span></a></div> 
- 
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Effet police : {{au.dateEffetPolice}}</span>
+                                        </div>
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin : {{au.dateEchange}}</span>
+                                        </div>
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-success mt-1">Montant : {{au.montant}}</span>
+                                        </div>
+                                       <div class="row mt-1">
+                                            <span class="badge badge-success m-1 " *ngFor='let ty of au.typeContrats'>{{ty.type}}</span>
+                                       </div>
+                                        <div>
+                                            <span class="badge badge-info mt-3">Vehicule</span>
+                                        </div>
+                                        <div id="clickVehicule">
+                                            <a data-toggle="modal" data-target="#vehicule" (click)="affectationVehicule(au.vehicules)">
+                                                <span class="badge badge-secondary mt-1">
+                                                    <span class="icon-car"></span>
+                                                </span>
+                                            </a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -66,58 +84,64 @@
                         </div>
                     </div>
                     <app-vehicule [vehicule]="vehi" *ngIf="vehi"></app-vehicule>
-                    <app-modifier-contrat [auto]="autoModifier" *ngIf="autoModifier" (refrech)='this.ngOnInit()' ></app-modifier-contrat>
-                    <app-supprimercontrat [ContratAuto]="autoModifier" (refrech)='this.ngOnInit()' ></app-supprimercontrat>
+                    <app-modifier-contrat [auto]="autoModifier" *ngIf="autoModifier" (refrech)='this.ngOnInit()'></app-modifier-contrat>
+                    <app-supprimercontrat [ContratAuto]="autoModifier" (refrech)='this.ngOnInit()'></app-supprimercontrat>
                     <app-ajouter-contrat-auto [idDossier]="dossierId" (refrech)='this.ngOnInit()'></app-ajouter-contrat-auto>
                 </div>
             </div>
-             <div class="card-deck mt-2">
-                    <div class="card">
-                      
-                        <div class="card-header text-center">List Des Contrat Sante !</div>
-                        <div *ngIf="(sante|json)=='[]'">
-                            Pas de contrat Sante dans le dossiers
-                        </div>
-                        <div class="card-body" *ngIf="(sante|json)!='[]'">
-                            
-                            <div class="row flex-row flex-nowrap">
-                                <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let s of sante'>
+            <div class="card-deck mt-2">
+                <div class="card">
 
-                                    <div class="widget widget2 card">
-    
-                                        <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
-    
-                                            <div class="col">
-                                                <span class="text-center">Contrat Sante N° {{s.numContratSante}} </span>
-                                            </div>
-                                            <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="icon icon-dots-vertical"></i>
-                                            </button>
-    
-                                            <div class="dropdown-menu" aria-labelledby="btnGroup">
-                                                <a class="dropdown-item" data-toggle="modal" data-target="#modifierContratSante" (click)="affectationSante(s)" >Modifier</a>
-                                                <a class="dropdown-item" data-toggle="modal" data-target="#supprimerContratSante" (click)="affectationSante(s)">Supprimer</a>
-                                            </div>
+                    <div class="card-header text-center">List Des Contrat Sante !</div>
+                    <div *ngIf="(sante|json)=='[]'">
+                        Pas de contrat Sante dans le dossiers
+                    </div>
+                    <div class="card-body" *ngIf="(sante|json)!='[]'">
+
+                        <div class="row flex-row flex-nowrap">
+                            <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let s of sante'>
+
+                                <div class="widget widget2 card">
+
+                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+
+                                        <div class="col">
+                                            <span class="text-center">Contrat Sante N° {{s.numContratSante}} </span>
                                         </div>
-    
-                                        <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                                           <div><span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Contrat : {{s.dateContrat}} </span></div> 
-                                           <div><span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Status {{s.status }}</span></div> 
-                                           <div><span class="badge badge-info mt-3" >Montant {{ s.montant}}</span></div> 
-     
+                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+
+                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modifierContratSante" (click)="affectationSante(s)">Modifier</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#supprimerContratSante" (click)="affectationSante(s)">Supprimer</a>
                                         </div>
+                                    </div>
+
+                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Contrat : {{s.dateContrat}} </span>
+                                        </div>
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Status {{s.status }}</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-info mt-3">Montant {{ s.montant}}</span>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-                        <app-modifier-contrat-sante [sante]="santeModifier" *ngIf="santeModifier" (refrech)='this.ngOnInit()' ></app-modifier-contrat-sante>
-                        <app-supprimer-contrat-sante [sante]="santeModifier" *ngIf="santeModifier" (refrech)='this.ngOnInit()'></app-supprimer-contrat-sante>
+
+
                     </div>
+                    <app-modifier-contrat-sante [sante]="santeModifier" *ngIf="santeModifier" (refrech)='this.ngOnInit()'></app-modifier-contrat-sante>
+                    <app-supprimer-contrat-sante [sante]="santeModifier" *ngIf="santeModifier" (refrech)='this.ngOnInit()'></app-supprimer-contrat-sante>
+                </div>
             </div>
 
-       
+
 
         </div>
 

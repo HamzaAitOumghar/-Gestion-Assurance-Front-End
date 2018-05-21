@@ -1,13 +1,16 @@
 import { Dossier } from "./Dossier";
 import { Vehicule } from "./Vehicule";
+import { TypeContratAuto } from "./TypeContratAuto";
 
 export class Auto {
 
     private _idAuto: number;
     private _dateEffetPolice: Date;
     private _dateEchange: Date;
+    private _montant: number;
     private _dossier: Dossier;
     private _vehicules: Vehicule;
+    private _typeContrats:TypeContratAuto[] ;
 
 
     constructor(id: number, dateEffetPolice: Date, dateEchange: Date, dossier: Dossier) {
@@ -18,6 +21,38 @@ export class Auto {
     }
 
 
+    /**
+     * Getter montant
+     * @return {number}
+     */
+	public get montant(): number {
+		return this._montant;
+	}
+
+    /**
+     * Setter montant
+     * @param {number} value
+     */
+	public set montant(value: number) {
+		this._montant = value;
+	}
+
+
+    /**
+     * Getter typeContrats
+     * @return {TypeContratAuto[] }
+     */
+	public get typeContrats(): TypeContratAuto[]  {
+		return this._typeContrats;
+	}
+
+    /**
+     * Setter typeContrats
+     * @param {TypeContratAuto[] } value
+     */
+	public set typeContrats(value: TypeContratAuto[] ) {
+		this._typeContrats = value;
+	}
 
     /**
      * Getter vehicules

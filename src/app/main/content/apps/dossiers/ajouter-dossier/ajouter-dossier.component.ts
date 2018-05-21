@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators, FormArray, FormControlName } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { CompleterService, CompleterData } from 'ng2-completer';
 import { ClientService } from '../../../../../../service/client.service';
@@ -9,6 +9,8 @@ import { Dossier } from '../../../../../entities/Dossier';
 import { SanteService } from '../../../../../../service/sante.service';
 import { AutoService } from '../../../../../../service/auto.service';
 import { VehiculeService } from '../../../../../../service/vehicule.service';
+import { TypeContratAutoService } from '../../../../../../service/typeContratAuto.service';
+import { TypeContratAuto } from '../../../../../entities/TypeContratAuto';
 
 declare var $;
 @Component({
@@ -25,9 +27,13 @@ export class AjouterDossierComponent implements OnInit {
   messageStyle:string="d-none";
   messageErrorText:string;
   searchData=[];
+  typesContratAuto:TypeContratAuto[];
+  checkedList=[
+    {idTypeContratAuto: 1, type: "Basic"}
+  ];
 
   constructor(private clientService:ClientService,private dossierService:DossierService,private santeService:SanteService
-    ,private autoService:AutoService,private vehiculeService:VehiculeService
+    ,private autoService:AutoService,private vehiculeService:VehiculeService,private typesautoService:TypeContratAutoService
   ) {
   
     this.clientService.getClient().map(resp=>resp.json()).subscribe(
@@ -39,6 +45,12 @@ export class AjouterDossierComponent implements OnInit {
         }
       }
     );
+    this.typesautoService.getAllTypeContratAuto().subscribe(
+      resp=>{
+          this.typesContratAuto=resp;      
+      }
+
+  );
   
     this.formDossier=new FormGroup({
       numero:new FormControl('',Validators.compose([
@@ -58,7 +70,8 @@ export class AjouterDossierComponent implements OnInit {
       datePremierMiseService:new FormControl(''),
       usageVehicule:new FormControl(''),
       nbrChevaux:new FormControl('',Validators.pattern("^(0|[1-9][0-9]*)$")),
-      typeMoteur:new FormControl('Essence')
+      typeMoteur:new FormControl('Essence'),
+      montant:new FormControl('',Validators.pattern('([0-9]*[.])?[0-9]+'))
     });
     this.formSante=new FormGroup({
       dateContrat:new FormControl('',Validators.required),
@@ -70,8 +83,22 @@ export class AjouterDossierComponent implements OnInit {
  
   }
   
+ 
+
 
   ngOnInit() {
+  }
+
+  onCheckboxChange(option, event) {
+    if(event.target.checked) {
+      this.checkedList.push(option);
+    } else {
+      for(var i=0 ; i < this.checkedList.length; i++) {
+        if(this.checkedList[i].idTypeContratAuto == option.idTypeContratAuto){
+          this.checkedList.splice(i,1);     
+        }
+      }
+    }
   }
 
   enregistrer(){
@@ -80,6 +107,8 @@ export class AjouterDossierComponent implements OnInit {
      var auto=null;
      var sante=null;
      var idDossier;
+
+     console.log(this.formAuto.value);
      
      if(this.formAuto.value.dateCreation!=""
     && this.formAuto.value.dateEffetPolice!=""      
@@ -95,6 +124,7 @@ export class AjouterDossierComponent implements OnInit {
          auto={
           dateEffetPolice:this.formAuto.value.dateEffetPolice,
           dateEchange:this.formAuto.value.dateEchange,
+          montant:this.formAuto.value.montant,
           vehicules:{
             matriculation:this.formAuto.value.matriculation,
             marque:this.formAuto.value.marque,      
@@ -103,7 +133,7 @@ export class AjouterDossierComponent implements OnInit {
             usageVehicule:this.formAuto.value.usageVehicule,
             nbrChevaux:this.formAuto.value.nbrChevaux,
             typeMoteur:this.formAuto.value.typeMoteur
-          }
+          },
         }
      }
 
@@ -183,6 +213,7 @@ export class AjouterDossierComponent implements OnInit {
                 var auto2={
                   dateEffetPolice:this.formAuto.value.dateEffetPolice,
                   dateEchange:this.formAuto.value.dateEchange,
+                  typeContrats:this.checkedList
                 }
                 this.autoService.ajouterContratAuto(auto2,idDossier).subscribe(
                   resp=>{

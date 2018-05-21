@@ -17,7 +17,7 @@
                 <div>Dossier Detail</div>
             </div>
 
-            <button type="submit" class="btn bg-secondary-50" form="formAuto"  (click)="enregistrer()">
+            <button type="submit" class="btn bg-secondary-50" form="formAuto" (click)="enregistrer()">
                 Enregistrer
             </button>
 
@@ -52,12 +52,12 @@
             <div class="tab-content">
 
                 <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
-                    
+
                     <div ngClass="{{messageStyle}}" role="alert">
                         {{messageErrorText }}
                     </div>
-    
-    
+
+
 
                     <div class="card p-6">
 
@@ -93,8 +93,9 @@
 
                             <div class="form-group">
                                 <!-- <input type="text" class="form-control" id="clientsId" aria-describedby="CLIENT DOSSIER" formControlName="idClient" /> -->
-                                <label class="form-control-label" for="clientsId">Client (Taper le Nom :)  </label>
-                                <ng2-completer formControlName="client"  [minSearchLength]="0" [dataService]="searchData" inputClass="form-control" textNoResults="Client Non Trouvée !" [datasource]="searchData"></ng2-completer>
+                                <label class="form-control-label" for="clientsId">Client (Taper le Nom :) </label>
+                                <ng2-completer formControlName="client" [minSearchLength]="0" [dataService]="searchData" inputClass="form-control" textNoResults="Client Non Trouvée !"
+                                    [datasource]="searchData"></ng2-completer>
                                 <div *ngIf="this.formDossier.get('client').hasError('required')" class="valid-feedback text-primary-A400">
                                     ce champ est obligatoire
                                 </div>
@@ -104,18 +105,18 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="product-images-tab-pane" role="tabpanel" aria-labelledby="product-images-tab">
-  
+
                     <div ngClass="{{messageStyle}}" role="alert">
                         {{messageErrorText }}
                     </div>
-    
+
                     <div class="card p-6">
 
-                        <form [formGroup]="formAuto" id="formAuto" >
+                        <form [formGroup]="formAuto" id="formAuto">
                             <div class="row">
-                                    <div class="col-4">
-                               * Tous Les Champs Sont Obligatoire !
-                                    </div>
+                                <div class="col-4">
+                                    * Tous Les Champs Sont Obligatoire !
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
@@ -138,7 +139,8 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Date 1ere Mise en Service: </label>
-                                        <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="datePremierMiseService" />
+                                        <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="datePremierMiseService"
+                                        />
 
                                     </div>
                                 </div>
@@ -203,19 +205,42 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" aria-describedby="montant" formControlName="montant" />
+                                        <label class="col-form-label"> montant</label>
+                                        <div *ngIf="this.formAuto.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
+                                            veuillez saisir un montant valide !
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
                             </div>
+                            <div class="form-group">
+                                <label class="col-form-label"> Type Contrat</label>
+                                <div class="form-check " *ngFor="let types of typesContratAuto " >
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" [checked]="types.idTypeContratAuto==1" [disabled]="types.idTypeContratAuto==1" value="{{types.idTypeContratAuto}}" (change)="onCheckboxChange(types,$event)" />
+                                        <span class="checkbox-icon"></span>
+                                        <span class="form-check-description">{{types.type}}</span>
+                                    </label>
+                                </div>
+
+
+                            </div>
+
+
                         </form>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="contrat-sante" role="tabpanel" aria-labelledby="contratSante">
-  
+
                     <div ngClass="{{messageStyle}}" role="alert">
                         {{messageErrorText }}
                     </div>
-    
+
                     <div class="card p-6">
                         <form *ngIf="formSante" [formGroup]="formSante">
 

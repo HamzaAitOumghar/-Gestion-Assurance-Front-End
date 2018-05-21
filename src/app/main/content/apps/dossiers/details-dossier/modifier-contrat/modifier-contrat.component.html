@@ -106,20 +106,39 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label class="col-form-label">Montant</label>
+                                <input type="text" class="form-control" aria-describedby="montant" formControlName="montant" />
+                                <div *ngIf="this.formAuto.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
+                                    veuillez saisir un montant valide !
+                                </div>
+                            </div>
+                        </div>
 
 
 
                     </div>
+                    <div class="form-group">
+                            <label class="col-form-label"> Type Contrat</label>
+                            <div class="form-check " *ngFor="let types of typesContratAuto " >
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" [checked]="typeContrat(types.idTypeContratAuto)" [disabled]="types.idTypeContratAuto==1" value="{{types.idTypeContratAuto}}" (change)='onCheckboxChange(types,$event)'  />
+                                    <span class="checkbox-icon"></span>
+                                    <span class="form-check-description">{{types.type}}</span>
+                                </label>
+                            </div>
+                    </div>
                 </form>
             </div>
-           
+            <div ngClass="{{messageStyle}}" role="alert">
+                {{messageErrorText }}
+            </div>
             <div class="modal-footer mx-auto">
                 <button type="button" class="btn btn-secondary" [disabled]="!formAuto.valid" (click)="modifierContrat()">Modifier</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
-            <div ngClass="{{messageStyle}}" role="alert">
-                    {{messageErrorText }}
-                </div>
+           
         </div>
     </div>
 </div>
