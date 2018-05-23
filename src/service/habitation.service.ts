@@ -25,7 +25,16 @@ export class HabitationService {
           resp=>resp.json()
         );
     }
-
+    public deleteContratHabitation(idHabitation){
+        return this.http.delete("http://localhost:8080/habitation/delete/"+idHabitation).map(
+            resp=>resp.json()
+        );
+    }
+    public modifierContratHabitation(idHabitation,habitation){
+        return this.http.put("http://localhost:8080/habitation/modifier/"+idHabitation,habitation).map(
+            resp=>resp.json()
+        );
+    }
 
 
 

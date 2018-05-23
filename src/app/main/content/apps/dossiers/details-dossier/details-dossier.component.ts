@@ -22,6 +22,7 @@ export class DetailsDossierComponent implements OnInit {
   vehi: Vehicule;
   autoModifier: Auto;
   santeModifier: Sante;
+  habitationModifier:Habitation;
   dossierId;
 
   constructor(private santeService: SanteService, private autoService: AutoService, private activateRoute: ActivatedRoute,private habitationService:HabitationService) {
@@ -76,6 +77,11 @@ export class DetailsDossierComponent implements OnInit {
   affectationSante(s) {
     this.santeModifier = s;
   }
+  affectationHabitation(h) {
+    this.habitationModifier = h;
+    
+  }
+  
   
   ngOnInit() {
     this.activateRoute.queryParams.subscribe(

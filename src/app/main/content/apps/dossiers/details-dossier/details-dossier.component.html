@@ -151,7 +151,13 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header text-center">List Des Contrat Habitation !</div>
+                    <div class="card-header text-center h2">List Des Contrat Habitation !
+
+                        <button type="button" class="btn btn-primary btn-fab btn-sm">
+                            <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratHabitation"></i>
+                        </button>
+
+                    </div>
                     <div *ngIf="(habitation|json)=='[]'">
                         Pas de contrat Habitation dans le dossiers
                     </div>
@@ -172,8 +178,8 @@
                                         </button>
 
                                         <div class="dropdown-menu" aria-labelledby="btnGroup">
-                                            <a class="dropdown-item" data-toggle="modal" data-target="">Modifier</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="" >Supprimer</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modificationContratHabitation" (click)='affectationHabitation(h)' >Modifier</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#supprimerContratHabitation"  (click)='affectationHabitation(h)' >Supprimer</a>
                                         </div>
                                     </div>
 
@@ -198,6 +204,9 @@
 
 
                     </div>
+                    <app-supprimer-contrat-habitation [contratHabitation]="habitationModifier" *ngIf='habitationModifier' (refrech)='ngOnInit()' ></app-supprimer-contrat-habitation>
+                    <app-ajouter-contrat-habitation [idDossier]="dossierId" *ngIf='dossierId' (refrech)='this.ngOnInit()'></app-ajouter-contrat-habitation>
+                    <app-modifier-contrat-habitation [habitation]="habitationModifier" *ngIf='habitationModifier' (refrech)='ngOnInit()' ></app-modifier-contrat-habitation>
                 </div>
             </div>
 

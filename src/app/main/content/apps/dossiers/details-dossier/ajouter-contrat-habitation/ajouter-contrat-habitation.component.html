@@ -1,0 +1,102 @@
+<div id="ajouterContratHabitation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ajouterContratAuto" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title mx-auto" id="ajouterContratHabitation">l'ajoute du contrat Habitation : </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body" >
+            <form *ngIf="formHabitation" [formGroup]="formHabitation">
+              <div class="row">
+                  <div class="col-4">
+                      * Tous Les Champs Sont Obligatoire !
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label"> Date Debut de Contrat : </label>
+                          <input type="date" class="form-control" aria-describedby="width" formControlName="dateDebut" />
+                      </div>
+
+                  </div>
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label">Date Fin de Contrat</label>
+                          <input type="date" class="form-control" aria-describedby="width" formControlName="dateFin" />
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label"> Type Assure : </label>
+                          <select class="form-control" formControlName="typeLogement">
+                              <option value="Maison">Maison</option>
+                              <option value="Appartement">Appartement</option>
+                          </select>                                    
+                      </div>
+
+                  </div>
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label">Nombre De Piece</label>
+                          <input type="text" class="form-control" aria-describedby="width" formControlName="nbrPiece" />
+                          <div *ngIf="this.formHabitation.get('nbrPiece').hasError('pattern')" class="valid-feedback text-danger-900">
+                              le Nombre saisi est invalid !
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label"> Adresse Habitation  : </label>
+                          <input type="text" class="form-control" aria-describedby="width" formControlName="adresseHabitation" />                                  
+                      </div>
+
+                  </div>
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label">Ville</label>
+                          <input type="text" class="form-control" aria-describedby="width" formControlName="ville" />
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4">
+
+                      <div class="form-group">
+                          <label class="form-control-label"> Montant  : </label>
+                          <input type="text" class="form-control" aria-describedby="width" formControlName="montant" />                                  
+                          <div *ngIf="this.formHabitation.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
+                              le montant saisi est invalid !
+                          </div>
+                      </div>
+
+                  </div>
+                  
+              </div>
+
+
+          </form>
+          </div>
+          <div ngClass="{{messageStyle}}" role="alert">
+              {{messageErrorText }}
+           </div>
+          <div class="modal-footer mx-auto">
+              <button type="button" class="btn btn-secondary" [disabled]="!formHabitation.valid" (click)="ajouterContratHabitation()">Ajouter</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          </div>
+          
+      </div>
+  </div>
+</div>
