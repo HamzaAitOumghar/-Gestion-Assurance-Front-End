@@ -92,8 +92,6 @@ export class ModifierContratComponent implements OnInit {
   }
 
   modifierContrat() {
-    console.log("HAMZA");
-    console.log(this.checkedList);
     var autoForm = {
       dateEffetPolice: this.formAuto.value.dateEffetPolice,
       dateEchange: this.formAuto.value.dateEchange,
