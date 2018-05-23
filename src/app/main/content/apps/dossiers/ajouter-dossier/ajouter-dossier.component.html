@@ -45,6 +45,9 @@
                 <li class="nav-item">
                     <a class="nav-link btn" id="contratSante" data-toggle="tab" href="#contrat-sante" role="tab" aria-controls="contrat-sante">Contrat Sante</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" id="contratHabitation" data-toggle="tab" href="#contrat-habitation" role="tab" aria-controls="contrat-habitation">Contrat Habitation</a>
+                </li>
 
 
             </ul>
@@ -272,6 +275,95 @@
                             </div>
                         </form>
                     </div>
+                </div>
+                <div class="tab-pane fade" id="contrat-habitation" role="tabpanel" aria-labelledby="contratHabitation">
+                    <div ngClass="{{messageStyle}}" role="alert">
+                        {{messageErrorText }}
+                    </div>
+
+                    <div class="card p-6">
+                        <form *ngIf="formHabitation" [formGroup]="formHabitation">
+                            <div class="row">
+                                <div class="col-4">
+                                    * Tous Les Champs Sont Obligatoire !
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label"> Date Debut de Contrat : </label>
+                                        <input type="date" class="form-control" aria-describedby="width" formControlName="dateDebut" />
+                                    </div>
+
+                                </div>
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label">Date Fin de Contrat</label>
+                                        <input type="date" class="form-control" aria-describedby="width" formControlName="dateFin" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label"> Type Assure : </label>
+                                        <select class="form-control" formControlName="typeLogement">
+                                            <option value="Essence">Maison</option>
+                                            <option value="Diesel">Appartement</option>
+                                        </select>                                    
+                                    </div>
+
+                                </div>
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nombre De Piece</label>
+                                        <input type="text" class="form-control" aria-describedby="width" formControlName="nbrPiece" />
+                                        <div *ngIf="this.formHabitation.get('nbrPiece').hasError('pattern')" class="valid-feedback text-danger-900">
+                                            le Nombre saisi est invalid !
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label"> Adresse Habitation  : </label>
+                                        <input type="text" class="form-control" aria-describedby="width" formControlName="adresseHabitation" />                                  
+                                    </div>
+
+                                </div>
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label">Ville</label>
+                                        <input type="text" class="form-control" aria-describedby="width" formControlName="ville" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label"> Montant  : </label>
+                                        <input type="text" class="form-control" aria-describedby="width" formControlName="montant" />                                  
+                                        <div *ngIf="this.formHabitation.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
+                                            le montant saisi est invalid !
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+
+
+                        </form>
+                    </div>
+                
                 </div>
 
                 <!-- Terr-->

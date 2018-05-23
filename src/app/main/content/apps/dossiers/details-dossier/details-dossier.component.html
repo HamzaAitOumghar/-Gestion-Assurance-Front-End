@@ -142,6 +142,60 @@
             </div>
 
 
+            <div class="card-deck mt-2">
+                <div class="card">
+
+                    <div class="card-header text-center">List Des Contrat Habitation !</div>
+                    <div *ngIf="(habitation|json)=='[]'">
+                        Pas de contrat Habitation dans le dossiers
+                    </div>
+                    <div class="card-body" *ngIf="(habitation|json)!='[]'">
+
+                        <div class="row flex-row flex-nowrap">
+                            <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let h of habitation'>
+
+                                <div class="widget widget2 card">
+
+                                    <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+
+                                        <div class="col">
+                                            <span class="text-center">Contrat Habitation N° {{h.idContratHabitation}} </span>
+                                        </div>
+                                        <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+
+                                        <div class="dropdown-menu" aria-labelledby="btnGroup">
+                                            <a class="dropdown-item" data-toggle="modal" data-target="">Modifier</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="" >Supprimer</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Debut : {{h.dateDebut}} </span>
+                                        </div>
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date Fin : {{h.dateFin}} </span>
+                                        </div>
+                                        <div>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-success mt-1"> {{h.typeLogement }} ( {{h.nbrPiece}} Piece)</span>
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-info mt-3">Montant {{ h.montant}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
 

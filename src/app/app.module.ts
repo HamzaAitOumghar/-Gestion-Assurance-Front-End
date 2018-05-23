@@ -25,6 +25,7 @@ import { SanteService } from '../service/sante.service';
 import { VehiculeService } from '../service/vehicule.service';
 import { DetailsDossierComponent } from './main/content/apps/dossiers/details-dossier/details-dossier.component';
 import { TypeContratAutoService } from '../service/typeContratAuto.service';
+import { HabitationService } from '../service/habitation.service';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -68,7 +69,8 @@ const appRouter: Routes  = [
     AutoService,
     SanteService,
     VehiculeService,
-    TypeContratAutoService
+    TypeContratAutoService,
+    HabitationService
   ],
   bootstrap: [AppComponent]
 })

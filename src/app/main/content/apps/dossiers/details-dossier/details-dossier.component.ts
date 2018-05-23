@@ -5,6 +5,8 @@ import { Sante } from '../../../../../entities/Sante';
 import { SanteService } from '../../../../../../service/sante.service';
 import { AutoService } from '../../../../../../service/auto.service';
 import { Vehicule } from '../../../../../entities/Vehicule';
+import { Habitation } from '../../../../../entities/Habitation';
+import { HabitationService } from '../../../../../../service/habitation.service';
 
 
 @Component({
@@ -16,12 +18,13 @@ export class DetailsDossierComponent implements OnInit {
 
   auto: Auto[] = null;
   sante: Sante[];
+  habitation:Habitation[];
   vehi: Vehicule;
   autoModifier: Auto;
   santeModifier: Sante;
   dossierId;
 
-  constructor(private santeService: SanteService, private autoService: AutoService, private activateRoute: ActivatedRoute) {
+  constructor(private santeService: SanteService, private autoService: AutoService, private activateRoute: ActivatedRoute,private habitationService:HabitationService) {
     this.activateRoute.queryParams.subscribe(
       (param) => {
         this.dossierId = param['id'];
@@ -52,6 +55,14 @@ export class DetailsDossierComponent implements OnInit {
       err => {
         console.log(err);
       }
+    );
+    this.habitationService.getAllContratHabitationInDossier(this.dossierId).subscribe(
+        resp=>{
+          this.habitation=resp;
+        },
+        err=>{
+          console.log(err);
+        }
     );
   }
 
@@ -98,6 +109,14 @@ export class DetailsDossierComponent implements OnInit {
         console.log(err);
       }
     );
+    this.habitationService.getAllContratHabitationInDossier(this.dossierId).subscribe(
+      resp=>{
+        this.habitation=resp;
+      },
+      err=>{
+        console.log(err);
+      }
+  );
   }
 
 }

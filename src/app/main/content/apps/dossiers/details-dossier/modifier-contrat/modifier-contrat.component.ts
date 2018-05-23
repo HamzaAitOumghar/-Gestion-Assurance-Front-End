@@ -59,8 +59,7 @@ export class ModifierContratComponent implements OnInit {
         montant:new FormControl(this.auto.montant,Validators.pattern('([0-9]*[.])?[0-9]+'))
 
       });
-      this.checkedList=this.auto.typeContrats
-      console.log(this.checkedList);
+      this.checkedList=this.auto.typeContrats;
      
       
     }
@@ -93,10 +92,13 @@ export class ModifierContratComponent implements OnInit {
   }
 
   modifierContrat() {
+    console.log("HAMZA");
+    console.log(this.checkedList);
     var autoForm = {
       dateEffetPolice: this.formAuto.value.dateEffetPolice,
       dateEchange: this.formAuto.value.dateEchange,
       montant:this.formAuto.value.montant,
+      typeContrats:this.checkedList,
       vehicules: {
         matriculation: this.formAuto.value.matriculation,
         marque: this.formAuto.value.marque,

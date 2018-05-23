@@ -11,6 +11,7 @@ import { AutoService } from '../../../../../../service/auto.service';
 import { VehiculeService } from '../../../../../../service/vehicule.service';
 import { TypeContratAutoService } from '../../../../../../service/typeContratAuto.service';
 import { TypeContratAuto } from '../../../../../entities/TypeContratAuto';
+import { HabitationService } from '../../../../../../service/habitation.service';
 
 declare var $;
 @Component({
@@ -23,6 +24,8 @@ export class AjouterDossierComponent implements OnInit {
   formDossier:FormGroup;
   formAuto:FormGroup;
   formSante:FormGroup;
+  formHabitation:FormGroup;
+  
   clients:Client[];
   messageStyle:string="d-none";
   messageErrorText:string;
@@ -33,7 +36,7 @@ export class AjouterDossierComponent implements OnInit {
   ];
 
   constructor(private clientService:ClientService,private dossierService:DossierService,private santeService:SanteService
-    ,private autoService:AutoService,private vehiculeService:VehiculeService,private typesautoService:TypeContratAutoService
+    ,private autoService:AutoService,private vehiculeService:VehiculeService,private typesautoService:TypeContratAutoService,private habitationService:HabitationService
   ) {
   
     this.clientService.getClient().map(resp=>resp.json()).subscribe(
@@ -80,6 +83,16 @@ export class AjouterDossierComponent implements OnInit {
           Validators.pattern('([0-9]*[.])?[0-9]+')
       ]) )
     });
+
+    this.formHabitation=new FormGroup({
+      typeLogement:new FormControl('Maison',Validators.required),
+      nbrPiece:new FormControl('',Validators.pattern("^(0|[1-9][0-9]*)$")),
+      dateDebut:new FormControl('',Validators.required),
+      dateFin:new FormControl('',Validators.required),
+      adresseHabitation:new FormControl('',Validators.required),
+      ville:new FormControl('',Validators.required),
+      montant:new FormControl('',Validators.pattern('([0-9]*[.])?[0-9]+'))
+    });
  
   }
   
@@ -106,6 +119,7 @@ export class AjouterDossierComponent implements OnInit {
      var cl:Client;
      var auto=null;
      var sante=null;
+     var habitation=null;
      var idDossier;
 
      console.log(this.formAuto.value);
@@ -145,9 +159,24 @@ export class AjouterDossierComponent implements OnInit {
         status:this.formSante.value.status,
         montant:this.formSante.value.montant
        }
-
-
      }
+     if(this.formHabitation.value.typeLogement!="" &&
+      this.formHabitation.value.nbrPiece!="" &&
+      this.formHabitation.value.dateDebut!="" &&
+      this.formHabitation.value.dateFin!="" &&
+      this.formHabitation.value.adresseHabitation!="" &&
+      this.formHabitation.value.ville!="" &&
+      this.formHabitation.value.montant!=""){
+          habitation={
+            typeLogement:this.formHabitation.value.typeLogement,
+            nbrPiece:this.formHabitation.value.nbrPiece,
+            dateDebut:this.formHabitation.value.dateDebut,
+            dateFin:this.formHabitation.value.dateFin,
+            adresseHabitation:this.formHabitation.value.adresseHabitation,
+            ville:this.formHabitation.value.ville,
+            montant:this.formHabitation.value.montant
+          }
+      }
 
      let id =this.formDossier.value.client.match('\\d+')[0]!=null?this.formDossier.value.client.match('\\d+')[0]:"";
      this.formDossier.value.client=null;
@@ -261,6 +290,28 @@ export class AjouterDossierComponent implements OnInit {
                   }
                 );
 
+              }
+              if(habitation!=null){
+                this.habitationService.saveContratHabitation(habitation,idDossier).subscribe(
+                  resp=>{
+                    this.messageStyle="alert alert-success text-center";
+                    this.messageErrorText="Contrat Habitation Bien Ajouter";
+                      $(function() {
+                        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+                          $(".alert").slideUp(500);
+                          });  
+                      }); 
+                  },
+                  err=>{
+                    this.messageStyle="alert alert-danger text-center";
+                    this.messageErrorText="Erreur Dans l'ajoute du Contrat Habitation";
+                      $(function() {
+                        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+                          $(".alert").slideUp(500);
+                          });  
+                      });
+                  }
+                )
               }
 
             }

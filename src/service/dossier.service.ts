@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { SupprimerComponent } from '../app/main/content/apps/client/supprimer/supprimer.component';
 
 
 

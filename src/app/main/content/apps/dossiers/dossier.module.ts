@@ -17,6 +17,7 @@ import { SupprimercontratComponent } from './details-dossier/supprimercontrat/su
 import { ModifierContratSanteComponent } from './details-dossier/modifier-contrat-sante/modifier-contrat-sante.component';
 import { SupprimerContratSanteComponent } from './details-dossier/supprimer-contrat-sante/supprimer-contrat-sante.component';
 import { AjouterContratAutoComponent } from './details-dossier/ajouter-contrat-auto/ajouter-contrat-auto.component';
+import { AjouterContratSanteComponent } from './details-dossier/ajouter-contrat-sante/ajouter-contrat-sante.component';
 
 
 
@@ -34,7 +35,8 @@ import { AjouterContratAutoComponent } from './details-dossier/ajouter-contrat-a
         SupprimercontratComponent,
         ModifierContratSanteComponent,
         SupprimerContratSanteComponent,
-        AjouterContratAutoComponent
+        AjouterContratAutoComponent,
+        AjouterContratSanteComponent
 
     ],
     imports:[
