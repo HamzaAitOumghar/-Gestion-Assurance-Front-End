@@ -68,6 +68,11 @@
                                                                     <span class="column-title">Date De Naissance</span>
                                                                 </div>
                                                             </th>
+                                                            <th class="secondary-text">
+                                                                <div class="table-header">
+                                                                    <span class="column-title">Status</span>
+                                                                </div>
+                                                            </th>
                                                  
                                                  
                                                     <th class="secondary-text">
@@ -88,15 +93,16 @@
                                                     <td>{{c.prenom}}</td>
                                                     <td>{{c.cin}}</td>
                                                     <td>{{c.dateNaissance}}</td>
-                                                 
+                                                    <td>{{c.status.labelStatus}}</td>
+
                                                     <td>
                                                             <div class="dropdown ">
                                                                     <button type="button" class="btn btn-icon" aria-label="btnGroup" data-toggle="dropdown" > 
                                                                         <i class="icon icon-dots-vertical"></i>
                                                                      </button>
                                                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroup"  >
-                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)" >Modifier Contrat</button>
-                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)">Supprimer Contrat</button>
+                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)" >Modifier Client</button>
+                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)">Supprimer Client</button>
                                                                      </div>
                                                                        
                                                                 </div> 

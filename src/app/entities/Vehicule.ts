@@ -1,4 +1,5 @@
 import { Auto } from "./Auto";
+import { MarqueVehicule } from "./MarqueVehicule";
 
 
 
@@ -6,7 +7,7 @@ export class Vehicule {
 
     private _idVehicule: number;
     private _matriculation: string;
-    private _marque: string;
+    private _marqueVehicule:MarqueVehicule;
     private _datePremierMiseService: Date;
     private _nbrPlace: number;
     private _usageVehicule: string;
@@ -14,6 +15,22 @@ export class Vehicule {
     private _typeMoteur: string;
 
 
+
+    /**
+     * Getter marqueVehicule
+     * @return {MarqueVehicule}
+     */
+	public get marqueVehicule(): MarqueVehicule {
+		return this._marqueVehicule;
+	}
+
+    /**
+     * Setter marqueVehicule
+     * @param {MarqueVehicule} value
+     */
+	public set marqueVehicule(value: MarqueVehicule) {
+		this._marqueVehicule = value;
+	}
 
     /**
      * Getter idVehicule
@@ -31,13 +48,7 @@ export class Vehicule {
         return this._matriculation;
     }
 
-    /**
-     * Getter marque
-     * @return {string}
-     */
-    public get marque(): string {
-        return this._marque;
-    }
+  
 
     /**
      * Getter datePremierMiseService
@@ -95,13 +106,7 @@ export class Vehicule {
         this._matriculation = value;
     }
 
-    /**
-     * Setter marque
-     * @param {string} value
-     */
-    public set marque(value: string) {
-        this._marque = value;
-    }
+ 
 
     /**
      * Setter datePremierMiseService

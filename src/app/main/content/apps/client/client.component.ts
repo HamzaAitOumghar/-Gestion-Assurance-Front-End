@@ -26,12 +26,12 @@ export class ClientComponent implements OnInit {
       $('#sample-data-table').DataTable({
         columnDefs: [
           {
-            targets           : 4,
+            targets           : 5,
             filterable        : false,
             sortable          : false
           },
           {
-          targets           : 5,
+          targets           : 6,
           responsivePriority: 1,
           filterable        : false,
           sortable          : false
@@ -61,7 +61,6 @@ export class ClientComponent implements OnInit {
 
   
   onRefrech($event){
-    console.log("BENATIA");
       this.ngOnInit();      
     }
   affecatationIdClient(id){

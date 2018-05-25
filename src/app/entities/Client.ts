@@ -1,4 +1,5 @@
 import { Dossier } from "./Dossier";
+import { StatusClient } from "./StatusClient";
 
 export class Client{
    
@@ -9,10 +10,29 @@ export class Client{
   private  _ville:String;
   private  _numTel:String;
   private  _profession:String;
+  private _status:StatusClient;
   private  _email:String;
   private  _cin:String;
   private  _dateNaissance:String;
 
+
+
+    /**
+     * Getter status
+     * @return {StatusClient}
+     */
+	public get status(): StatusClient {
+		return this._status;
+	}
+
+    /**
+     * Setter status
+     * @param {StatusClient} value
+     */
+	public set status(value: StatusClient) {
+		this._status = value;
+	}
+  
     /**
      * Getter cin
      * @return {String}
