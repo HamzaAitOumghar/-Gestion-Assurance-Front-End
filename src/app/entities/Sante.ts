@@ -1,12 +1,46 @@
 import { Dossier } from "./Dossier";
+import { TypeContratSante } from "./TypeContratSante";
 
 export class Sante {
 
     private _numContratSante: number;
     private _dateContrat: Date;
-    private _status: string;
+    private _dateFinContrat: Date;
     private _montant: number;
 
+    private _typeContrats:TypeContratSante[] ;
+
+    /**
+     * Getter dateFinContrat
+     * @return {Date}
+     */
+	public get dateFinContrat(): Date {
+		return this._dateFinContrat;
+	}
+
+    /**
+     * Setter dateFinContrat
+     * @param {Date} value
+     */
+	public set dateFinContrat(value: Date) {
+		this._dateFinContrat = value;
+	}
+
+    /**
+     * Getter typeContrats
+     * @return {TypeContratSante[] }
+     */
+	public get typeContrats(): TypeContratSante[]  {
+		return this._typeContrats;
+	}
+
+    /**
+     * Setter typeContrats
+     * @param {TypeContratSante[] } value
+     */
+	public set typeContrats(value: TypeContratSante[] ) {
+		this._typeContrats = value;
+	}
 
     /**
      * Getter numContratSante
@@ -24,13 +58,7 @@ export class Sante {
 		return this._dateContrat;
 	}
 
-    /**
-     * Getter status
-     * @return {string}
-     */
-	public get status(): string {
-		return this._status;
-	}
+    
 
     /**
      * Getter montant
@@ -64,13 +92,7 @@ export class Sante {
 		this._dateContrat = value;
 	}
 
-    /**
-     * Setter status
-     * @param {string} value
-     */
-	public set status(value: string) {
-		this._status = value;
-	}
+ 
 
     /**
      * Setter montant

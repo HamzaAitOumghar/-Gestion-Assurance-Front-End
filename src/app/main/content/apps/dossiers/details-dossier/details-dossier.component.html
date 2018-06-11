@@ -125,11 +125,12 @@
 
                                     <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Contrat : {{s.dateContrat}} </span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Debut Contrat : {{s.dateContrat}} </span>
                                         </div>
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Status {{s.status }}</span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date Fin Contrat {{s.dateFinContrat }}</span>
                                         </div>
+                                                <span class="badge badge-success m-1 " *ngFor='let ty of s.typeContrats'>{{ty.type}}</span>
                                         <div>
                                             <span class="badge badge-info mt-3">Montant {{ s.montant}}</span>
                                         </div>
@@ -196,7 +197,9 @@
                                         <div>
                                             <span class="badge badge-info mt-3">Montant {{ h.montant}}</span>
                                         </div>
-
+                                        
+                                                <span class="badge badge-success m-1 " *ngFor='let ty of h.typeContrats'>{{ty.type}}</span>
+                                           
                                     </div>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@
             <form *ngIf="formSante" [formGroup]="formSante">
 
               <div class="form-group">
-                  <label class="form-control-label" for="date">Date : </label>
+                  <label class="form-control-label" for="date">Date de Debut : </label>
 
                   <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateContrat" />
                   <div *ngIf="this.formSante.get('dateContrat').hasError('required')" class="valid-feedback text-primary-900">
@@ -19,9 +19,9 @@
                   </div>
               </div>
               <div class="form-group">
-                  <label class="form-control-label" for="status">Status : </label>
-                  <input type="text" class="form-control" aria-describedby="Status Contrat Sante" formControlName="status" />
-                  <div *ngIf="this.formSante.get('status').hasError('required')" class="valid-feedback text-primary-900">
+                  <label class="form-control-label" for="status">Date de Fin : </label>
+                  <input type="text" class="form-control" aria-describedby="Status Contrat Sante" formControlName="dateFinContrat" />
+                  <div *ngIf="this.formSante.get('dateFinContrat').hasError('required')" class="valid-feedback text-primary-900">
                       ce champ est obligatoire
                   </div>
               </div>
@@ -35,6 +35,17 @@
                       le montant saisi est invalid !
                   </div>
               </div>
+              <div class="form-group">
+                    <label class="col-form-label"> Type Contrat</label>
+                    <div class="form-check " *ngFor="let types of typesContratSante ">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [checked]="typeContrat(types.idTypeContratSante)" [disabled]="types.idTypeContratSante==1"
+                                value="{{types.idTypeContratSante}}" (change)="onCheckboxChange2(types,$event)" />
+                            <span class="checkbox-icon"></span>
+                            <span class="form-check-description">{{types.type}}</span>
+                        </label>
+                    </div>
+                </div>
           </form>
           
         <div ngClass="{{messageStyle}}" role="alert">

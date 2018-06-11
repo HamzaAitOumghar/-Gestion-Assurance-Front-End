@@ -85,6 +85,16 @@
                   </div>
                   
               </div>
+              <div class="form-group">
+                    <label class="col-form-label"> Type Contrat</label>
+                    <div class="form-check " *ngFor="let types of typesContratHabitation " >
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"  [checked]="checkTypeContratHabitation(types.idTypeContratHabitation)" [disabled]="types.idTypeContratHabitation==1" value="{{types.idTypeContratHabitation}}" (change)="onCheckboxChange3(types,$event)" />
+                            <span class="checkbox-icon"></span>
+                            <span class="form-check-description">{{types.type}}</span>
+                        </label>
+                    </div>
+                </div>
 
 
           </form>

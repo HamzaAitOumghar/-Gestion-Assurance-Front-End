@@ -2,6 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl ,Validators} from '@angular/forms';
 import { AutoService } from '../../../../../../../service/auto.service';
 import { VehiculeService } from '../../../../../../../service/vehicule.service';
+import { CompleterService, CompleterData } from 'ng2-completer';
+import { MarqueVehiculeService } from '../../../../../../../service/marqueVehicule.service';
+import { TypeContratAuto } from '../../../../../../entities/TypeContratAuto';
+import { TypeContratAutoService } from '../../../../../../../service/typeContratAuto.service';
+
 declare var $;
 @Component({
   selector: 'app-ajouter-contrat-auto',
@@ -12,13 +17,45 @@ export class AjouterContratAutoComponent implements OnInit {
   @Input() idDossier;
   @Output() refrech: EventEmitter<any> = new EventEmitter();
 
+  searchData=[];
+  marques=[];
+
   formAuto:FormGroup;
   messageStyle: string = "d-none";
   messageErrorText: string;
+  typesContratAuto:TypeContratAuto[];
 
-  constructor(private autoService:AutoService, private vehiculeService:VehiculeService) {
-   }
 
+  checkedList=[
+    {idTypeContratAuto: 1, type: "Basic"}
+  ];
+
+  constructor(private autoService:AutoService, private vehiculeService:VehiculeService,
+            private marqueService:MarqueVehiculeService ,private typesautoService:TypeContratAutoService) {
+   
+      this.marqueService.getAllMarqueVehicules().subscribe(
+          resp=>{
+            this.marques=resp;
+            this.searchData=resp.map(a=>a.marque);
+
+          });
+          this.typesautoService.getAllTypeContratAuto().subscribe(
+            resp=>{
+                this.typesContratAuto=resp;      
+            });
+
+    }
+    onCheckboxChange(option, event) {
+      if(event.target.checked) {
+        this.checkedList.push(option);
+      } else {
+        for(var i=0 ; i < this.checkedList.length; i++) {
+          if(this.checkedList[i].idTypeContratAuto == option.idTypeContratAuto){
+            this.checkedList.splice(i,1);     
+          }
+        }
+      }
+    }
   ngOnInit() {
     this.formAuto = new FormGroup({
       dateEffetPolice: new FormControl('', Validators.required),
@@ -29,31 +66,36 @@ export class AjouterContratAutoComponent implements OnInit {
       datePremierMiseService: new FormControl('', Validators.required),
       usageVehicule: new FormControl('', Validators.required),
       nbrChevaux: new FormControl('', Validators.pattern("^(0|[1-9][0-9]*)$")),
-      typeMoteur: new FormControl('', Validators.required)
+      typeMoteur: new FormControl('', Validators.required),
+      montant:new FormControl('',Validators.pattern('([0-9]*[.])?[0-9]+'))
     });
+  
   }
  
   ajouterContratAuto(){
-    console.log("hamza ");
-    console.log(this.idDossier);
-    
+     
       var auto={
         dateEffetPolice:this.formAuto.value.dateEffetPolice,
         dateEchange:this.formAuto.value.dateEchange,
+        typeContrats:this.checkedList,
+        montant:this.formAuto.value.montant
     };
     var vehicules={
       matriculation:this.formAuto.value.matriculation,
-      marque:this.formAuto.value.marque,      
+      marqueVehicule: this.marques.find(a=>a.marque==this.formAuto.value.marque) ,      
       nbrPlace:this.formAuto.value.nbrPlace,
       datePremierMiseService:this.formAuto.value.datePremierMiseService,
       usageVehicule:this.formAuto.value.usageVehicule,
       nbrChevaux:this.formAuto.value.nbrChevaux,
       typeMoteur:this.formAuto.value.typeMoteur
+      
     };
-
+  
     this.autoService.ajouterContratAuto(auto,this.idDossier).subscribe(
       resp=>{
-      
+        console.log("Hamza");
+        console.log(vehicules.marqueVehicule);
+        
           this.vehiculeService.ajouterVehicule(vehicules,resp.idAuto).subscribe(
             resp=>{
               this.messageStyle="alert alert-success text-center";

@@ -49,7 +49,6 @@ export class DossiersComponent implements OnInit {
       this.dossierService.getDossiers().subscribe(
         data=>{
           this.dossiers=data;
-          console.log(this.dossiers[0]);
       },error=>{
           console.log("Erreur !"+error);
       }

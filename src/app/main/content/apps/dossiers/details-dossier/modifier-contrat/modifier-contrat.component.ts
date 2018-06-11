@@ -45,12 +45,14 @@ export class ModifierContratComponent implements OnInit {
   }
 
   ngOnChanges() {
+    console.log("this.auto");
+    console.log(this.auto);
     if (this.auto.vehicules != null) {
       this.formAuto = new FormGroup({
         dateEffetPolice: new FormControl(this.auto.dateEffetPolice, Validators.required),
         dateEchange: new FormControl(this.auto.dateEchange, Validators.required),
         matriculation: new FormControl(this.auto.vehicules.matriculation, Validators.required),
-        marque: new FormControl(this.auto.vehicules.marque, Validators.required),
+        marque: new FormControl(this.auto.vehicules.marqueVehicule.marque, Validators.required),
         nbrPlace: new FormControl(this.auto.vehicules.nbrPlace, Validators.pattern("^(0|[1-9][0-9]*)$")),
         datePremierMiseService: new FormControl(this.auto.vehicules.datePremierMiseService, Validators.required),
         usageVehicule: new FormControl(this.auto.vehicules.usageVehicule, Validators.required),
@@ -87,8 +89,6 @@ export class ModifierContratComponent implements OnInit {
         return true;
       }
     }
-
-
   }
 
   modifierContrat() {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HabitationService } from '../../../../../../../service/habitation.service';
+import { TypeContratHabitationService } from '../../../../../../../service/typeContratHabitation.service';
 
 declare var $
 @Component({
@@ -16,8 +17,28 @@ export class AjouterContratHabitationComponent implements OnInit {
   formHabitation:FormGroup;
   messageStyle:string="d-none";
   messageErrorText:string;
-
-  constructor(private habitationService:HabitationService) { }
+  typesContratHabitation=[];
+  checkedList3=[
+    {idTypeContratHabitation: 1, type: "Basic"}
+  ];
+  constructor(private habitationService:HabitationService,private typehabitationService:TypeContratHabitationService ) { 
+    this.typehabitationService.getAllTypeContratHabitation().subscribe(
+      resp=>{
+        this.typesContratHabitation=resp;
+      }
+    );
+  }
+  onCheckboxChange3(option, event) {
+    if(event.target.checked) {
+      this.checkedList3.push(option);
+    } else {
+      for(var i=0 ; i < this.checkedList3.length; i++) {
+        if(this.checkedList3[i].idTypeContratHabitation == option.idTypeContratHabitation){
+          this.checkedList3.splice(i,1);     
+        }
+      }
+    }
+  }
 
   ngOnInit() {
     this.formHabitation=new FormGroup({
@@ -38,7 +59,8 @@ export class AjouterContratHabitationComponent implements OnInit {
       dateFin:this.formHabitation.value.dateFin,
       adresseHabitation:this.formHabitation.value.adresseHabitation,
       ville:this.formHabitation.value.ville,
-      montant:this.formHabitation.value.montant
+      montant:this.formHabitation.value.montant,
+      typeContrats:this.checkedList3
     }
 
     this.habitationService.saveContratHabitation(habitation,this.idDossier).subscribe(

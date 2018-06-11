@@ -1,4 +1,5 @@
 import { Dossier } from "./Dossier";
+import { TypeContratHabitation } from "./TypeContratHabitation";
 
 
 export class Habitation{
@@ -14,6 +15,24 @@ export class Habitation{
 	private  _montant:number;
     private _dossier:Dossier[];
 
+    private _typeContrats:TypeContratHabitation[] ;
+
+
+    /**
+     * Getter typeContrats
+     * @return {TypeContratHabitation[] }
+     */
+	public get typeContrats(): TypeContratHabitation[]  {
+		return this._typeContrats;
+	}
+
+    /**
+     * Setter typeContrats
+     * @param {TypeContratHabitation[] } value
+     */
+	public set typeContrats(value: TypeContratHabitation[] ) {
+		this._typeContrats = value;
+	}
 
 
     /**

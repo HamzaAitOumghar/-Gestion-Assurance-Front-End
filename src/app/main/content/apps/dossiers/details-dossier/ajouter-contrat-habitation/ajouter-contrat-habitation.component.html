@@ -30,19 +30,20 @@
                           <input type="date" class="form-control" aria-describedby="width" formControlName="dateFin" />
                       </div>
                   </div>
-              </div>
-              <div class="row">
                   <div class="col-4">
 
-                      <div class="form-group">
-                          <label class="form-control-label"> Type Assure : </label>
-                          <select class="form-control" formControlName="typeLogement">
-                              <option value="Maison">Maison</option>
-                              <option value="Appartement">Appartement</option>
-                          </select>                                    
-                      </div>
-
-                  </div>
+                        <div class="form-group">
+                            <label class="form-control-label"> Type Assure : </label>
+                            <select class="form-control" formControlName="typeLogement">
+                                <option value="Maison">Maison</option>
+                                <option value="Appartement">Appartement</option>
+                            </select>                                    
+                        </div>
+  
+                    </div>
+              </div>
+              <div class="row">
+                 
                   <div class="col-4">
 
                       <div class="form-group">
@@ -53,8 +54,6 @@
                           </div>
                       </div>
                   </div>
-              </div>
-              <div class="row">
                   <div class="col-4">
 
                       <div class="form-group">
@@ -85,7 +84,18 @@
                   </div>
                   
               </div>
+              <div class="form-group">
+                    <label class="col-form-label"> Type Contrat</label>
+                    <div class="form-check " *ngFor="let types of typesContratHabitation " >
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [checked]="types.idTypeContratHabitation==1" [disabled]="types.idTypeContratHabitation==1" value="{{types.idTypeContratHabitation}}" (change)="onCheckboxChange3(types,$event)" />
+                            <span class="checkbox-icon"></span>
+                            <span class="form-check-description">{{types.type}}</span>
+                        </label>
+                    </div>
 
+
+                </div>
 
           </form>
           </div>

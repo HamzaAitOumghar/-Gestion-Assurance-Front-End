@@ -28,6 +28,9 @@ import { TypeContratAutoService } from '../service/typeContratAuto.service';
 import { HabitationService } from '../service/habitation.service';
 import { StatusClientService } from '../service/statusClient.service';
 import { MarqueVehiculeService } from '../service/marqueVehicule.service';
+import { StatistiqueService } from '../service/statistique.service';
+import { TypeContratHabitationService } from '../service/typeContratHabitation.service';
+import { TypeContratSanteService } from '../service/typeContratSante.service';
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
@@ -74,7 +77,10 @@ const appRouter: Routes  = [
     TypeContratAutoService,
     HabitationService,
     StatusClientService,
-    MarqueVehiculeService
+    MarqueVehiculeService,
+    StatistiqueService,
+    TypeContratHabitationService,
+    TypeContratSanteService
   ],
   bootstrap: [AppComponent]
 })

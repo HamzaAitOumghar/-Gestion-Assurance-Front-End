@@ -60,39 +60,17 @@
   
             <div class="widget widget1 card">
   
-                <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
-  
-                    <div class="col">
-  
-                        <select class="h6 custom-select">
-                            <option selected="" value="today">Today</option>
-                            <option value="yesterday">Yesterday</option>
-                            <option value="tomorrow">Tomorrow</option>
-                        </select>
-  
-                    </div>
-  
-                    <button type="button" class="btn btn-icon fuse-ripple-ready">
-                        <i class="icon icon-dots-vertical"></i>
-                    </button>
-  
-                </div>
+                
   
                 <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
   
-                    <div class="title text-secondary">25</div>
+                    <div class="title text-secondary">{{contratStat[0]}}</div>
   
-                    <div class="sub-title h6 text-muted">DUE TASKS</div>
-  
-                </div>
-  
-                <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
-  
-                    <span class="text-muted">Completed:</span>
-  
-                    <span class="ml-2">7</span>
+                    <div class="sub-title h6 text-muted"> Clients En Total </div>
   
                 </div>
+  
+                
             </div>
         </div>
         <!-- / WIDGET 1 -->
@@ -102,25 +80,12 @@
   
             <div class="widget widget2 card">
   
-                <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
-  
-                    <div class="col">
-                        <span class="h6">Overdue</span>
-                    </div>
-  
-                    <button type="button" class="btn btn-icon fuse-ripple-ready">
-                        <i class="icon icon-dots-vertical"></i>
-                    </button>
-                </div>
-  
                 <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                    <div class="title text-danger">4</div>
-                    <div class="sub-title h6 text-muted">TASKS</div>
-                </div>
   
-                <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
-                    <span class="text-muted">Yesterday's:</span>
-                    <span class="ml-2">2</span>
+                    <div class="title text-danger">{{contratStat[1]}}</div>
+  
+                    <div class="sub-title h6 text-muted"> Contrat Auto En Total </div>
+  
                 </div>
             </div>
         </div>
@@ -131,26 +96,12 @@
   
             <div class="widget widget3 card">
   
-                <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
-  
-                    <div class="col">
-                        <span class="h6">Issues</span>
-                    </div>
-  
-                    <button type="button" class="btn btn-icon fuse-ripple-ready">
-                        <i class="icon icon-dots-vertical"></i>
-                    </button>
-  
-                </div>
-  
                 <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                    <div class="title text-warning">32</div>
-                    <div class="sub-title h6 text-muted">OPEN</div>
-                </div>
   
-                <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
-                    <span class="text-muted">Closed today:</span>
-                    <span class="ml-2">0</span>
+                    <div class="title text-warning" >{{contratStat[2]}}</div>
+  
+                    <div class="sub-title h6 text-muted"> Contrat Habitation En Total </div>
+  
                 </div>
             </div>
         </div>
@@ -161,153 +112,43 @@
   
             <div class="widget widget4 card">
   
-                <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
-  
-                    <div class="col">
-                        <span class="h6">Features</span>
-                    </div>
-  
-                    <button type="button" class="btn btn-icon fuse-ripple-ready">
-                        <i class="icon icon-dots-vertical"></i>
-                    </button>
-  
-                </div>
-  
                 <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
-                    <div class="title text-info">42</div>
-                    <div class="sub-title h6 text-muted">PROPOSALS</div>
-                </div>
   
-                <div class="widget-footer p-4 bg-light row no-gutters align-items-center">
-                    <span class="text-muted">Implemented:</span>
-                    <span class="ml-2">8</span>
+                    <div class="title text-info">{{contratStat[3]}}</div>
+  
+                    <div class="sub-title h6 text-muted"> Contrat Sante En Total </div>
                 </div>
             </div>
         </div>
         <!-- / WIDGET 4 -->
   
         <!-- WIDGET 5 -->
-        <div class="col-12 p-3">
+        <div class="col-12 col-lg-6 p-3">
   
-            <div class="widget widget5 card">
-  
+            <div class="widget widget6 card">
+<!--   
                 <div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
   
                     <div class="col">
-                        <span class="h6">Github Issues</span>
+                        <span class="h6">Status Client</span>
                     </div>
   
-                    <div>
+                </div> -->
   
-                        <button type="button" class="widget5-option-change-btn btn btn-link fuse-ripple-ready" data-interval="TW">
-                            This Week
-                        </button>
+                <div class="widget-content">
   
-                        <button type="button" class="widget5-option-change-btn btn btn-link fuse-ripple-ready" data-interval="LW">
-                            Last Week
-                        </button>
+                    <div class="row no-gutters">
   
-                        <button type="button" class="widget5-option-change-btn btn btn-link fuse-ripple-ready" data-interval="2W">
-                            2 WEEKS AGO
-                        </button>
-  
-                    </div>
-                </div>
-  
-                <div class="widget-content p-4">
-  
-                    <div class="row">
-  
-                        <div class="col-12 col-lg-6">
-  
-                            <div id="widget5-main-chart">
-                                <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-multiBarWithLegend" transform="translate(32,48)"><g><g class="nv-x nv-axis nvd3-svg" transform="translate(0,356)"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick zero" transform="translate(31.87671232876712,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Mon</text></g><g class="tick zero" transform="translate(80.91780821917808,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Tue</text></g><g class="tick zero" transform="translate(129.95890410958904,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Wed</text></g><g class="tick zero" transform="translate(179,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Thu</text></g><g class="tick zero" transform="translate(228.04109589041096,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Fri</text></g><g class="tick zero" transform="translate(277.0821917808219,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Sat</text></g><g class="tick zero" transform="translate(326.12328767123284,0)" style="opacity: 1;"><line y2="-356" x2="0" style="opacity: 1;"></line><text dy=".71em" y="7" transform="translate(0,0)" style="text-anchor: middle; opacity: 1;" x="0">Sun</text></g><path class="domain" d="M0,0V0H358V0"></path><text class="nv-axislabel" text-anchor="middle" y="36" x="179" style="opacity: 1;"></text></g></g></g><g class="nv-y nv-axis nvd3-svg"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick zero" transform="translate(0,356)" style="opacity: 1;"><line x2="358" y2="0"></line><text dy=".32em" x="-3" opacity="0" style="text-anchor: end;" y="0">0.0</text></g><g class="tick" transform="translate(0,288.8301886792453)" style="opacity: 1;"><line x2="358" y2="0"></line><text dy=".32em" x="-3" opacity="1" style="text-anchor: end;" y="0">10.0</text></g><g class="tick" transform="translate(0,221.66037735849056)" style="opacity: 1;"><line x2="358" y2="0"></line><text dy=".32em" x="-3" opacity="1" style="text-anchor: end;" y="0">20.0</text></g><g class="tick" transform="translate(0,154.49056603773585)" style="opacity: 1;"><line x2="358" y2="0"></line><text dy=".32em" x="-3" opacity="1" style="text-anchor: end;" y="0">30.0</text></g><g class="tick" transform="translate(0,87.32075471698111)" style="opacity: 1;"><line x2="358" y2="0"></line><text dy=".32em" x="-3" opacity="1" style="text-anchor: end;" y="0">40.0</text></g><g class="tick" transform="translate(0,20.15094339622641)" style="opacity: 1;"><line x2="358" y2="0"></line><text dy=".32em" x="-3" opacity="1" style="text-anchor: end;" y="0">50.0</text></g><path class="domain" d="M0,0H0V356H0"></path><text class="nv-axislabel" transform="rotate(-90)" y="-50" x="-178" style="text-anchor: middle;"></text></g><g class="nv-axisMaxMin nv-axisMaxMin-y nv-axisMin-y" transform="translate(0,356)"><text dy=".32em" y="0" x="-3" text-anchor="end" style="opacity: 1;">0.0</text></g><g class="nv-axisMaxMin nv-axisMaxMin-y nv-axisMax-y" transform="translate(0,0)"><text dy=".32em" y="0" x="-3" text-anchor="end" style="opacity: 1;">53.0</text></g></g></g><g class="nv-barsWrap nvd3-svg"><g class="nvd3 nv-wrap nv-multibar" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-7345"><rect width="358" height="356"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-7345)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><rect class="nv-bar positive" x="0" y="282.11320754716985" height="73.88679245283015" width="34.32876712328767" transform="translate(14.712328767123287,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect><rect class="nv-bar positive" x="0" y="288.8301886792453" height="67.16981132075472" width="34.32876712328767" transform="translate(63.75342465753425,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect><rect class="nv-bar positive" x="0" y="302.26415094339626" height="53.73584905660374" width="34.32876712328767" transform="translate(112.7945205479452,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect><rect class="nv-bar positive" x="0" y="282.11320754716985" height="73.88679245283015" width="34.32876712328767" transform="translate(161.83561643835617,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect><rect class="nv-bar positive" x="0" y="302.26415094339626" height="53.73584905660374" width="34.32876712328767" transform="translate(210.87671232876713,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect><rect class="nv-bar positive" x="0" y="288.8301886792453" height="67.16981132075472" width="34.32876712328767" transform="translate(259.9178082191781,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect><rect class="nv-bar positive" x="0" y="241.811320754717" height="114.188679245283" width="34.32876712328767" transform="translate(308.958904109589,0)" style="fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"></rect></g><g class="nv-group nv-series-1" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"><rect class="nv-bar positive" x="0" y="0" height="282.11320754716985" width="34.32876712328767" transform="translate(14.712328767123287,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect><rect class="nv-bar positive" x="0" y="100.75471698113209" height="188.07547169811318" width="34.32876712328767" transform="translate(63.75342465753425,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect><rect class="nv-bar positive" x="0" y="13.43396226415094" height="288.83018867924534" width="34.32876712328767" transform="translate(112.7945205479452,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect><rect class="nv-bar positive" x="0" y="53.73584905660376" height="228.37735849056608" width="34.32876712328767" transform="translate(161.83561643835617,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect><rect class="nv-bar positive" x="0" y="167.9245283018868" height="134.33962264150946" width="34.32876712328767" transform="translate(210.87671232876713,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect><rect class="nv-bar positive" x="0" y="120.9056603773585" height="167.92452830188677" width="34.32876712328767" transform="translate(259.9178082191781,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect><rect class="nv-bar positive" x="0" y="94.03773584905662" height="147.77358490566039" width="34.32876712328767" transform="translate(308.958904109589,0)" style="fill: rgb(179, 229, 252); stroke: rgb(179, 229, 252);"></rect></g></g></g></g></g><g class="nv-legendWrap nvd3-svg" transform="translate(180,-48)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(4.552734375,5)"><g class="nv-series" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(3, 169, 244); fill-opacity: 1; stroke: rgb(3, 169, 244);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Closed Issues</text></g><g class="nv-series" transform="translate(106.6484375,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(179, 229, 252); fill-opacity: 1; stroke: rgb(179, 229, 252);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Issues</text></g></g></g></g><g class="nv-controlsWrap nvd3-svg" transform="translate(0,-48)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(27.62890625,5)"><g class="nv-series" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(68, 68, 68); fill-opacity: 0; stroke: rgb(68, 68, 68);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Grouped</text></g><g class="nv-series" transform="translate(77.43359375,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(68, 68, 68); fill-opacity: 1; stroke: rgb(68, 68, 68);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Stacked</text></g></g></g></g><g class="nv-interactive"></g></g></g></svg>
-                            </div>
-  
+                        <div class="col-12">
+                      <canvas id="myChart" height="40vh" width="80vw"></canvas>
                         </div>
   
-                        <div class="col-12 col-lg-6">
   
-                            <div id="widget5-supporting-charts" class="row">
-  
-                                <div class="col-6 p-4">
-  
-                                    <div id="widget5-created-chart">
-                                        <div class="h6 text-muted">CREATED</div>
-                                        <div class="h2 count">48</div>
-                                        <div class="chart-wrapper">
-                                            <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-lineChart" transform="translate(0,8)"><g><g class="nv-legendWrap"></g><g class="nv-focus"><g class="nv-background"><rect width="186" height="42"></rect></g><g class="nv-x nv-axis" transform="translate(0,42)"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap nvd3-svg"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-66644"><rect width="186" height="42"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-66644)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; stroke-width: 1.5; fill-opacity: 0.5; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><path class="nv-area" d="M0,42Q24.8,42,31,42C40.3,42,52.7,42,62,42S83.7,42,93,42S114.7,42,124,42S145.7,42,155,42Q161.2,42,186,42L186,23.333333333333336Q161.2,6.533333333333336,155,4.666666666666669C145.7,1.866666666666668,133.3,1.866666666666668,124,4.666666666666669S102.3,18.433333333333337,93,23.333333333333336S71.3,35.93333333333333,62,37.33333333333333S40.3,34.06666666666666,31,32.666666666666664Q24.8,31.73333333333333,0,28.000000000000004Z"></path><path class="nv-line" d="M0,28.000000000000004Q24.8,31.73333333333333,31,32.666666666666664C40.3,34.06666666666666,52.7,38.73333333333333,62,37.33333333333333S83.7,28.233333333333334,93,23.333333333333336S114.7,7.4666666666666694,124,4.666666666666669S145.7,1.866666666666668,155,4.666666666666669Q161.2,6.533333333333336,186,23.333333333333336"></path></g></g><g class="nv-scatterWrap nvd3-svg" clip-path="url(#nv-edge-clip-66644)"><g class="nvd3 nv-wrap nv-scatter nv-chart-66644" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-66644"><rect transform="translate( -10, -10)" width="206" height="62"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0 nv-noninteractive" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(3, 169, 244); fill: rgb(3, 169, 244);"><path class="nv-point nv-point-0" transform="translate(0,28.000000000000004)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-1" transform="translate(31,32.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-2" transform="translate(62,37.33333333333333)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-3" transform="translate(93,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-4" transform="translate(124,4.666666666666669)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-5" transform="translate(155,4.666666666666669)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-6" transform="translate(186,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path></g></g><g class="nv-point-paths"></g></g><g class="nv-point-clips"></g></g></g></g></g></g><g class="nv-interactive"><g class=" nv-wrap nv-interactiveLineLayer"><g class="nv-interactiveGuideLine"></g></g></g></g><g class="nv-focusWrap"></g></g></g></svg>
-                                        </div>
-                                    </div>
-  
-                                </div>
-  
-                                <div class="col-6 p-4">
-  
-                                    <div id="widget5-closed-chart">
-                                        <div class="h6 text-muted">CLOSED</div>
-                                        <div class="h2 count">26</div>
-                                        <div class="chart-wrapper">
-                                            <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-lineChart" transform="translate(0,8)"><g><g class="nv-legendWrap"></g><g class="nv-focus"><g class="nv-background"><rect width="186" height="42"></rect></g><g class="nv-x nv-axis" transform="translate(0,42)"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap nvd3-svg"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-53591"><rect width="186" height="42"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-53591)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; stroke-width: 1.5; fill-opacity: 0.5; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><path class="nv-area" d="M0,42Q24.8,42,31,42C40.3,42,52.7,42,62,42S83.7,42,93,42S114.7,42,124,42S145.7,42,155,42Q161.2,42,186,42L186,9.333333333333332Q161.2,22.400000000000002,155,23.333333333333336C145.7,24.733333333333334,133.3,19.366666666666664,124,18.666666666666664S102.3,20.066666666666663,93,18.666666666666664S71.3,7.933333333333331,62,9.333333333333332S40.3,27.300000000000004,31,28.000000000000004Q24.8,28.466666666666672,0,14.000000000000002Z"></path><path class="nv-line" d="M0,14.000000000000002Q24.8,28.466666666666672,31,28.000000000000004C40.3,27.300000000000004,52.7,10.733333333333333,62,9.333333333333332S83.7,17.266666666666666,93,18.666666666666664S114.7,17.966666666666665,124,18.666666666666664S145.7,24.733333333333334,155,23.333333333333336Q161.2,22.400000000000002,186,9.333333333333332"></path></g></g><g class="nv-scatterWrap nvd3-svg" clip-path="url(#nv-edge-clip-53591)"><g class="nvd3 nv-wrap nv-scatter nv-chart-53591" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-53591"><rect transform="translate( -10, -10)" width="206" height="62"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0 nv-noninteractive" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(3, 169, 244); fill: rgb(3, 169, 244);"><path class="nv-point nv-point-0" transform="translate(0,14.000000000000002)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-1" transform="translate(31,28.000000000000004)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-2" transform="translate(62,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-3" transform="translate(93,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-4" transform="translate(124,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-5" transform="translate(155,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-6" transform="translate(186,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path></g></g><g class="nv-point-paths"></g></g><g class="nv-point-clips"></g></g></g></g></g></g><g class="nv-interactive"><g class=" nv-wrap nv-interactiveLineLayer"><g class="nv-interactiveGuideLine"></g></g></g></g><g class="nv-focusWrap"></g></g></g></svg>
-                                        </div>
-                                    </div>
-  
-                                </div>
-  
-                                <div class="col-6 p-4">
-  
-                                    <div id="widget5-re-opened-chart">
-                                        <div class="h6 text-muted">RE-OPENED</div>
-                                        <div class="h2 count">2</div>
-                                        <div class="chart-wrapper">
-                                            <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-lineChart" transform="translate(0,8)"><g><g class="nv-legendWrap"></g><g class="nv-focus"><g class="nv-background"><rect width="186" height="42"></rect></g><g class="nv-x nv-axis" transform="translate(0,42)"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap nvd3-svg"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-787"><rect width="186" height="42"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-787)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; stroke-width: 1.5; fill-opacity: 0.5; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><path class="nv-area" d="M0,42Q24.8,42,31,42C40.3,42,52.7,42,62,42S83.7,42,93,42S114.7,42,124,42S145.7,42,155,42Q161.2,42,186,42L186,23.333333333333336Q161.2,6.533333333333336,155,4.666666666666669C145.7,1.866666666666668,133.3,1.866666666666668,124,4.666666666666669S102.3,18.433333333333337,93,23.333333333333336S71.3,35.93333333333333,62,37.33333333333333S40.3,34.06666666666666,31,32.666666666666664Q24.8,31.73333333333333,0,28.000000000000004Z"></path><path class="nv-line" d="M0,28.000000000000004Q24.8,31.73333333333333,31,32.666666666666664C40.3,34.06666666666666,52.7,38.73333333333333,62,37.33333333333333S83.7,28.233333333333334,93,23.333333333333336S114.7,7.4666666666666694,124,4.666666666666669S145.7,1.866666666666668,155,4.666666666666669Q161.2,6.533333333333336,186,23.333333333333336"></path></g></g><g class="nv-scatterWrap nvd3-svg" clip-path="url(#nv-edge-clip-787)"><g class="nvd3 nv-wrap nv-scatter nv-chart-787" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-787"><rect transform="translate( -10, -10)" width="206" height="62"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0 nv-noninteractive" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(3, 169, 244); fill: rgb(3, 169, 244);"><path class="nv-point nv-point-0" transform="translate(0,28.000000000000004)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-1" transform="translate(31,32.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-2" transform="translate(62,37.33333333333333)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-3" transform="translate(93,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-4" transform="translate(124,4.666666666666669)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-5" transform="translate(155,4.666666666666669)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-6" transform="translate(186,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path></g></g><g class="nv-point-paths"></g></g><g class="nv-point-clips"></g></g></g></g></g></g><g class="nv-interactive"><g class=" nv-wrap nv-interactiveLineLayer"><g class="nv-interactiveGuideLine"></g></g></g></g><g class="nv-focusWrap"></g></g></g></svg>
-                                        </div>
-                                    </div>
-  
-                                </div>
-  
-                                <div class="col-6 p-4">
-  
-                                    <div id="widget5-wont-fix-chart">
-                                        <div class="h6 text-muted">WON'T FIX</div>
-                                        <div class="h2 count">4</div>
-                                        <div class="chart-wrapper">
-                                            <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-lineChart" transform="translate(0,8)"><g><g class="nv-legendWrap"></g><g class="nv-focus"><g class="nv-background"><rect width="186" height="42"></rect></g><g class="nv-x nv-axis" transform="translate(0,42)"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap nvd3-svg"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-15618"><rect width="186" height="42"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-15618)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; stroke-width: 1.5; fill-opacity: 0.5; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><path class="nv-area" d="M0,42Q24.8,42,31,42C40.3,42,52.7,42,62,42S83.7,42,93,42S114.7,42,124,42S145.7,42,155,42Q161.2,42,186,42L186,9.333333333333332Q161.2,23.333333333333336,155,23.333333333333336C145.7,23.333333333333336,133.3,10.033333333333333,124,9.333333333333332S102.3,16.566666666666663,93,18.666666666666664S71.3,23.333333333333336,62,23.333333333333336S40.3,20.066666666666663,31,18.666666666666664Q24.8,17.73333333333333,0,14.000000000000002Z"></path><path class="nv-line" d="M0,14.000000000000002Q24.8,17.73333333333333,31,18.666666666666664C40.3,20.066666666666663,52.7,23.333333333333336,62,23.333333333333336S83.7,20.766666666666666,93,18.666666666666664S114.7,8.633333333333331,124,9.333333333333332S145.7,23.333333333333336,155,23.333333333333336Q161.2,23.333333333333336,186,9.333333333333332"></path></g></g><g class="nv-scatterWrap nvd3-svg" clip-path="url(#nv-edge-clip-15618)"><g class="nvd3 nv-wrap nv-scatter nv-chart-15618" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-15618"><rect transform="translate( -10, -10)" width="206" height="62"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0 nv-noninteractive" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(3, 169, 244); fill: rgb(3, 169, 244);"><path class="nv-point nv-point-0" transform="translate(0,14.000000000000002)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-1" transform="translate(31,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-2" transform="translate(62,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-3" transform="translate(93,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-4" transform="translate(124,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-5" transform="translate(155,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-6" transform="translate(186,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path></g></g><g class="nv-point-paths"></g></g><g class="nv-point-clips"></g></g></g></g></g></g><g class="nv-interactive"><g class=" nv-wrap nv-interactiveLineLayer"><g class="nv-interactiveGuideLine"></g></g></g></g><g class="nv-focusWrap"></g></g></g></svg>
-                                        </div>
-                                    </div>
-  
-                                </div>
-  
-                                <div class="col-6 p-4">
-  
-                                    <div id="widget5-needs-test-chart">
-                                        <div class="h6 text-muted">NEED'S TEST</div>
-                                        <div class="h2 count">8</div>
-                                        <div class="chart-wrapper">
-                                            <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-lineChart" transform="translate(0,8)"><g><g class="nv-legendWrap"></g><g class="nv-focus"><g class="nv-background"><rect width="186" height="42"></rect></g><g class="nv-x nv-axis" transform="translate(0,42)"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap nvd3-svg"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-89405"><rect width="186" height="42"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-89405)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; stroke-width: 1.5; fill-opacity: 0.5; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><path class="nv-area" d="M0,42Q24.8,42,31,42C40.3,42,52.7,42,62,42S83.7,42,93,42S114.7,42,124,42S145.7,42,155,42Q161.2,42,186,42L186,9.333333333333332Q161.2,22.400000000000002,155,23.333333333333336C145.7,24.733333333333334,133.3,19.366666666666664,124,18.666666666666664S102.3,20.066666666666663,93,18.666666666666664S71.3,7.933333333333331,62,9.333333333333332S40.3,27.300000000000004,31,28.000000000000004Q24.8,28.466666666666672,0,14.000000000000002Z"></path><path class="nv-line" d="M0,14.000000000000002Q24.8,28.466666666666672,31,28.000000000000004C40.3,27.300000000000004,52.7,10.733333333333333,62,9.333333333333332S83.7,17.266666666666666,93,18.666666666666664S114.7,17.966666666666665,124,18.666666666666664S145.7,24.733333333333334,155,23.333333333333336Q161.2,22.400000000000002,186,9.333333333333332"></path></g></g><g class="nv-scatterWrap nvd3-svg" clip-path="url(#nv-edge-clip-89405)"><g class="nvd3 nv-wrap nv-scatter nv-chart-89405" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-89405"><rect transform="translate( -10, -10)" width="206" height="62"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0 nv-noninteractive" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(3, 169, 244); fill: rgb(3, 169, 244);"><path class="nv-point nv-point-0" transform="translate(0,14.000000000000002)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-1" transform="translate(31,28.000000000000004)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-2" transform="translate(62,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-3" transform="translate(93,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-4" transform="translate(124,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-5" transform="translate(155,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-6" transform="translate(186,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path></g></g><g class="nv-point-paths"></g></g><g class="nv-point-clips"></g></g></g></g></g></g><g class="nv-interactive"><g class=" nv-wrap nv-interactiveLineLayer"><g class="nv-interactiveGuideLine"></g></g></g></g><g class="nv-focusWrap"></g></g></g></svg>
-                                        </div>
-                                    </div>
-  
-                                </div>
-  
-                                <div class="col-6 p-4">
-  
-                                    <div id="widget5-fixed-chart">
-                                        <div class="h6 text-muted">FIXED</div>
-                                        <div class="h2 count">14</div>
-                                        <div class="chart-wrapper">
-                                            <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-lineChart" transform="translate(0,8)"><g><g class="nv-legendWrap"></g><g class="nv-focus"><g class="nv-background"><rect width="186" height="42"></rect></g><g class="nv-x nv-axis" transform="translate(0,42)"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap nvd3-svg"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-90414"><rect width="186" height="42"></rect></clipPath></defs><g clip-path="url(#nv-edge-clip-90414)"><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; stroke-width: 1.5; fill-opacity: 0.5; fill: rgb(3, 169, 244); stroke: rgb(3, 169, 244);"><path class="nv-area" d="M0,42Q24.8,42,31,42C40.3,42,52.7,42,62,42S83.7,42,93,42S114.7,42,124,42S145.7,42,155,42Q161.2,42,186,42L186,32.666666666666664Q161.2,29.400000000000006,155,28.000000000000004C145.7,25.900000000000002,133.3,20.766666666666666,124,18.666666666666664S102.3,13.3,93,14.000000000000002S71.3,24.033333333333335,62,23.333333333333336S40.3,10.033333333333333,31,9.333333333333332Q24.8,8.866666666666665,0,18.666666666666664Z"></path><path class="nv-line" d="M0,18.666666666666664Q24.8,8.866666666666665,31,9.333333333333332C40.3,10.033333333333333,52.7,22.633333333333336,62,23.333333333333336S83.7,14.700000000000003,93,14.000000000000002S114.7,16.566666666666663,124,18.666666666666664S145.7,25.900000000000002,155,28.000000000000004Q161.2,29.400000000000006,186,32.666666666666664"></path></g></g><g class="nv-scatterWrap nvd3-svg" clip-path="url(#nv-edge-clip-90414)"><g class="nvd3 nv-wrap nv-scatter nv-chart-90414" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-90414"><rect transform="translate( -10, -10)" width="206" height="62"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0 nv-noninteractive" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(3, 169, 244); fill: rgb(3, 169, 244);"><path class="nv-point nv-point-0" transform="translate(0,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-1" transform="translate(31,9.333333333333332)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-2" transform="translate(62,23.333333333333336)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-3" transform="translate(93,14.000000000000002)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-4" transform="translate(124,18.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-5" transform="translate(155,28.000000000000004)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path><path class="nv-point nv-point-6" transform="translate(186,32.666666666666664)" d="M0,2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,-2.256758334191025A2.256758334191025,2.256758334191025 0 1,1 0,2.256758334191025Z"></path></g></g><g class="nv-point-paths"></g></g><g class="nv-point-clips"></g></g></g></g></g></g><g class="nv-interactive"><g class=" nv-wrap nv-interactiveLineLayer"><g class="nv-interactiveGuideLine"></g></g></g></g><g class="nv-focusWrap"></g></g></g></svg>
-                                        </div>
-                                    </div>
-  
-                                </div>
-  
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- / WIDGET 5 -->
   
         <!-- WIDGET 6 -->
@@ -1896,123 +1737,5 @@
   
     </div>
   
-    <aside class="page-sidebar" data-fuse-bar="dashboard-project-sidebar" data-fuse-bar-media-step="lg" data-fuse-bar-position="right">
-        <!-- WIDGET GROUP -->
-  <div class="widget-group">
-  
-    <!-- NOW WIDGET -->
-    <div class="widget widget-now">
-  
-        <div class="widget-header row no-gutters align-items-center justify-content-between pl-4 py-4">
-  
-            <div class="h6">Monday, 16:37:16</div>
-  
-            <button type="button" class="btn btn-icon fuse-ripple-ready" aria-label="Options">
-                <i class="icon icon-dots-vertical"></i>
-            </button>
-        </div>
-  
-        <div class="widget-content d-flex flex-column align-items-center justify-content-center p-4 pb-6">
-            <div class="month text-muted">May</div>
-            <div class="day text-muted">8</div>
-            <div class="year text-muted">2017</div>
-        </div>
-  
-    </div>
-    <!-- / NOW WIDGET -->
-  
-    <div class="divider"></div>
-  
-    <!-- WEATHER WIDGET -->
-    <div class="widget widget-weather">
-  
-        <div class="widget- header row no-gutters align-items-center justify-content-between pl-4 py-4">
-  
-            <div class="row no-gutters align-items-center">
-                <i class="icon-map-marker mr-2"></i>
-                <span class="h6">New York</span>
-            </div>
-  
-            <button type="button" class="btn btn-icon fuse-ripple-ready" aria-label="Options">
-                <i class="icon icon-dots-vertical"></i>
-            </button>
-  
-        </div>
-  
-        <div class="d-flex flex-column align-items-center justify-content-center p-4 pb-8">
-  
-            <div class="today-weather row no-gutters align-items-center justify-content-center">
-                <i class="icon-weather-pouring s-10 mr-4"></i>
-                <span class="h1">22</span>
-                <span class="h1 text-muted">°</span>
-                <span class="h1 text-muted">C</span>
-            </div>
-  
-        </div>
-  
-        <div class="row no-gutters align-items-center justify-content-between p-4">
-  
-            <div class="row no-gutters align-items-center">
-                <i class="icon-weather-windy icon mr-2 s-5"></i>
-                <span>12</span>
-                <span class="text-muted ml-1">KMH</span>
-            </div>
-  
-            <div class="row align-items-center">
-                <i class="icon-compass-outline icon mr-2 s-5"></i>
-                <span>NW</span>
-            </div>
-  
-            <div class="row no-gutters align-items-center">
-                <i class="icon-umbrella icon mr-2 s-5"></i>
-                <span>98%</span>
-            </div>
-  
-        </div>
-  
-        <div class="row no-gutters align-items-center justify-content-between p-4">
-  
-            <span class="">Sunday</span>
-  
-            <div class="row no-gutters align-items-center">
-                <i class="mr-4 icon-weather-pouring"></i>
-                <span class="h5">21</span>
-                <span class="h5 text-muted">°</span>
-                <span class="h5 text-muted">C</span>
-            </div>
-  
-        </div>
-  
-        <div class="row no-gutters align-items-center justify-content-between p-4">
-  
-            <span class="">Sunday</span>
-  
-            <div class="row no-gutters align-items-center">
-                <i class="mr-4 icon-weather-pouring"></i>
-                <span class="h5">19</span>
-                <span class="h5 text-muted">°</span>
-                <span class="h5 text-muted">C</span>
-            </div>
-  
-        </div>
-  
-        <div class="row no-gutters align-items-center justify-content-between p-4">
-  
-            <span class="">Tuesday</span>
-  
-            <div class="row no-gutters align-items-center">
-                <i class="mr-4 icon-weather-partlycloudy"></i>
-                <span class="h5">24</span>
-                <span class="h5 text-muted">°</span>
-                <span class="h5 text-muted">C</span>
-            </div>
-  
-        </div>
-    </div>
-    <!-- / WEATHER WIDGET -->
-  
-    <div class="divider"></div>
-  </div>
-  <!-- / WIDGET GROUP -->
-    </aside>
+   
   </div>

@@ -12,6 +12,11 @@ import { VehiculeService } from '../../../../../../service/vehicule.service';
 import { TypeContratAutoService } from '../../../../../../service/typeContratAuto.service';
 import { TypeContratAuto } from '../../../../../entities/TypeContratAuto';
 import { HabitationService } from '../../../../../../service/habitation.service';
+import { TypeContratSante } from '../../../../../entities/TypeContratSante';
+import { TypeContratHabitation } from '../../../../../entities/TypeContratHabitation';
+import { TypeContratHabitationService } from '../../../../../../service/typeContratHabitation.service';
+import { TypeContratSanteService } from '../../../../../../service/typeContratSante.service';
+import { MarqueVehiculeService } from '../../../../../../service/marqueVehicule.service';
 
 declare var $;
 @Component({
@@ -29,15 +34,29 @@ export class AjouterDossierComponent implements OnInit {
   clients:Client[];
   messageStyle:string="d-none";
   messageErrorText:string;
+  marques=[]
   searchData=[];
+  searchMarqueAuto=[];
   typesContratAuto:TypeContratAuto[];
+  typesContratSante:TypeContratSante[];
+  typesContratHabitation:TypeContratHabitation[];
+
+
   checkedList=[
     {idTypeContratAuto: 1, type: "Basic"}
   ];
-
+  checkedList2=[
+    {idTypeContratSante: 1, type: "Basic"}
+  ];
+  checkedList3=[
+    {idTypeContratHabitation: 1, type: "Basic"}
+  ];
   constructor(private clientService:ClientService,private dossierService:DossierService,private santeService:SanteService
     ,private autoService:AutoService,private vehiculeService:VehiculeService,private typesautoService:TypeContratAutoService,private habitationService:HabitationService
-  ) {
+  ,private typehabitationService:TypeContratHabitationService,
+  private typeSanteService:TypeContratSanteService
+,private marqueService:MarqueVehiculeService
+) {
   
     this.clientService.getClient().map(resp=>resp.json()).subscribe(
       data=>{
@@ -48,11 +67,28 @@ export class AjouterDossierComponent implements OnInit {
         }
       }
     );
+    
+    this.marqueService.getAllMarqueVehicules().subscribe(
+      resp=>{
+        this.marques=resp;
+        this.searchMarqueAuto=resp.map(a=>a.marque);
+
+      });
     this.typesautoService.getAllTypeContratAuto().subscribe(
       resp=>{
           this.typesContratAuto=resp;      
       }
 
+  );
+  this.typeSanteService.getAllTypeContratSante().subscribe(
+    resp=>{
+      this.typesContratSante=resp;
+    }
+  );
+  this.typehabitationService.getAllTypeContratHabitation().subscribe(
+    resp=>{
+      this.typesContratHabitation=resp;
+    }
   );
   
     this.formDossier=new FormGroup({
@@ -78,7 +114,7 @@ export class AjouterDossierComponent implements OnInit {
     });
     this.formSante=new FormGroup({
       dateContrat:new FormControl('',Validators.required),
-      status:new FormControl('',Validators.required),
+      dateFinContrat:new FormControl('',Validators.required),
       montant:new FormControl('',Validators.compose([Validators.required,
           Validators.pattern('([0-9]*[.])?[0-9]+')
       ]) )
@@ -114,6 +150,28 @@ export class AjouterDossierComponent implements OnInit {
     }
   }
 
+  onCheckboxChange2(option, event) {
+    if(event.target.checked) {
+      this.checkedList2.push(option);
+    } else {
+      for(var i=0 ; i < this.checkedList2.length; i++) {
+        if(this.checkedList2[i].idTypeContratSante == option.idTypeContratSante){
+          this.checkedList2.splice(i,1);     
+        }
+      }
+    }
+  }
+  onCheckboxChange3(option, event) {
+    if(event.target.checked) {
+      this.checkedList3.push(option);
+    } else {
+      for(var i=0 ; i < this.checkedList3.length; i++) {
+        if(this.checkedList3[i].idTypeContratHabitation == option.idTypeContratHabitation){
+          this.checkedList3.splice(i,1);     
+        }
+      }
+    }
+  }
   enregistrer(){
 
      var cl:Client;
@@ -141,7 +199,7 @@ export class AjouterDossierComponent implements OnInit {
           montant:this.formAuto.value.montant,
           vehicules:{
             matriculation:this.formAuto.value.matriculation,
-            marque:this.formAuto.value.marque,      
+            marqueVehicule: this.marques.find(a=>a.marque==this.formAuto.value.marque) ,      
             nbrPlace:this.formAuto.value.nbrPlace,
             datePremierMiseService:this.formAuto.value.datePremierMiseService,
             usageVehicule:this.formAuto.value.usageVehicule,
@@ -152,12 +210,13 @@ export class AjouterDossierComponent implements OnInit {
      }
 
      if(this.formSante.value.dateContrat !="" &&
-     this.formSante.value.status!="" &&
+     this.formSante.value.dateFinContrat!="" &&
      this.formSante.value.montant!="" ){
        sante={
         dateContrat :this.formSante.value.dateContrat,
-        status:this.formSante.value.status,
-        montant:this.formSante.value.montant
+        dateFinContrat:this.formSante.value.dateFinContrat,
+        montant:this.formSante.value.montant,
+        typeContrats:this.checkedList2
        }
      }
      if(this.formHabitation.value.typeLogement!="" &&
@@ -174,7 +233,9 @@ export class AjouterDossierComponent implements OnInit {
             dateFin:this.formHabitation.value.dateFin,
             adresseHabitation:this.formHabitation.value.adresseHabitation,
             ville:this.formHabitation.value.ville,
-            montant:this.formHabitation.value.montant
+            montant:this.formHabitation.value.montant,
+            typeContrats:this.checkedList3
+
           }
       }
 
