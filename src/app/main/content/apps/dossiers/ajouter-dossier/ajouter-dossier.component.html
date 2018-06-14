@@ -67,8 +67,8 @@
                         <form *ngIf="formDossier" [formGroup]="formDossier">
 
                             <div class="form-group">
-                                <input type="text" class="form-control" aria-describedby="Dossier numero" formControlName="numero" />
                                 <label class="form-control-label" for="numDossier">Numero de Dossier : </label>
+                                <input type="text" class="form-control" aria-describedby="Dossier numero" formControlName="numero" />
                                 <div *ngIf="this.formDossier.get('numero').hasError('pattern')" class="valid-feedback text-danger-900">
                                     veuillez saisir un nombre valide !
                                 </div>
@@ -87,8 +87,8 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" aria-describedby="status Dossier" formControlName="status" />
                                 <label class="form-control-label">Status</label>
+                                <input type="text" class="form-control" aria-describedby="status Dossier" formControlName="status" />
                                 <div *ngIf="this.formDossier.get('status').hasError('required')" class="valid-feedback text-primary-A400">
                                     ce champ est obligatoire
                                 </div>

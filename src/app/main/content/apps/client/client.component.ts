@@ -24,6 +24,7 @@ export class ClientComponent implements OnInit {
   constructor(private clientService:ClientService,private router: Router) {
     $(function() {
       $('#sample-data-table').DataTable({
+        language:{ url:"./assets/french.json"},
         columnDefs: [
           {
             targets           : 5,

@@ -126,14 +126,14 @@
         <div class="col-12 col-lg-6 p-3">
   
             <div class="widget widget6 card">
-<!--   
+  
                 <div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
   
                     <div class="col">
                         <span class="h6">Status Client</span>
                     </div>
   
-                </div> -->
+                </div>
   
                 <div class="widget-content">
   
@@ -159,14 +159,13 @@
                 <div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
   
                     <div class="col">
-                        <span class="h6">Task Distrubition</span>
+                        <span class="h6">Evolutions Des Contrats :</span>
                     </div>
   
                     <div class="">
-                        <select id="widget6-option-select" class="h6 custom-select">
-                            <option selected="" value="TW">This Week</option>
-                            <option value="LW">Last Week</option>
-                            <option value="2W">2 Weeks Ago</option>
+                        <select id="widget6-option-select" class="h6 custom-select" (change)="onChange($event.target.value)">
+                            <option selected="" value="2018">2018</option>
+                            <option value="2017">2017</option>
                         </select>
                     </div>
   
@@ -176,31 +175,26 @@
   
                     <div class="row no-gutters">
   
-                        <div class="col-12">
-  
-                            <div id="widget6-main-chart" class="p-4">
-                                <svg class="nvd3-svg"><g class="nvd3 nv-wrap nv-pieChart" transform="translate(0,30)"><g><g class="nv-pieWrap nvd3-svg"><g class="nvd3 nv-wrap nv-pie nv-chart-7615" transform="translate(0,0)"><g><g class="nv-pie" transform="translate(196.5,169)"><g class="nv-slice" fill="#f44336" stroke="#f44336"><path d="M1.5943162390702326,-135.19059936153045A135.2,135.2 0 0,1 109.07692297383731,-79.8828196457759L67.81808053983698,-50.407915567817156A84.5,84.5 0 0,0 1.5943162390702497,-84.48495816256191Z"></path></g><g class="nv-slice" fill="#9c27b0" stroke="#9c27b0"><path d="M110.93045710161333,-77.28825064152454A135.2,135.2 0 0,1 109.3626097858289,79.49125474435863L68.70147762773315,49.197123612728426A84.5,84.5 0 0,0 69.67161466761301,-47.81334656356581Z"></path></g><g class="nv-slice" fill="#03a9f4" stroke="#03a9f4"><path d="M107.4575584317928,82.0482366408799A135.2,135.2 0 0,1 -133.95422985149153,18.311316306966457L-83.63831401102763,12.036711735051961A84.5,84.5 0 0,0 66.79642627369708,51.754105509249705Z"></path></g><g class="nv-slice" fill="#e91e63" stroke="#e91e63"><path d="M-134.3488093785896,15.147191771261971A135.2,135.2 0 0,1 -1.5943162390703092,-135.19059936153045L-1.5943162390702414,-84.48495816256191A84.5,84.5 0 0,0 -84.03289353812573,8.872587199347471Z"></path></g></g><g class="nv-pieLabels" transform="translate(196.5,169)"><g class="nv-label" transform="translate(50.26196465277716,-97.67680077297258)"><rect rx="3" ry="3" style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">15%</text></g><g class="nv-label" transform="translate(109.84450754577067,1.098481691758209)"><rect rx="3" ry="3" style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">20%</text></g><g class="nv-label" transform="translate(-28.041459175673637,106.21063537753189)"><rect rx="3" ry="3" style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">38%</text></g><g class="nv-label" transform="translate(-82.34155855047746,-72.7110049131374)"><rect rx="3" ry="3" style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);"></rect><text style="text-anchor: middle; fill: rgb(0, 0, 0);">27%</text></g></g></g></g></g><g class="nv-legendWrap nvd3-svg" transform="translate(0,-30)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(125.37109375,5)"><g class="nv-series" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(244, 67, 54); fill-opacity: 1; stroke: rgb(244, 67, 54);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Frontend</text></g><g class="nv-series" transform="translate(79.5546875,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(156, 39, 176); fill-opacity: 1; stroke: rgb(156, 39, 176);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Backend</text></g><g class="nv-series" transform="translate(157.544921875,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(3, 169, 244); fill-opacity: 1; stroke: rgb(3, 169, 244);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Api</text></g><g class="nv-series" transform="translate(207.017578125,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(233, 30, 99); fill-opacity: 1; stroke: rgb(233, 30, 99);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8" fill="#000">Isues</text></g></g></g></g></g></g></svg>
-                            </div>
-  
-                        </div>
+                        <canvas id="contratEvolution" height="40vh" width="80vw"></canvas>
+
   
                         <div class="divider col-12"></div>
   
-                        <div id="added-tasks" class="col-6 d-flex flex-column align-items-center justify-content-center py-4">
+                        <div id="added-tasks" class="col-12 d-flex flex-column align-items-center justify-content-center py-4">
   
-                            <div class="count h2">594</div>
+                            <div class="count h2">{{total}}</div>
   
-                            <div class="count-title">Tasks Added</div>
+                            <div class="count-title">Total Contrat </div>
   
                         </div>
   
-                        <div id="completed-tasks" class="col-6 d-flex flex-column align-items-center justify-content-center py-4">
+                        <!-- <div id="completed-tasks" class="col-6 d-flex flex-column align-items-center justify-content-center py-4">
   
                             <div class="count h2">287</div>
   
                             <div class="count-title">Tasks Completed</div>
   
-                        </div>
+                        </div> -->
   
                     </div>
                 </div>

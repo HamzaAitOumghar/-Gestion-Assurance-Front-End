@@ -17,8 +17,21 @@ export class DossiersComponent implements OnInit {
   constructor(private dossierService:DossierService,private router: Router) {
     $(function() {
       $('#e-commerce-products-table').DataTable(
-        {
+        { 
+          language:{ url:"./assets/french.json"},
           dom         : 'rtip',
+          columnDefs: [
+            {
+              targets           : 4,
+              filterable        : false,
+              sortable          : false
+            },
+            {
+            targets           : 3,
+            filterable        : false,
+            sortable          : false
+            }
+        ],
        
           initComplete: function ()
           {

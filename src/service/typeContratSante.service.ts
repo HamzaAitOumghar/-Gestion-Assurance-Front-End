@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AuthentificationService } from './authentification.service';
 
 
 
@@ -8,11 +9,17 @@ import 'rxjs/add/operator/map';
 export class TypeContratSanteService{
 
     constructor(
-        private http: Http
+        private http: Http,private auth:AuthentificationService
       ) { }
+    
+      getOptions(){
+        let myHeader = new Headers({'authorization':this.auth.loadToken()});
+        let options = new RequestOptions({ headers: myHeader});
+        return options;
+      }
 
       public getAllTypeContratSante(){
-        return this.http.get("http://localhost:8080/TypeSante").map(
+        return this.http.get("http://localhost:8080/TypeSante",this.getOptions()).map(
             resp=>resp.json()
         );
     }

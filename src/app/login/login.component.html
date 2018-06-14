@@ -2,26 +2,28 @@
         <div class="container"> 
         
           <div class="text-center mt-5">
-              <img src="../../assets/images/insurance.png" class="rounded" alt="logo" width="150px" height="150px">
+              <img src="../../../assets/images/insurance.png" class="rounded" alt="logo" width="150px" height="150px">
           </div>    
       
-          <h3  class="text-center m-3">Accédez à votre Espace client : </h3>
+          <h3  class="text-center m-3">Accédez à votre Espace Assurance : </h3>
 
             <div class="col-md-4 mx-auto border rounded" style="background-color: white;"> 
-                  <form style="padding: 10px;">
+                  <form #f="ngForm" style="padding: 10px;" (ngSubmit)="onSubmitForm(f.value)">
 
                       <div class="form-group">
                           <label class="font-weight-bold">Username : </label>
-                          <input type="text" class="form-control" />
+                          <input type="text" class="form-control" name="username" ngModel="" />
                       </div>
                       <div class="form-group">
                           <label class="font-weight-bold">Mot de Pass :</label>
-                          <input type="text" class="form-control" />
+                          <input type="password" class="form-control" name="password" ngModel=""/>
                       </div>
                       <div class="form-group">
                           <button type="submit" class="btn btn-primary btn-block">Login</button>
                       </div>
-                       <a class="d-flex font-weight-bold" href="#">Mot de pass oublier ?</a> 
+                      <div class="form-group" *ngIf="mode==1">
+                        <button type="submit" class="alert alert-danger alert-block">Username ou Motdepass Invalide</button>
+                    </div>
 
                   </form>    
           </div>

@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainModule } from './main/main.module';
-import { LoginComponent } from './login/login.component';
 import { CollaborateurModule } from './main/content/collaborateur/collaborateur.module';
 import { ClientModule } from './main/content/apps/client/client.module';
 import { CollaborateurComponent } from './main/content/collaborateur/collaborateur.component';
@@ -31,13 +30,17 @@ import { MarqueVehiculeService } from '../service/marqueVehicule.service';
 import { StatistiqueService } from '../service/statistique.service';
 import { TypeContratHabitationService } from '../service/typeContratHabitation.service';
 import { TypeContratSanteService } from '../service/typeContratSante.service';
+import { LoginComponent } from './login/login.component';
+import { AuthentificationService } from '../service/authentification.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 //import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 const appRouter: Routes  = [
-    { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'accueil', component: AccueilComponent },
     { path: 'login', component: LoginComponent },
     { path: 'collaborateur', component: CollaborateurComponent },
@@ -52,7 +55,7 @@ const appRouter: Routes  = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginComponent
   
   ],
   imports: [
@@ -66,7 +69,8 @@ const appRouter: Routes  = [
     RouterModule.forRoot(appRouter),
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     ClientService,
@@ -80,7 +84,8 @@ const appRouter: Routes  = [
     MarqueVehiculeService,
     StatistiqueService,
     TypeContratHabitationService,
-    TypeContratSanteService
+    TypeContratSanteService,
+    AuthentificationService
   ],
   bootstrap: [AppComponent]
 })
