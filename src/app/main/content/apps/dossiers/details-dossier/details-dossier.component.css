@@ -1,5 +1,12 @@
 #clickVehicule:hover{
-
     opacity: 0.7;
     cursor: pointer;
 }
+.card-body {
+        overflow-x: scroll;
+  }
+
+  #rechercher{
+    display:inline-block;
+    float:right;
+  }

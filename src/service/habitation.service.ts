@@ -22,7 +22,7 @@ export class HabitationService {
 
     }
     public saveContratHabitation(habitation,idDossier){
-        return this.http.post("http://localhost:8080/habitation//ajouter/"+idDossier,habitation,this.getOptions())
+        return this.http.post("http://localhost:8080/habitation/ajouter/"+idDossier,habitation,this.getOptions())
         .map(resp=>resp.json());
     }
 

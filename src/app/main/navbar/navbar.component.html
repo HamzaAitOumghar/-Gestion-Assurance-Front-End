@@ -1,4 +1,4 @@
-   <div class="aside-content-wrapper">
+   <div class="aside-content-wrapper" *ngIf="router.url != '/login'">
   
       <div class="aside-content bg-primary-500 text-auto">
   
@@ -27,7 +27,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="this.auth.isAdmin()!=2">
             <a class="nav-link ripple "  [routerLink]="['client']" data-page-url="/apps-contacts.html">
               <i class="icon s-4 icon-calendar-today"></i>
               <span>Client</span>
@@ -37,7 +37,7 @@
       
           
            
-          <li class="nav-item" role="tab" id="heading-ecommerce">
+          <li class="nav-item" role="tab" id="heading-ecommerce" *ngIf="this.auth.isAdmin()!=2">
 
               <a class="nav-link ripple with-arrow collapsed"
                  
@@ -54,7 +54,7 @@
                   class="collapse"
                   role="tabpanel"
                   aria-labelledby="heading-ecommerce"
-                  data-children=".nav-item">
+                  data-children=".nav-item" >
                   
                       
                   <li class="nav-item">

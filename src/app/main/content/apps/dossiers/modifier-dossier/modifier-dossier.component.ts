@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DossierService } from '../../../../../../service/dossier.service';
 import { Dossier } from '../../../../../entities/Dossier';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -14,6 +14,8 @@ declare var $;
 export class ModifierDossierComponent implements OnInit {
 
   @Input() dossier:Dossier;
+  @Output() refrech: EventEmitter<any> = new EventEmitter();
+  
   from:FormGroup;
   messageStyle:string="d-none";
   messageErrorText:string;
@@ -40,17 +42,14 @@ export class ModifierDossierComponent implements OnInit {
       this.from=new FormGroup({
        numero:new FormControl(this.dossier.numero,Validators.required),
 	     status:new FormControl(this.dossier.status,Validators.required),
-	     dateCreation :new FormControl(this.dossier.dateCreation,Validators.required),
-	     client:new FormControl(null,Validators.required)
+	     dateCreation :new FormControl(this.dossier.dateCreation,Validators.required)
   });
 
   }
   modifierDossier(){
-    let id =this.from.value.client.match('\\d+')[0]!=null?this.from.value.client.match('\\d+')[0]:"";
-    this.from.value.client=null;
-    this.dossierService.modifierDossier(this.from.value,id).subscribe(
+   let test=Object.values(this.dossier);
+    this.dossierService.modifierDossier(this.from.value,test[4]).subscribe(
       res=>{
-        
         this.messageStyle="alert alert-success text-center";
         this.messageErrorText="Dossier a été bien modifier";
           $(function() {
@@ -58,7 +57,8 @@ export class ModifierDossierComponent implements OnInit {
               $(".alert").slideUp(500);
               });
                 
-          }); 
+          });
+          this.refrech.emit(); 
       },
       err=>{
         this.messageStyle="alert alert-danger text-center";

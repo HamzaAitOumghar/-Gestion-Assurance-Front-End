@@ -11,30 +11,35 @@
             </div>
             <div class="modal-body text-center">
                
-              <table class="table table-hover ">
-                <thead>
+              <table class="table table-hover" *ngIf="detailsClient">
                     <tr>
                         <th>Nom Complet </th>
-                        <th>Date Naissance</th>
-                        <th>N° Telephone</th>
-                        <th>Adresse</th>
-                        <th>Email</th>
-                        <th>Profession</th>
-                        <th>Cin</th>
+                        <td>{{detailsClient.nom}}&nbsp;{{detailsClient.prenom}}</td>
                     </tr>
-                </thead>
-                <tbody *ngIf="detailsClient">
                     <tr>
-                       
-                      <th>{{detailsClient.nom}}{{detailsClient.prenom}}</th>
-                      <th>{{detailsClient.dateNaissance}}</th>
-                      <th>{{detailsClient.numTel}}</th>
-                      <th>{{detailsClient.adresse}},{{detailsClient.ville}}</th>
-                      <th>{{detailsClient.email}}</th>
-                      <th>{{detailsClient.profession}}</th>
-                      <th>{{detailsClient.cin}}</th>
+                        <th>Date Naissance</th>
+                        <td>{{detailsClient.dateNaissance}}</td>
                     </tr>
-                </tbody>
+                    <tr>
+                        <th>N° Telephone</th>
+                        <td>{{detailsClient.numTel}}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>{{detailsClient.adresse}}&nbsp;{{detailsClient.ville}}</td>
+                    </tr>
+                    <tr>    
+                        <th>Email</th>
+                        <td>{{detailsClient.email}}</td>
+                    </tr>
+                    <tr>  
+                        <th>Profession</th>
+                        <td>{{detailsClient.profession}}</td>
+                    </tr>
+                    <tr>
+                        <th>Cin</th>
+                        <td>{{detailsClient.cin}}</td>
+                    </tr>
             </table>
             </div>
             <div class="modal-footer mx-auto">

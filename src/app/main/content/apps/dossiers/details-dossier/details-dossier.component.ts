@@ -17,8 +17,18 @@ import { HabitationService } from '../../../../../../service/habitation.service'
 export class DetailsDossierComponent implements OnInit {
 
   auto: Auto[] = null;
+  rechercheTest=0;
+  rechercheTest2=0;
+  rechercheTest3=0;
+
+  autoConstante:Auto[];
+  
   sante: Sante[];
+  santeConstante:Sante[];
+
   habitation:Habitation[];
+  habitationContante:Habitation[];
+  
   vehi: Vehicule;
   autoModifier: Auto;
   santeModifier: Sante;
@@ -40,6 +50,7 @@ export class DetailsDossierComponent implements OnInit {
     this.autoService.getAllContratAutoInDossier(this.dossierId).subscribe(
       resp => {
         this.auto = resp;
+        this.autoConstante=resp;
       },
       err => {
         console.log(err);
@@ -52,6 +63,7 @@ export class DetailsDossierComponent implements OnInit {
     this.santeService.getAllContratSanteInDossier(this.dossierId).subscribe(
       resp => {
         this.sante = resp;
+        this.santeConstante=resp;
       },
       err => {
         console.log(err);
@@ -60,6 +72,7 @@ export class DetailsDossierComponent implements OnInit {
     this.habitationService.getAllContratHabitationInDossier(this.dossierId).subscribe(
         resp=>{
           this.habitation=resp;
+          this.habitationContante=resp;
         },
         err=>{
           console.log(err);
@@ -124,5 +137,52 @@ export class DetailsDossierComponent implements OnInit {
       }
   );
   }
-
+  search(test){      
+      var result=this.autoConstante.filter(v=>v.idAuto==test);
+      
+      if(result.length==0&&test!=''&&this.autoConstante.length!=0){
+        this.rechercheTest=1;
+        return;
+      }
+      else if(this.autoConstante!=[]&&test==''){
+        this.auto=this.autoConstante;
+        this.rechercheTest=0;
+      }
+      else{
+        this.auto=result;
+        this.rechercheTest=0;
+      }
+    }
+    search2(test){      
+      var result=this.santeConstante.filter(v=>v.numContratSante==test);
+      
+      if(result.length==0&&test!=''&&this.santeConstante.length!=0){
+        this.rechercheTest2=1;
+        return;
+      }
+      else if(this.santeConstante!=[]&&test==''){
+        this.sante=this.santeConstante;
+        this.rechercheTest2=0;
+      }
+      else{
+        this.sante=result;
+        this.rechercheTest2=0;
+      }
+    }
+    search3(test){      
+      var result=this.habitationContante.filter(v=>v.idContratHabitation==test);
+      
+      if(result.length==0&&test!=''&&this.habitationContante.length!=0){
+        this.rechercheTest3=1;
+        return;
+      }
+      else if(this.habitationContante!=[]&&test==''){
+        this.habitation=this.habitationContante;
+        this.rechercheTest3=0;
+      }
+      else{
+        this.habitation=result;
+        this.rechercheTest3=0;
+      }
+    }
 }

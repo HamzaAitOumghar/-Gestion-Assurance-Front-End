@@ -22,42 +22,44 @@ export class ClientComponent implements OnInit {
 
 
   constructor(private clientService:ClientService,private router: Router) {
-    $(function() {
-      $('#sample-data-table').DataTable({
-        language:{ url:"./assets/french.json"},
-        columnDefs: [
-          {
-            targets           : 5,
-            filterable        : false,
-            sortable          : false
-          },
-          {
-          targets           : 6,
-          responsivePriority: 1,
-          filterable        : false,
-          sortable          : false
-          }
-      ],
-      
-               pageLength  : 10,
-                scrollX     : false,
-                responsive  : true,
-                autoWidth   : false
-      });
-    });
-   }
- 
-
-  ngOnInit() {
     this.clientService.getClient().map(resp=>resp.json())
     .subscribe(
       clients=>{
               this.clients=clients;
+              $(function() {
+                $('#sample-data-table').DataTable({
+                  language:{ url:"./assets/french.json"},
+                  columnDefs: [
+                    {
+                      targets           : 5,
+                      filterable        : false,
+                      sortable          : false
+                    },
+                    {
+                    targets           : 6,
+                    responsivePriority: 1,
+                    filterable        : false,
+                    sortable          : false
+                    }
+                ],
+                
+                         pageLength  : 10,
+                          scrollX     : false,
+                          responsive  : true,
+                          autoWidth   : false
+                });
+              });
       },error=>{
               console.log("Erreur !"+error);
           }
       );
-     ;
+   
+   }
+ 
+
+  ngOnInit() {
+    
+     
   }
 
   

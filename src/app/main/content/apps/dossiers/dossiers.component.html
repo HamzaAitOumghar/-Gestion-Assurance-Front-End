@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="content-wrapper md-4">
 
 
 
@@ -20,7 +20,6 @@
                             </div>
                             <div class="logo-text">
                                 <div class="h4">Dossier</div>
-                                <div class="">Total Dossiers: 20</div>
                             </div>
                         </div>
 
@@ -52,29 +51,23 @@
                 <div class="page-content-card">
 
                     <table id="e-commerce-products-table" class="table dataTable">
-
                         <thead>
-
                             <tr>
-
                                 <th>
                                     <div class="table-header">
                                         <span class="column-title">ID</span>
                                     </div>
                                 </th>
-
                                 <th>
                                     <div class="table-header">
                                         <span class="column-title">Status</span>
                                     </div>
                                 </th>
-
                                 <th>
                                     <div class="table-header">
                                         <span class="column-title">Date Creation</span>
                                     </div>
                                 </th>
-
                                 <th>
                                     <div class="table-header">
                                         <span class="column-title">Client</span>
@@ -85,44 +78,29 @@
                                         <span class="column-title">Actions</span>
                                     </div>
                                 </th>
-
                             </tr>
                         </thead>
-
                         <tbody>
-
                             <tr *ngFor='let c of dossiers'>
                                 <td class="name">{{c.numero}}</td>
                                 <td class="type d-none d-md-table-cell">{{c.status}}</td>
                                 <td class="owner d-none d-sm-table-cell">{{c.dateCreation}}</td>
                                 <td class="size d-none d-sm-table-cell">
-
                                     <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c.client.idClient)"></a>
-
                                 </td>
                                 <td class="last-modified d-none d-lg-table-cell">
-
-                                        <div class="dropdown ">
-                                                <button type="button" class="btn btn-icon" aria-label="btnGroup" data-toggle="dropdown" > 
-                                                    <i class="icon icon-dots-vertical"></i>
-                                                 </button>
-                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroup"  >
-                                                         <button class="dropdown-item" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)" >Modifier Dossier</button>
-                                                         <button class="dropdown-item" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)">Supprimer Dossier</button>
-                                                         <a class="dropdown-item" href="dossiers/details?id={{c.id}}" >Details Dossier</a>
-
-                                                </div>
-                                                   
-                                            </div> 
-
-                                    <!-- <a class="icon-account-edit" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)"></a>
-                                    <a class="icon-account-off" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)"></a> --> 
-
+                                    <div class="dropdown ">
+                                        <button type="button" class="btn btn-icon" aria-label="btnGroup" data-toggle="dropdown">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right " id="myMenu" aria-labelledby="btnGroup">
+                                            <button class="dropdown-item" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)">Modifier Dossier</button>
+                                            <button class="dropdown-item" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)">Supprimer Dossier</button>
+                                            <a class="dropdown-item" href="dossiers/details?id={{c.id}}">Details Dossier</a>
+                                        </div>
+                                    </div>
                                 </td>
-
-
                             </tr>
-
                         </tbody>
                     </table>
 
@@ -132,8 +110,7 @@
             <!-- / CONTENT -->
         </div>
     </div>
-
+    <app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>
+    <app-supprimer-dossier [idClient]="idClient" (refrech)="onRefrech($event)" *ngIf="idClient"></app-supprimer-dossier>
+    <app-modifier-dossier [dossier]="dossierModifier" *ngIf="dossierModifier" (refrech)="onRefrech($event)"></app-modifier-dossier>
 </div>
-<app-affiche-client [idClient]="idClient" *ngIf="idClient"></app-affiche-client>
-<app-supprimer-dossier [idClient]="idClient" (refrech)="onRefrech($event)" *ngIf="idClient"></app-supprimer-dossier>
-<app-modifier-dossier [dossier]="dossierModifier" *ngIf="dossierModifier"></app-modifier-dossier>

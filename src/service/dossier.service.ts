@@ -26,10 +26,14 @@ export class DossierService {
     public getDossierById(idDossier){
         return this.http.get("http://localhost:8080/dossiers/"+idDossier,this.getOptions()).map(
             resp=>resp.json()
-        )
+        );
     }
-
-  public getDossiers(){
+    public getDossierByClientId(idClient){
+        return this.http.get("http://localhost:8080/dossiers/client/"+idClient,this.getOptions()).map(
+            resp=>resp.json()
+        );
+    }
+    public getDossiers(){
       return this.http.get("http://localhost:8080/dossiers",this.getOptions()).map(
           resp=>resp.json()
       ) ;

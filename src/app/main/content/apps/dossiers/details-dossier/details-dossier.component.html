@@ -24,15 +24,26 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header text-center h2">List Des Contrat Auto !
+                    <div class="card-header  h2">Liste Des Contrats Auto
                         <button type="button" class="btn btn-primary btn-fab btn-sm">
                             <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratAuto"></i>
                         </button>
+                        <div class="search-bar-input" id="rechercher">
+                            <i class="icon-magnify s-6 mx-4"></i>
+                            <input type="text" (keyup)="search($event.target.value)" placeholder="Entrer un numero">
+                        </div>
                     </div>
-                    <div *ngIf="(auto|json)=='[]'">
-                        Pas de contrat Auto dans le dossiers
+                    <div *ngIf="(autoConstante|json)=='[]'">
+                        <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
+                            Pas de contrat Auto dans le dossiers !
+                        </div>
                     </div>
-                    <div class="card-body" *ngIf="(auto|json)!='[]'">
+                    <div *ngIf="this.rechercheTest==1">
+                        <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
+                            Resultat Introuvable !
+                        </div>
+                    </div>
+                    <div class="card-body" *ngIf="(autoConstante|json)!='[]' && this.rechercheTest!=1 ">
                         <div class="row flex-row flex-nowrap">
                             <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let au of auto'>
 
@@ -46,6 +57,7 @@
                                         <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon icon-dots-vertical"></i>
                                         </button>
+
 
                                         <div class="dropdown-menu" aria-labelledby="btnGroup">
                                             <a class="dropdown-item" data-toggle="modal" data-target="#modifierContrat" (click)="affectationAuto(au)">Modifier</a>
@@ -63,9 +75,9 @@
                                         <div>
                                             <span style="display:inline-block;width: 170px" class="badge badge-success mt-1">Montant : {{au.montant}}</span>
                                         </div>
-                                       <div class="row mt-1">
+                                        <div class="row mt-1">
                                             <span class="badge badge-success m-1 " *ngFor='let ty of au.typeContrats'>{{ty.type}}</span>
-                                       </div>
+                                        </div>
                                         <div>
                                             <span class="badge badge-info mt-3">Vehicule</span>
                                         </div>
@@ -92,16 +104,27 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header text-center h2">List Des Contrat Sante !
+                    <div class="card-header h2">Lists Des Contrats Sante 
                         <button type="button" class="btn btn-primary btn-fab btn-sm">
                             <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratSante"></i>
                         </button>
-
+                        <div class="search-bar-input" id="rechercher">
+                                <i class="icon-magnify s-6 mx-4"></i>
+                                <input type="text" (keyup)="search2($event.target.value)" placeholder="Entrer un numero">
+                        </div>
                     </div>
-                    <div *ngIf="(sante|json)=='[]'">
-                        Pas de contrat Sante dans le dossiers
-                    </div>
-                    <div class="card-body" *ngIf="(sante|json)!='[]'">
+                    <div *ngIf="(santeConstante|json)=='[]'">
+                            <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
+                                Pas de contrat Sante dans le dossiers !
+                            </div>
+                        </div>
+                        <div *ngIf="this.rechercheTest2==1">
+                            <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
+                                Resultat Introuvable !
+                            </div>
+                        </div>
+                    
+                    <div class="card-body" *ngIf="(santeConstante|json)!='[]' && this.rechercheTest2!=1">
 
                         <div class="row flex-row flex-nowrap">
                             <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let s of sante'>
@@ -130,7 +153,7 @@
                                         <div>
                                             <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date Fin Contrat {{s.dateFinContrat }}</span>
                                         </div>
-                                                <span class="badge badge-success m-1 " *ngFor='let ty of s.typeContrats'>{{ty.type}}</span>
+                                        <span class="badge badge-success m-1 " *ngFor='let ty of s.typeContrats'>{{ty.type}}</span>
                                         <div>
                                             <span class="badge badge-info mt-3">Montant {{ s.montant}}</span>
                                         </div>
@@ -152,17 +175,30 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header text-center h2">List Des Contrat Habitation !
+                    <div class="card-header h2">Liste Des Contrats Habitation 
 
                         <button type="button" class="btn btn-primary btn-fab btn-sm">
                             <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratHabitation"></i>
                         </button>
+                        <div class="search-bar-input" id="rechercher">
+                                <i class="icon-magnify s-6 mx-4"></i>
+                                <input type="text" (keyup)="search3($event.target.value)" placeholder="Entrer un numero">
+                        </div>
+
+
 
                     </div>
-                    <div *ngIf="(habitation|json)=='[]'">
+                    <div *ngIf="(habitationContante|json)=='[]'">
+                            <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
                         Pas de contrat Habitation dans le dossiers
-                    </div>
-                    <div class="card-body" *ngIf="(habitation|json)!='[]'">
+                           </div>
+                        </div>
+                        <div *ngIf="this.rechercheTest3==1">
+                            <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
+                                Resultat Introuvable !
+                            </div>
+                        </div>
+                    <div class="card-body" *ngIf="(habitationContante|json)!='[]' && this.rechercheTest3!=1">
 
                         <div class="row flex-row flex-nowrap">
                             <div class="col-12 col-sm-6 col-xl-3 p-3" *ngFor='let h of habitation'>
@@ -179,8 +215,8 @@
                                         </button>
 
                                         <div class="dropdown-menu" aria-labelledby="btnGroup">
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modificationContratHabitation" (click)='affectationHabitation(h)' >Modifier</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#supprimerContratHabitation"  (click)='affectationHabitation(h)' >Supprimer</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modificationContratHabitation" (click)='affectationHabitation(h)'>Modifier</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#supprimerContratHabitation" (click)='affectationHabitation(h)'>Supprimer</a>
                                         </div>
                                     </div>
 
@@ -197,9 +233,9 @@
                                         <div>
                                             <span class="badge badge-info mt-3">Montant {{ h.montant}}</span>
                                         </div>
-                                        
-                                                <span class="badge badge-success m-1 " *ngFor='let ty of h.typeContrats'>{{ty.type}}</span>
-                                           
+
+                                        <span class="badge badge-success m-1 " *ngFor='let ty of h.typeContrats'>{{ty.type}}</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -207,9 +243,9 @@
 
 
                     </div>
-                    <app-supprimer-contrat-habitation [contratHabitation]="habitationModifier" *ngIf='habitationModifier' (refrech)='ngOnInit()' ></app-supprimer-contrat-habitation>
+                    <app-supprimer-contrat-habitation [contratHabitation]="habitationModifier" *ngIf='habitationModifier' (refrech)='ngOnInit()'></app-supprimer-contrat-habitation>
                     <app-ajouter-contrat-habitation [idDossier]="dossierId" *ngIf='dossierId' (refrech)='this.ngOnInit()'></app-ajouter-contrat-habitation>
-                    <app-modifier-contrat-habitation [habitation]="habitationModifier" *ngIf='habitationModifier' (refrech)='ngOnInit()' ></app-modifier-contrat-habitation>
+                    <app-modifier-contrat-habitation [habitation]="habitationModifier" *ngIf='habitationModifier' (refrech)='ngOnInit()'></app-modifier-contrat-habitation>
                 </div>
             </div>
 

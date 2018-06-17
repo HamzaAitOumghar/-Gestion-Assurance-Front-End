@@ -2,6 +2,8 @@ import { NgModule, Component } from '@angular/core';
 
 import { AccueilComponent } from './accueil.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule }   from '@angular/forms';
+import { Ng2CompleterModule } from "ng2-completer";
 
 
 
@@ -11,7 +13,8 @@ import { BrowserModule } from '@angular/platform-browser';
     AccueilComponent
     ],
     imports     : [
-        BrowserModule
+        BrowserModule    ,ReactiveFormsModule,Ng2CompleterModule
+
     ]
 })
 

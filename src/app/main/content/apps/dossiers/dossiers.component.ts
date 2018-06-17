@@ -15,58 +15,65 @@ export class DossiersComponent implements OnInit {
  public idClient:number;
  dossierModifier:Dossier;
   constructor(private dossierService:DossierService,private router: Router) {
-    $(function() {
-      $('#e-commerce-products-table').DataTable(
-        { 
-          language:{ url:"./assets/french.json"},
-          dom         : 'rtip',
-          columnDefs: [
-            {
-              targets           : 4,
-              filterable        : false,
-              sortable          : false
-            },
-            {
-            targets           : 3,
-            filterable        : false,
-            sortable          : false
-            }
-        ],
-       
-          initComplete: function ()
-          {
-              var api = this.api(),
-                  searchBox = $('#products-search-input');
+    this.dossierService.getDossiers().subscribe(
+      data=>{
+        this.dossiers=data;
 
-              // Bind an external input as a table wide search box
-              if ( searchBox.length > 0 )
+        $(function() {
+          $('#e-commerce-products-table').DataTable(
+            { 
+              language:{ url:"./assets/french.json"},
+              dom         : 'rtip',
+              columnDefs: [
+                {
+                  targets           : 4,
+                  filterable        : false,
+                  sortable          : false
+                },
+                {
+                targets           : 3,
+                filterable        : false,
+                sortable          : false
+                }
+            ],
+           
+              initComplete: function ()
               {
-                  searchBox.on('keyup', function (event)
+                  var api = this.api(),
+                      searchBox = $('#products-search-input');
+    
+                  // Bind an external input as a table wide search box
+                  if ( searchBox.length > 0 )
                   {
-                      api.search(event.target.value).draw();
-                  });
-              }
-          },
-          lengthMenu  : [10, 20, 30, 50, 100],
-          pageLength  : 10,
-          scrollY     : 'auto',
-          scrollX     : false,
-          responsive  : true,
-          autoWidth   : false
-      }
-      );
-    });
+                      searchBox.on('keyup', function (event)
+                      {
+                          api.search(event.target.value).draw();
+                      });
+                  }
+              },
+              // lengthMenu  : [10, 20, 30, 50, 100],
+              // pageLength  : 10,
+              // scrollY     : 'auto',,
+             // autoWidth   : false
+              // scrollX     : false,
+              responsive  : true
+          }
+          );
+        });
+
+    },error=>{
+        console.log("Erreur !"+error);
+    }
+    );
+
+    
    }
 
   ngOnInit() {
-      this.dossierService.getDossiers().subscribe(
-        data=>{
-          this.dossiers=data;
-      },error=>{
-          console.log("Erreur !"+error);
-      }
-      );
+    
+
   }
+  
   affectationClient(id){
     this.idClient=id;
   }
@@ -77,6 +84,12 @@ export class DossiersComponent implements OnInit {
 
   
   onRefrech($event){
-    this.ngOnInit();      
-  }
+    this.dossierService.getDossiers().subscribe(
+      data=>{
+        this.dossiers=data;
+
+    },error=>{
+        console.log("Erreur !"+error);
+    }
+    );  }
 }

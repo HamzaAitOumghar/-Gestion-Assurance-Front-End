@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from '../../../service/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+    username;
+  constructor(private auth:AuthentificationService,public router: Router) {
+    this.username=this.auth.userDetails().username;
+   }
 
+   logout(){
+     this.auth.logout();
+   }
   ngOnInit() {
   }
 

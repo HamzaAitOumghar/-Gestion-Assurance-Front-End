@@ -45,5 +45,21 @@ export class StatistiqueService{
           resp=>resp.json()
         );
     }
+
+    public getBudjetAuto(){
+      return this.http.get("http://localhost:8080/statistique/budjetContratAuto",this.getOptions()).map(
+        resp=>resp.json()
+      );
+  }
+  public getBudjetSante(){
+    return this.http.get("http://localhost:8080/statistique/budjetContratSante",this.getOptions()).map(
+      resp=>resp.json()
+    );
+  }
+  public getBudjetHabitation(){
+    return this.http.get("http://localhost:8080/statistique/budjetContratHabitation",this.getOptions()).map(
+      resp=>resp.json()
+    );
+  }
     
 }
