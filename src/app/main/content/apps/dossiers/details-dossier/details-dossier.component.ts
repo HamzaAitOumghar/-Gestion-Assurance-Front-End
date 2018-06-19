@@ -110,7 +110,8 @@ export class DetailsDossierComponent implements OnInit {
     );
     this.autoService.getAllContratAutoInDossier(this.dossierId).subscribe(
       resp => {
-        this.auto = resp;
+        this.autoConstante = resp;
+        this.rechercheTest=0;
       },
       err => {
         console.log(err);
@@ -122,7 +123,8 @@ export class DetailsDossierComponent implements OnInit {
 
     this.santeService.getAllContratSanteInDossier(this.dossierId).subscribe(
       resp => {
-        this.sante = resp;
+        this.santeConstante = resp;
+        this.rechercheTest2=0;
       },
       err => {
         console.log(err);
@@ -130,7 +132,8 @@ export class DetailsDossierComponent implements OnInit {
     );
     this.habitationService.getAllContratHabitationInDossier(this.dossierId).subscribe(
       resp=>{
-        this.habitation=resp;
+        this.habitationContante=resp;
+        this.rechercheTest3=0;
       },
       err=>{
         console.log(err);

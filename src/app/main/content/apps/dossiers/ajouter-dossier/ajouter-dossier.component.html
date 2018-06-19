@@ -125,7 +125,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label"> Date Effet de Police</label>
+                                        <label class="form-control-label"> Date Debut </label>
                                         <input type="date" class="form-control" aria-describedby="width" formControlName="dateEffetPolice" />
                                     </div>
 
@@ -133,7 +133,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label">Date d'echange</label>
+                                        <label class="form-control-label">Date de fin </label>
                                         <input type="date" class="form-control" aria-describedby="width" formControlName="dateEchange" />
                                     </div>
 
@@ -156,8 +156,9 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
+                                            <label class="form-control-label">Immatriculation</label>
+
                                         <input type="text" class="form-control" aria-describedby="width" formControlName="matriculation" />
-                                        <label class="form-control-label">Immatriculation</label>
                                     </div>
 
                                 </div>
@@ -175,8 +176,8 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" aria-describedby="depth" formControlName="nbrPlace" />
                                         <label class="form-control-label">Nbr Place</label>
+                                        <input type="text" class="form-control" aria-describedby="depth" formControlName="nbrPlace" />
                                         <div *ngIf="this.formAuto.get('nbrPlace').hasError('pattern')" class="valid-feedback text-danger-900">
                                             veuillez saisir un nombre valide !
                                         </div>
@@ -202,8 +203,8 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
+                                            <label class="col-form-label"> Nbr Chevaux</label>
                                         <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="nbrChevaux" />
-                                        <label class="col-form-label"> Nbr Chevaux</label>
                                         <div *ngIf="this.formAuto.get('nbrChevaux').hasError('pattern')" class="valid-feedback text-danger-900">
                                             veuillez saisir un nombre valide !
                                         </div>
@@ -211,8 +212,9 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
+                                            <label class="col-form-label"> Montant</label>
+                                      
                                         <input type="text" class="form-control" aria-describedby="montant" formControlName="montant" />
-                                        <label class="col-form-label"> montant</label>
                                         <div *ngIf="this.formAuto.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
                                             veuillez saisir un montant valide !
                                         </div>

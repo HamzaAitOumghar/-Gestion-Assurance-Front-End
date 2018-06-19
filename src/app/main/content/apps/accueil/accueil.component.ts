@@ -24,6 +24,9 @@ declare var $;
 })
 export class AccueilComponent implements OnInit {
 
+  clientActive:number=0;
+  clientPotentiel:number=0;
+
   contratStat = [];
   total:number=0;
   userdetails;
@@ -109,6 +112,10 @@ export class AccueilComponent implements OnInit {
           dataStatus.push(resp[i][1]);
           labelStatus.push(resp[i][0]);
         }
+
+        this.clientActive=dataStatus[0];
+        this.clientPotentiel=dataStatus[1];
+        
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
           type: 'doughnut',

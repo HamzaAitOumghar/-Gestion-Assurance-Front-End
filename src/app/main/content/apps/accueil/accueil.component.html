@@ -4,9 +4,9 @@
 
         <!-- HEADER -->
         <div class=" bg-secondary text-auto  p-4">
-                <div>
-                    <span class="h2">Bonjour {{userdetails}}</span>
-                </div>
+            <div>
+                <span class="h2">Bonjour {{userdetails}}</span>
+            </div>
         </div>
         <!-- / HEADER -->
 
@@ -25,9 +25,8 @@
                         aria-controls="budget-summary-tab-pane">Evolution de budget</a>
                 </li>
                 <li class="nav-item" *ngIf="this.auth.isAdmin()==0">
-                        <a class="nav-link btn fuse-ripple-ready" id="addClientTab" data-toggle="tab" href="#addClient" role="tab"
-                            aria-controls="budget-summary-tab-pane">Ajouter Un Utilisateur</a>
-                    </li>
+                    <a class="nav-link btn fuse-ripple-ready" id="addClientTab" data-toggle="tab" href="#addClient" role="tab" aria-controls="budget-summary-tab-pane">Ajouter Un Utilisateur</a>
+                </li>
                 <li class="nav-item" *ngIf="this.auth.isAdmin()==2">
                     <a class="nav-link btn fuse-ripple-ready" id="team-members-tab" data-toggle="tab" href="#team-members-tab-pane" role="tab"
                         aria-controls="team-members-tab-pane" aria-expanded="true">Access Client</a>
@@ -113,7 +112,7 @@
                                 <div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
 
                                     <div class="col">
-                                        <span class="h6">Status Client</span>
+                                        <span class="h6">Status Client :</span>
                                     </div>
 
                                 </div>
@@ -125,8 +124,24 @@
                                         <div class="col-12">
                                             <canvas id="myChart" height="40vh" width="80vw"></canvas>
                                         </div>
+                                        <div class="divider col-12"></div>
+
+                                        <div id="added-tasks" class="col-6 d-flex flex-column align-items-center justify-content-center py-4">
+
+                                            <div class="count h2">{{this.clientActive}}</div>
+
+                                            <div class="count-title">Client Active </div>
+
+                                        </div>
 
 
+                                        <div id="added-tasks" class="col-6 d-flex flex-column align-items-center justify-content-center py-4">
+
+                                            <div class="count h2">{{this.clientPotentiel}}</div>
+
+                                            <div class="count-title">Client Potentiel </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -171,13 +186,13 @@
 
                                         </div>
 
-                                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- / WIDGET 6 -->
 
-                      
+
                     </div>
                     <!-- / WIDGET GROUP -->
                 </div>
@@ -227,7 +242,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <!-- / WIDGET 8 -->
 
@@ -272,66 +287,66 @@
                                 <div class="divider"></div>
 
                                 <div class="widget-content">
-                                        <table class="table table-hover" *ngIf="detailsClient">
-                                            <tbody>
-                                                <tr>
-                                                    <th>Nom Complet </th>
-                                                    <td>{{detailsClient.nom}}&nbsp;{{detailsClient.prenom}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Date Naissance</th>
-                                                    <td>{{detailsClient.dateNaissance}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>N° Telephone</th>
-                                                    <td>{{detailsClient.numTel}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Adresse</th>
-                                                    <td>{{detailsClient.adresse}}&nbsp;{{detailsClient.ville}}</td>
-                                                </tr>
-                                                <tr>    
-                                                    <th>Email</th>
-                                                    <td>{{detailsClient.email}}</td>
-                                                </tr>
-                                                <tr>  
-                                                    <th>Profession</th>
-                                                    <td>{{detailsClient.profession}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Cin</th>
-                                                    <td>{{detailsClient.cin}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <table class="table table-hover" *ngIf="detailsClient">
+                                        <tbody>
+                                            <tr>
+                                                <th>Nom Complet </th>
+                                                <td>{{detailsClient.nom}}&nbsp;{{detailsClient.prenom}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Date Naissance</th>
+                                                <td>{{detailsClient.dateNaissance}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>N° Telephone</th>
+                                                <td>{{detailsClient.numTel}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Adresse</th>
+                                                <td>{{detailsClient.adresse}}&nbsp;{{detailsClient.ville}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <td>{{detailsClient.email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Profession</th>
+                                                <td>{{detailsClient.profession}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cin</th>
+                                                <td>{{detailsClient.cin}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
                                 </div>
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
 
-                                        <div class="col">
-                                            <span class="h5">Mes Contrats Auto: </span>
-                                        </div>
-                                        <table class="table table-hover">
-                                            <thead>                
-                                                <tr>
-                                          
-                                                    <th>Num Contrat </th>
-                                                    <th>Date Debut</th>
-                                                    <th>Date Fin</th>
-                                                    <th>Montant</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody  *ngFor="let c of autoContrat ">
-                                                <tr>    
-                                                        <th>{{c.idAuto}}</th>
-                                                        <th>{{c.dateEffetPolice}}</th>
-                                                        <th>{{c.dateEchange}}</th>
-                                                        <th>{{c.montant}}</th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="col">
+                                        <span class="h5">Mes Contrats Auto: </span>
+                                    </div>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Num Contrat </th>
+                                                <th>Date Debut</th>
+                                                <th>Date Fin</th>
+                                                <th>Montant</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngFor="let c of autoContrat ">
+                                            <tr>
+                                                <th>{{c.idAuto}}</th>
+                                                <th>{{c.dateEffetPolice}}</th>
+                                                <th>{{c.dateEchange}}</th>
+                                                <th>{{c.montant}}</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                           
+
                                 <div class="divider"></div>
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
 
@@ -339,28 +354,28 @@
                                         <span class="h5">Mes Contrats Sante: </span>
                                     </div>
                                     <table class="table table-hover">
-                                        <thead>                
+                                        <thead>
                                             <tr>
-                                      
+
                                                 <th>Num Contrat </th>
                                                 <th>Date Debut</th>
                                                 <th>Date Fin</th>
                                                 <th>Montant</th>
                                             </tr>
                                         </thead>
-                                        <tbody  *ngFor="let c of santeContrat ">
-                                            <tr>    
-                                                    <th>{{c.numContratSante}}</th>
-                                                    <th>{{c.dateContrat}}</th>
-                                                    <th>{{c.dateFinContrat}}</th>
-                                                    <th>{{c.montant}}</th>
+                                        <tbody *ngFor="let c of santeContrat ">
+                                            <tr>
+                                                <th>{{c.numContratSante}}</th>
+                                                <th>{{c.dateContrat}}</th>
+                                                <th>{{c.dateFinContrat}}</th>
+                                                <th>{{c.montant}}</th>
                                             </tr>
                                         </tbody>
                                     </table>
-                           
-                           
-                           
-                           
+
+
+
+
                                 </div>
 
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
@@ -369,7 +384,7 @@
                                         <span class="h5">Mes Contrats Habitation: </span>
                                     </div>
                                     <table class="table table-hover">
-                                        <thead>                
+                                        <thead>
                                             <tr>
                                                 <th>Num Contrat </th>
                                                 <th>Date Debut</th>
@@ -379,21 +394,21 @@
                                                 <th>Montant</th>
                                             </tr>
                                         </thead>
-                                        <tbody  *ngFor="let c of habitationContrat ">
-                                            <tr>    
-                                                    <th>{{c.idContratHabitation}}</th>
-                                                    <th>{{c.dateDebut}}</th>
-                                                    <th>{{c.dateFin}}</th>
-                                                    <th>{{c.typeLogement}}</th>
-                                                    <th>{{c.nbrPiece}}</th>
-                                                    <th>{{c.montant}}</th>
+                                        <tbody *ngFor="let c of habitationContrat ">
+                                            <tr>
+                                                <th>{{c.idContratHabitation}}</th>
+                                                <th>{{c.dateDebut}}</th>
+                                                <th>{{c.dateFin}}</th>
+                                                <th>{{c.typeLogement}}</th>
+                                                <th>{{c.nbrPiece}}</th>
+                                                <th>{{c.montant}}</th>
                                             </tr>
                                         </tbody>
                                     </table>
-                           
-                           
-                           
-                           
+
+
+
+
                                 </div>
 
                             </div>
@@ -403,55 +418,55 @@
                 </div>
                 <div class="tab-pane fade" id="addClient" role="tabpanel" aria-labelledby="team-members-tab">
 
-                        <!-- WIDGET GROUP -->
-                        <div class="widget-group row">
-    
-                            <!-- WIDGET 1 -->
-                            <div class="col-12">
-    
-                                <div class="card">
-    
-                                    <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
-                                        <div class="col">
-                                            <span class="h5">Associer un utilisateur à un client ! </span>
-                                        </div>
-                                    </div>
-                                    <div class="divider"></div>
-    
-                                    <div class="widget-content">
-                                            <div class="card p-6">
+                    <!-- WIDGET GROUP -->
+                    <div class="widget-group row">
 
-                                            <form *ngIf="form" [formGroup]="form">
+                        <!-- WIDGET 1 -->
+                        <div class="col-12">
 
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" aria-describedby="product name" formControlName="username" />
-                                                                <label class="form-control-label" for="adresseClient">Identifiant : </label>
-                                                            </div>
-                                                            <div class="form-group">                        
-                                                                <input type="text" class="form-control" aria-describedby="product tags" formControlName="password" />
-                                                                <label class="form-control-label">Mot de pass</label>
-                                                            </div>
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label" for="adresseClient">Client : </label>
-                                                                    <ng2-completer formControlName="client" [minSearchLength]="0" [dataService]="searchData" inputClass="form-control" textNoResults="Client Non Trouvée !"
-                                                                    [datasource]="searchData"></ng2-completer>
-                                                                </div>
-                                                            
-                                                                <div class="form-group mx-auto text-center">
-                                                                        <button type="submit" class="btn btn-succes" (click)="enregistrerUtilisateur()">Enregistrer</button>
-                                                                </div>
-                                                                <div ngClass="{{messageStyle}}" role="alert">
-                                                                        {{messageErrorText }}
-                                                                </div>
-                                                </form>
-                                                </div>
-                                                
+                            <div class="card">
+
+                                <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
+                                    <div class="col">
+                                        <span class="h5">Associer un utilisateur à un client ! </span>
                                     </div>
                                 </div>
+                                <div class="divider"></div>
+
+                                <div class="widget-content">
+                                    <div class="card p-6">
+
+                                        <form *ngIf="form" [formGroup]="form">
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" aria-describedby="product name" formControlName="username" />
+                                                <label class="form-control-label" for="adresseClient">Identifiant : </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" aria-describedby="product tags" formControlName="password" />
+                                                <label class="form-control-label">Mot de pass</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="adresseClient">Client : </label>
+                                                <ng2-completer formControlName="client" [minSearchLength]="0" [dataService]="searchData" inputClass="form-control" textNoResults="Client Non Trouvée !"
+                                                    [datasource]="searchData"></ng2-completer>
+                                            </div>
+
+                                            <div class="form-group mx-auto text-center">
+                                                <button type="submit" class="btn btn-succes" (click)="enregistrerUtilisateur()">Enregistrer</button>
+                                            </div>
+                                            <div ngClass="{{messageStyle}}" role="alert">
+                                                {{messageErrorText }}
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
-                            <!-- WIDGET 1 -->
                         </div>
+                        <!-- WIDGET 1 -->
                     </div>
+                </div>
             </div>
 
         </div>

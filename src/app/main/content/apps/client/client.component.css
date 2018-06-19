@@ -1,0 +1,9 @@
+#detailsClick:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+.hover:hover{
+    opacity: 0.9;
+    cursor: pointer;
+    width:inherit;
+}

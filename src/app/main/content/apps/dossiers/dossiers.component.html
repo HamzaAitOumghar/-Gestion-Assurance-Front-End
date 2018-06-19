@@ -35,7 +35,7 @@
                                     <i class="icon icon-magnify"></i>
                                 </button>
                             </span>
-                            <input id="products-search-input" type="text" class="form-control" placeholder="Search" aria-label="Search" />
+                            <input id="products-search-input" type="text" class="form-control" placeholder="Rechercher" aria-label="Search" />
                         </div>
 
                     </div>
@@ -86,26 +86,27 @@
                                 <td class="type d-none d-md-table-cell">{{c.status}}</td>
                                 <td class="owner d-none d-sm-table-cell">{{c.dateCreation}}</td>
                                 <td class="size d-none d-sm-table-cell">
-                                    <a class="icon-eye" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c.client.idClient)"></a>
+                                    <a class="icon-eye" id="myBtn" data-toggle="modal" data-target="#gridSystemModal" (click)="affectationClient(c.client.idClient)"></a>
                                 </td>
                                 <td class="last-modified d-none d-lg-table-cell">
                                     <div class="dropdown ">
-                                        <button type="button" class="btn btn-icon" aria-label="btnGroup" data-toggle="dropdown">
+                                        <button type="button" class="btn btn-icon" id="dropdown-button" aria-label="btnGroup" data-toggle="dropdown">
                                             <i class="icon icon-dots-vertical"></i>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right " id="myMenu" aria-labelledby="btnGroup">
-                                            <button class="dropdown-item" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)">Modifier Dossier</button>
-                                            <button class="dropdown-item" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)">Supprimer Dossier</button>
-                                            <a class="dropdown-item" href="dossiers/details?id={{c.id}}">Details Dossier</a>
+                                            <button class="dropdown-item hover" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)">Modifier Dossier</button>
+                                            <button class="dropdown-item hover" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)">Supprimer Dossier</button>
+                                            <a class="dropdown-item hover" href="dossiers/details?id={{c.id}}">Details Dossier</a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
+                    
                 </div>
-
+                <div style="height:80px;">
+                </div>
             </div>
             <!-- / CONTENT -->
         </div>

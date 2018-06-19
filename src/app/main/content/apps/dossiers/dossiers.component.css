@@ -1,4 +1,13 @@
 #myMenu{
-    overflow: visible !important;
+    position: fixed;
+}
+.hover:hover{
+ opacity: 0.9;
+ cursor: pointer;
+ width: inherit;
 
-    }
+}
+#myBtn{
+    opacity: 0.8;
+    cursor: pointer;
+}

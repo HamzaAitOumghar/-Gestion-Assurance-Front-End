@@ -15,6 +15,16 @@ export class DossiersComponent implements OnInit {
  public idClient:number;
  dossierModifier:Dossier;
   constructor(private dossierService:DossierService,private router: Router) {
+    function dropDownFixPosition(button, dropdown) {
+      var dropDownTop = button.offset().top + button.outerHeight();
+      dropdown.css('top', dropDownTop + "px");
+      dropdown.css('left', button.offset().left + "px");
+    }
+    $('#dropdown-button').click(function() {
+      dropDownFixPosition($('#dropdown-button'), $('.dropdown-menu'));
+    });
+   
+
     this.dossierService.getDossiers().subscribe(
       data=>{
         this.dossiers=data;

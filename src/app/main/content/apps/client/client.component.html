@@ -81,7 +81,7 @@
                                                     </th>
                                                     <th class="secondary-text">
                                                         <div class="table-header">
-                                                            <span class="column-title">Detail</span>
+                                                            <span class="column-title">Détails</span>
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -100,14 +100,14 @@
                                                                         <i class="icon icon-dots-vertical"></i>
                                                                      </button>
                                                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroup"  >
-                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)" >Modifier Client</button>
-                                                                             <button class="dropdown-item" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)">Supprimer Client</button>
+                                                                             <a class="dropdown-item hover" data-toggle="modal" data-target="#modifierClient" (click)="affecatationClient(c)" >Modifier Client</a>
+                                                                             <a class="dropdown-item hover" data-toggle="modal" data-target="#exampleModalLive" (click)="affecatationIdClient(c.idClient)">Supprimer Client</a>
                                                                      </div>
                                                                        
                                                                 </div> 
                                                     </td>
                                                     <td>
-                                                        <a  class="icon-eye" data-toggle="modal" data-target="#clientDetailAffiche" (click)="affecatationIdClient(c.idClient)"></a>
+                                                        <a  class="icon-eye" id="detailsClick" data-toggle="modal" data-target="#clientDetailAffiche" (click)="affecatationIdClient(c.idClient)"></a>
                     
                                                     </td>
                             </tr>
