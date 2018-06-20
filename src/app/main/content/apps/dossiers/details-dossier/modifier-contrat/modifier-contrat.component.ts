@@ -114,7 +114,7 @@ export class ModifierContratComponent implements OnInit {
       },
       err => {
         this.messageStyle = "alert alert-danger text-center";
-        this.messageErrorText = "Erreur Dans Modification du Contrat Auto !";
+        this.messageErrorText = "Erreur lors du modification du Contrat Auto !";
         $(function () {
           $(".alert").fadeTo(2000, 500).slideUp(500, function () {
             $(".alert").slideUp(500);
@@ -135,7 +135,7 @@ export class ModifierContratComponent implements OnInit {
 
               resp=>{
                 this.messageStyle = "alert alert-success text-center";
-                this.messageErrorText = "Contrat Bien Modifier !";
+                this.messageErrorText = "Contrat a été  bien modifié !";
                 $(function () {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function () {
                     $(".alert").slideUp(500);
@@ -145,7 +145,7 @@ export class ModifierContratComponent implements OnInit {
               },
               err=>{
                 this.messageStyle = "alert alert-danger text-center";
-                this.messageErrorText = "Erreur Dans Modification du Contrat Auto !";
+                this.messageErrorText = "Erreur lors du modification du contrat auto !";
                 $(function () {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function () {
                     $(".alert").slideUp(500);

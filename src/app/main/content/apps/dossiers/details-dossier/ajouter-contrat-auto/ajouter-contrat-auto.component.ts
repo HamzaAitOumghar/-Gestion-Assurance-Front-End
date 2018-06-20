@@ -99,7 +99,7 @@ export class AjouterContratAutoComponent implements OnInit {
           this.vehiculeService.ajouterVehicule(vehicules,resp.idAuto).subscribe(
             resp=>{
               this.messageStyle="alert alert-success text-center";
-              this.messageErrorText="Auto Bient Ajouter";
+              this.messageErrorText="Contrat Auto  a été bien ajouté";
                 $(function() {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                     $(".alert").slideUp(500);
@@ -109,7 +109,7 @@ export class AjouterContratAutoComponent implements OnInit {
             }
             ,err=>{
               this.messageStyle="alert alert-danger text-center";
-              this.messageErrorText="Erreur Dans Ajout Vehicule !";
+              this.messageErrorText="Erreur lors de l'ajout du véhicule !";
                 $(function() {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                     $(".alert").slideUp(500);
@@ -120,7 +120,7 @@ export class AjouterContratAutoComponent implements OnInit {
       },
       err=>{
         this.messageStyle="alert alert-danger text-center";
-        this.messageErrorText="Erreur Dant Ajout Auto";
+        this.messageErrorText="Erreur lors de l'ajout du contrat auto !";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);

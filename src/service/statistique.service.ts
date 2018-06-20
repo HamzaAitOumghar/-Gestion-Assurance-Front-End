@@ -41,7 +41,7 @@ export class StatistiqueService{
         );
     }
     public getEvolutionContratSante(){
-        return this.http.get("http://localhost:8080/statistique/evolutionContratHabitation",this.getOptions()).map(
+        return this.http.get("http://localhost:8080/statistique/evolutionContratSante",this.getOptions()).map(
           resp=>resp.json()
         );
     }

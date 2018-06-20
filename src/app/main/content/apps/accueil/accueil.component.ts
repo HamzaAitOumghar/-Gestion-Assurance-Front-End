@@ -197,7 +197,7 @@ export class AccueilComponent implements OnInit {
                         fill: false,
                       },
                       {
-                        label: 'Contrat Sante',
+                        label: 'Contrat Santé',
                         backgroundColor: '#0000FF',
                         borderColor: '#0000FF',
                         data: montantSante,
@@ -224,7 +224,7 @@ export class AccueilComponent implements OnInit {
                     data: {
                       labels: Months,
                       datasets: [{
-                        label: 'Evolution Budget',
+                        label: 'Evolution du Budget',
                         backgroundColor: '#f53794',
                         borderColor: '#f53794',
                         data: total,
@@ -291,7 +291,7 @@ export class AccueilComponent implements OnInit {
                       data: dataAuto,
                       fill: false,
                     }, {
-                      label: 'Contrat Sante',
+                      label: 'Contrat Santé',
                       fill: false,
                       backgroundColor: '#58595b',
                       borderColor: '#58595b',

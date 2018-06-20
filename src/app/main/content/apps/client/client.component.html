@@ -38,7 +38,7 @@
             <div class="example">
                 <div class="description">
                     <div class="description-text">
-                        <h3 class="align-items-center">Liste Clients :  </h3>
+                        <h3 class="align-items-center">Liste des Clients :  </h3>
                     </div>
                 </div>
                 <div class="source-preview-wrapper">
@@ -54,7 +54,7 @@
                                                     </th>
                                                     <th class="secondary-text">
                                                         <div class="table-header">
-                                                            <span class="column-title">Prenom</span>
+                                                            <span class="column-title">Prénom</span>
                                                         </div>
                                                     </th>
                                                     <th class="secondary-text">
@@ -64,12 +64,12 @@
                                                         </th>
                                                         <th class="secondary-text">
                                                                 <div class="table-header">
-                                                                    <span class="column-title">Date De Naissance</span>
+                                                                    <span class="column-title">Date de Naissance</span>
                                                                 </div>
                                                             </th>
                                                             <th class="secondary-text">
                                                                 <div class="table-header">
-                                                                    <span class="column-title">Status</span>
+                                                                    <span class="column-title">Statuts</span>
                                                                 </div>
                                                             </th>
                                                  
@@ -125,5 +125,5 @@
 </div>
 </div>
 <app-supprimer *ngIf="idCourant" (refrech)="onRefrech($event)" [idClient]="idCourant"></app-supprimer>
-<app-modifier *ngIf="cl" [client]="cl"></app-modifier>
+<app-modifier *ngIf="cl" [client]="cl" (refrech)="onRefrech($event)"></app-modifier>
 <app-detail-client *ngIf="idCourant" [idClient]="idCourant"></app-detail-client>

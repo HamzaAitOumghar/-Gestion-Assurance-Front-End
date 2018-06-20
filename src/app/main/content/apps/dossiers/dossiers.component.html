@@ -55,17 +55,17 @@
                             <tr>
                                 <th>
                                     <div class="table-header">
-                                        <span class="column-title">ID</span>
+                                        <span class="column-title"> Numéro de dossier</span>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="table-header">
-                                        <span class="column-title">Status</span>
+                                        <span class="column-title">Statut</span>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="table-header">
-                                        <span class="column-title">Date Creation</span>
+                                        <span class="column-title">Date de Création</span>
                                     </div>
                                 </th>
                                 <th>
@@ -96,7 +96,7 @@
                                         <div class="dropdown-menu dropdown-menu-right " id="myMenu" aria-labelledby="btnGroup">
                                             <button class="dropdown-item hover" data-toggle="modal" data-target="#modifierDossier" (click)="affectationDossier(c)">Modifier Dossier</button>
                                             <button class="dropdown-item hover" data-toggle="modal" data-target="#supprimerDosssier" (click)="affectationClient(c.client.idClient)">Supprimer Dossier</button>
-                                            <a class="dropdown-item hover" href="dossiers/details?id={{c.id}}">Details Dossier</a>
+                                            <a class="dropdown-item hover" href="dossiers/details?id={{c.id}}">Détails Dossier</a>
                                         </div>
                                     </div>
                                 </td>

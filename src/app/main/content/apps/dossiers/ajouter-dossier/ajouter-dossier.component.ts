@@ -246,7 +246,7 @@ export class AjouterDossierComponent implements OnInit {
           resp=>{
             
             this.messageStyle="alert alert-success text-center";
-            this.messageErrorText="Dossier Bient Ajouter";
+            this.messageErrorText="le dossier a été bien ajouté";
               $(function() {
                 $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                   $(".alert").slideUp(500);
@@ -258,7 +258,7 @@ export class AjouterDossierComponent implements OnInit {
           },
           err=>{
             this.messageStyle="alert alert-danger text-center";
-            this.messageErrorText="Erreur Dans l'ajout du Dosssier";
+            this.messageErrorText="Erreur lors de l'ajout du dosssier";
               $(function() {
                 $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                   $(".alert").slideUp(500);
@@ -273,7 +273,7 @@ export class AjouterDossierComponent implements OnInit {
                 this.santeService.ajouterContratSante(sante,idDossier).subscribe(
                   resp=>{
                     this.messageStyle="alert alert-success text-center";
-                    this.messageErrorText="Sante Bien Ajouter";
+                    this.messageErrorText="Contrat Santé  a été bien ajouté";
                       $(function() {
                         $(".alert").fadeTo(2000, 500).slideUp(5000, function(){
                           $(".alert").slideUp(5000);
@@ -286,7 +286,7 @@ export class AjouterDossierComponent implements OnInit {
                   },
                   err=>{
                     this.messageStyle="alert alert-danger text-center";
-                    this.messageErrorText="Erreur Dans Ajoute Du Contrat Sante";
+                    this.messageErrorText="Erreur lors de l'ajoute du Contrat Santé";
                     $(function() {
                       $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                         $(".alert").slideUp(500);
@@ -309,7 +309,7 @@ export class AjouterDossierComponent implements OnInit {
                   resp=>{
                    
                     this.messageStyle="alert alert-success text-center";
-                    this.messageErrorText="Auto Bient Ajouter";
+                    this.messageErrorText="Contrat Auto  a été bien ajouté";
                       $(function() {
                         $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                           $(".alert").slideUp(500);
@@ -321,7 +321,7 @@ export class AjouterDossierComponent implements OnInit {
                       this.vehiculeService.ajouterVehicule(auto.vehicules,resp.idAuto).subscribe(
                         resp=>{
                           this.messageStyle="alert alert-success text-center";
-                          this.messageErrorText="Vehicume Bient Ajouter";
+                          this.messageErrorText="la véhicule a été bien ajouté";
                             $(function() {
                               $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                                 $(".alert").slideUp(500);
@@ -330,7 +330,7 @@ export class AjouterDossierComponent implements OnInit {
                         }
                         ,err=>{
                           this.messageStyle="alert alert-danger text-center";
-                          this.messageErrorText="Erreur Dant Ajout Vehicule !";
+                          this.messageErrorText="Erreur lors de l'ajout du véhicule !";
                             $(function() {
                               $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                                 $(".alert").slideUp(500);
@@ -341,7 +341,7 @@ export class AjouterDossierComponent implements OnInit {
                   },
                   err=>{
                     this.messageStyle="alert alert-danger text-center";
-                    this.messageErrorText="Erreur Dant Ajout Auto";
+                    this.messageErrorText="Erreur lors de l'ajout du contrat Auto";
                       $(function() {
                         $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                           $(".alert").slideUp(500);
@@ -356,7 +356,7 @@ export class AjouterDossierComponent implements OnInit {
                 this.habitationService.saveContratHabitation(habitation,idDossier).subscribe(
                   resp=>{
                     this.messageStyle="alert alert-success text-center";
-                    this.messageErrorText="Contrat Habitation Bien Ajouter";
+                    this.messageErrorText="Contrat Habitation a été bien ajouté";
                       $(function() {
                         $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                           $(".alert").slideUp(500);
@@ -365,7 +365,7 @@ export class AjouterDossierComponent implements OnInit {
                   },
                   err=>{
                     this.messageStyle="alert alert-danger text-center";
-                    this.messageErrorText="Erreur Dans l'ajoute du Contrat Habitation";
+                    this.messageErrorText="Erreur lors de l'ajoute du contrat Habitation";
                       $(function() {
                         $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                           $(".alert").slideUp(500);

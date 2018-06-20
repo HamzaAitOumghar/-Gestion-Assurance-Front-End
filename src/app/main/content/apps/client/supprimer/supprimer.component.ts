@@ -35,7 +35,9 @@ export class SupprimerComponent implements OnInit {
           
            
         }); 
-        
+        this.refrech.emit();
+        $('#exampleModalLive').modal('hide');
+
       },err=>{
               this.messageStyle="alert alert-danger text-center";
               this.messageErrorText="Erreur Dans suppression du client";
@@ -45,9 +47,7 @@ export class SupprimerComponent implements OnInit {
                   });  
                 }); 
       },()=>{
-        this.refrech.emit();
-        $('#exampleModalLive').modal('hide');
-
+       
       }
     );
     return;

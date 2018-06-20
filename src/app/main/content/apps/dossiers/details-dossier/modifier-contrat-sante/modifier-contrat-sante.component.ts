@@ -75,7 +75,7 @@ export class ModifierContratSanteComponent implements OnInit {
           },
           err=>{
             this.messageStyle = "alert alert-danger text-center";
-            this.messageErrorText = "Erreur Dans Modification du Contrat Sante !";
+            this.messageErrorText = "Erreur lors du modification !";
             $(function () {
               $(".alert").fadeTo(2000, 500).slideUp(500, function () {
                 $(".alert").slideUp(500);

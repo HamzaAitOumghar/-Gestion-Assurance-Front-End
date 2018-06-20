@@ -51,7 +51,7 @@ export class ModifierDossierComponent implements OnInit {
     this.dossierService.modifierDossier(this.from.value,test[4]).subscribe(
       res=>{
         this.messageStyle="alert alert-success text-center";
-        this.messageErrorText="Dossier a été bien modifier";
+        this.messageErrorText="le dossier a été bien modifié ";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);
@@ -62,7 +62,7 @@ export class ModifierDossierComponent implements OnInit {
       },
       err=>{
         this.messageStyle="alert alert-danger text-center";
-        this.messageErrorText="Erreur Dans Modification du Dossier";
+        this.messageErrorText="Erreur lors de modification du dossier";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);

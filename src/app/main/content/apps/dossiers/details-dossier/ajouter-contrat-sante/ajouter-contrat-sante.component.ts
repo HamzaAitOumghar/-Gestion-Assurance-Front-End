@@ -62,7 +62,7 @@ export class AjouterContratSanteComponent implements OnInit {
 
       resp => {
         this.messageStyle = "alert alert-success text-center";
-        this.messageErrorText = "Sante Bient Ajouter";
+        this.messageErrorText = "Contrat santé a été  bien  ajouter";
         $(function () {
           $(".alert").fadeTo(2000, 500).slideUp(500, function () {
             $(".alert").slideUp(500);
@@ -72,7 +72,7 @@ export class AjouterContratSanteComponent implements OnInit {
       }
       , err => {
         this.messageStyle = "alert alert-danger text-center";
-        this.messageErrorText = "Erreur Dans Ajout Sante !";
+        this.messageErrorText = "Erreur lors dnas l'ajout de contrat santé !";
         $(function () {
           $(".alert").fadeTo(2000, 500).slideUp(500, function () {
             $(".alert").slideUp(500);

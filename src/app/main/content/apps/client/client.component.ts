@@ -58,7 +58,14 @@ export class ClientComponent implements OnInit {
  
 
   ngOnInit() {
-    
+    this.clientService.getClient().map(resp=>resp.json())
+    .subscribe(
+      clients=>{
+              this.clients=clients;
+      },error=>{
+              console.log("Erreur !"+error);
+          }
+      );
      
   }
 

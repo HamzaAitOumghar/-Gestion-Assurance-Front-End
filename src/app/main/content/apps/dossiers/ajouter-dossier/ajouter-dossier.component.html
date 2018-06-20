@@ -14,7 +14,7 @@
                     <img src="../assets/images/icon/folder1.png" height="52px" width="52px">
                 </div>
 
-                <div>Dossier Detail</div>
+                <div>Dossier détails</div>
             </div>
 
             <button type="submit" class="btn bg-secondary-50" form="formAuto" (click)="enregistrer()">
@@ -36,7 +36,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link btn active" id="basic-info-tab" data-toggle="tab" href="#basic-info-tab-pane" role="tab" aria-controls="basic-info-tab-pane"
-                        aria-expanded="true">Dossier Info</a>
+                        aria-expanded="true">Informations du dossier </a>
                 </li>
 
                 <li class="nav-item">
@@ -67,7 +67,7 @@
                         <form *ngIf="formDossier" [formGroup]="formDossier">
 
                             <div class="form-group">
-                                <label class="form-control-label" for="numDossier">Numero de Dossier : </label>
+                                <label class="form-control-label" for="numDossier">Numéro de Dossier : </label>
                                 <input type="text" class="form-control" aria-describedby="Dossier numero" formControlName="numero" />
                                 <div *ngIf="this.formDossier.get('numero').hasError('pattern')" class="valid-feedback text-danger-900">
                                     veuillez saisir un nombre valide !
@@ -79,7 +79,7 @@
 
 
                             <div class="form-group">
-                                <label>Date Creation</label>
+                                <label>Date de création</label>
                                 <input type="date" class="form-control" aria-describedby="date Dossier" formControlName="dateCreation" />
                                 <div *ngIf="this.formDossier.get('dateCreation').hasError('required')" class="valid-feedback text-primary-A400">
                                     ce champ est obligatoire
@@ -87,7 +87,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-control-label">Status</label>
+                                <label class="form-control-label">Statut</label>
                                 <input type="text" class="form-control" aria-describedby="status Dossier" formControlName="status" />
                                 <div *ngIf="this.formDossier.get('status').hasError('required')" class="valid-feedback text-primary-A400">
                                     ce champ est obligatoire
@@ -125,7 +125,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label"> Date Debut </label>
+                                        <label class="form-control-label"> Date début </label>
                                         <input type="date" class="form-control" aria-describedby="width" formControlName="dateEffetPolice" />
                                     </div>
 
@@ -133,7 +133,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label">Date de fin </label>
+                                        <label class="form-control-label">Date fin </label>
                                         <input type="date" class="form-control" aria-describedby="width" formControlName="dateEchange" />
                                     </div>
 
@@ -141,7 +141,7 @@
 
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label class="form-control-label">Date 1ere Mise en Service: </label>
+                                        <label class="form-control-label">Date 1ére mise en service: </label>
                                         <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="datePremierMiseService"
                                         />
 
@@ -176,7 +176,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label">Nbr Place</label>
+                                        <label class="form-control-label">Nombre de places</label>
                                         <input type="text" class="form-control" aria-describedby="depth" formControlName="nbrPlace" />
                                         <div *ngIf="this.formAuto.get('nbrPlace').hasError('pattern')" class="valid-feedback text-danger-900">
                                             veuillez saisir un nombre valide !
@@ -203,7 +203,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                            <label class="col-form-label"> Nbr Chevaux</label>
+                                            <label class="col-form-label"> Nombre de Chevaux</label>
                                         <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="nbrChevaux" />
                                         <div *ngIf="this.formAuto.get('nbrChevaux').hasError('pattern')" class="valid-feedback text-danger-900">
                                             veuillez saisir un nombre valide !
@@ -249,7 +249,7 @@
                         <form *ngIf="formSante" [formGroup]="formSante">
 
                             <div class="form-group">
-                                <label class="form-control-label" for="date">Date Debut de Contrat: </label>
+                                <label class="form-control-label" for="date">Date début de contrat: </label>
 
                                 <input type="date" class="form-control" aria-describedby="Sante Date" formControlName="dateContrat" />
                                 <div *ngIf="this.formSante.get('dateContrat').hasError('required')" class="valid-feedback text-primary-900">
@@ -257,7 +257,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label" for="status">Date Fin de Contrat : </label>
+                                <label class="form-control-label" for="status">Date fin de contrat : </label>
                                 <input type="date" class="form-control" aria-describedby="DateFin Contrat Sante" formControlName="dateFinContrat" />
                                 <div *ngIf="this.formSante.get('dateFinContrat').hasError('required')" class="valid-feedback text-primary-900">
                                     ce champ est obligatoire
@@ -271,7 +271,7 @@
                                     ce champ est obligatoire
                                 </div>
                                 <div *ngIf="this.formSante.get('montant').hasError('pattern')" class="valid-feedback text-danger-900">
-                                    le montant saisi est invalid !
+                                    le montant saisi est invalide !
                                 </div>
                             </div>
                             <div class="form-group">
@@ -305,7 +305,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label"> Date Debut de Contrat : </label>
+                                        <label class="form-control-label"> Date début de contrat : </label>
                                         <input type="date" class="form-control" aria-describedby="width" formControlName="dateDebut" />
                                     </div>
 
@@ -313,7 +313,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label">Date Fin de Contrat</label>
+                                        <label class="form-control-label">Date fin de contrat</label>
                                         <input type="date" class="form-control" aria-describedby="width" formControlName="dateFin" />
                                     </div>
                                 </div>
@@ -322,7 +322,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label"> Type Assure : </label>
+                                        <label class="form-control-label"> Type Assuré : </label>
                                         <select class="form-control" formControlName="typeLogement">
                                             <option value="Essence">Maison</option>
                                             <option value="Diesel">Appartement</option>
@@ -333,10 +333,10 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label">Nombre De Piece</label>
+                                        <label class="form-control-label">Nombre de pieces</label>
                                         <input type="text" class="form-control" aria-describedby="width" formControlName="nbrPiece" />
                                         <div *ngIf="this.formHabitation.get('nbrPiece').hasError('pattern')" class="valid-feedback text-danger-900">
-                                            le Nombre saisi est invalid !
+                                            le nombre saisi est invalide !
                                         </div>
                                     </div>
                                 </div>
@@ -345,7 +345,7 @@
                                 <div class="col-4">
 
                                     <div class="form-group">
-                                        <label class="form-control-label"> Adresse Habitation  : </label>
+                                        <label class="form-control-label"> Adresse habitation  : </label>
                                         <input type="text" class="form-control" aria-describedby="width" formControlName="adresseHabitation" />                                  
                                     </div>
 

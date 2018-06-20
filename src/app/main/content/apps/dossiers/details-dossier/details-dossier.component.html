@@ -13,7 +13,7 @@
                     <img src="../assets/images/ecommerce/product-image-placeholder.png">
                 </div>
 
-                <div>Dossier Detail</div>
+                <div>Dossier Détails</div>
             </div>
 
         </div>
@@ -24,18 +24,30 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header  h2">Liste Des Contrats Auto
-                        <button type="button" class="btn btn-primary btn-fab btn-sm">
-                            <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratAuto"></i>
-                        </button>
-                        <div class="search-bar-input" id="rechercher">
-                            <i class="icon-magnify s-6 mx-4"></i>
-                            <input type="text" (keyup)="search($event.target.value)" placeholder="Entrer un numero">
-                        </div>
+                    <div class="card-header  ">
+                            <div class="row">
+                                    <div class="h3 col-md-4">Liste des contrats Auto
+
+                                            
+                                    </div>
+        
+                                    <button type="button" class="btn btn-primary btn-fab btn-sm text-center mx-auto "  >
+                                            <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratAuto"></i>
+                                        </button>
+    
+                                    <div class="input-group   col-md-4 ml-md-auto mt-2" >
+                                        <i class="icon-magnify"></i>    
+                                        <input type="text" (keyup)="search($event.target.value)" placeholder="rechercher" class="form-control" >
+                                    </div>
+                                    
+                
+                            </div>
+                        
+                        
                     </div>
                     <div *ngIf="(autoConstante|json)=='[]'">
                         <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
-                            Pas de contrat Auto dans le dossiers !
+                            Pas de contrat Auto dans le dossier !
                         </div>
                     </div>
                     <div *ngIf="this.rechercheTest==1">
@@ -104,18 +116,27 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header h2">Lists Des Contrats Sante 
-                        <button type="button" class="btn btn-primary btn-fab btn-sm">
-                            <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratSante"></i>
-                        </button>
-                        <div class="search-bar-input" id="rechercher">
-                                <i class="icon-magnify s-6 mx-4"></i>
-                                <input type="text" (keyup)="search2($event.target.value)" placeholder="Entrer un numero">
+                    <div class="card-header">
+                        <div class="row">
+                                <div class="h3 col-md-4">Liste des contrats Santé
+                                        
+                                </div>
+    
+                                <button type="button" class="btn btn-primary btn-fab btn-sm text-center mx-auto "  >
+                                        <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratSante"></i>
+                                </button>
+
+                                <div class="input-group   col-md-4 ml-md-auto mt-2" >
+                                    <i class="icon-magnify"></i>    
+                                    <input type="text" (keyup)="search2($event.target.value)" placeholder="rechercher" class="form-control" >
+                                </div>
+                                
+            
                         </div>
                     </div>
                     <div *ngIf="(santeConstante|json)=='[]'">
                             <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
-                                Pas de contrat Sante dans le dossiers !
+                                Pas de contrat Santé dans le dossier !
                             </div>
                         </div>
                         <div *ngIf="this.rechercheTest2==1">
@@ -134,7 +155,7 @@
                                     <div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
 
                                         <div class="col">
-                                            <span class="text-center">Contrat Sante N° {{s.numContratSante}} </span>
+                                            <span class="text-center">Contrat Santé N° {{s.numContratSante}} </span>
                                         </div>
                                         <button type="button" class="btn btn-icon" id="btnGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon icon-dots-vertical"></i>
@@ -175,22 +196,29 @@
             <div class="card-deck mt-2">
                 <div class="card">
 
-                    <div class="card-header h2">Liste Des Contrats Habitation 
+                    <div class="card-header"> 
+                        <div class="row">
+                                <div class="h4 col-md-4">Liste des contrats Habitation
 
-                        <button type="button" class="btn btn-primary btn-fab btn-sm">
-                            <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratHabitation"></i>
-                        </button>
-                        <div class="search-bar-input" id="rechercher">
-                                <i class="icon-magnify s-6 mx-4"></i>
-                                <input type="text" (keyup)="search3($event.target.value)" placeholder="Entrer un numero">
+                                        
+                                </div>
+    
+                                <button type="button" class="btn btn-primary btn-fab btn-sm text-center mx-auto "  >
+                                        <i class="icon-plus" data-toggle="modal" data-target="#ajouterContratHabitation"></i>
+                                    </button>
+
+                                <div class="input-group   col-md-4 ml-md-auto mt-2" >
+                                    <i class="icon-magnify"></i>    
+                                    <input type="text" (keyup)="search3($event.target.value)" placeholder="rechercher" class="form-control" >
+                                </div>
+                                
+            
                         </div>
-
-
 
                     </div>
                     <div *ngIf="(habitationContante|json)=='[]'">
                             <div class="alert alert-danger text-center col-md-6 mx-auto mt-3">
-                        Pas de contrat Habitation dans le dossiers
+                        Pas de contrat Habitation dans le dossier
                            </div>
                         </div>
                         <div *ngIf="this.rechercheTest3==1">

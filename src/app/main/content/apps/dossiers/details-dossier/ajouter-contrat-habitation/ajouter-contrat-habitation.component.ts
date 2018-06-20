@@ -67,7 +67,7 @@ export class AjouterContratHabitationComponent implements OnInit {
       resp=>{
             
         this.messageStyle="alert alert-success text-center";
-        this.messageErrorText="Habitation Bient Ajouter";
+        this.messageErrorText="Habitation a été Bien ajouté";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);
@@ -78,7 +78,7 @@ export class AjouterContratHabitationComponent implements OnInit {
       },
       err=>{
         this.messageStyle="alert alert-danger text-center";
-        this.messageErrorText="Erreur Dans l'ajout d' Habitation";
+        this.messageErrorText="Erreur lors de l'ajout du contrat Habitation";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);

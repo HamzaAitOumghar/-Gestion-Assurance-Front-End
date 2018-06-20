@@ -67,7 +67,7 @@ export class AjouterComponent implements OnInit {
           this.clientService.ajouterClient(client).subscribe(
             resp=>{
               this.messageStyle="alert alert-success text-center";
-              this.messageErrorText="Client Bient Ajouter";
+              this.messageErrorText="le client a été bien ajouté";
                 $(function() {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                     $(".alert").slideUp(500);
@@ -77,7 +77,7 @@ export class AjouterComponent implements OnInit {
             },
             err=>{
               this.messageStyle="alert alert-danger text-center";
-              this.messageErrorText="Erreur Dans l'ajout du client";
+              this.messageErrorText="Erreur lors de l'ajout du client";
                 $(function() {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                     $(".alert").slideUp(500);

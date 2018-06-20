@@ -18,7 +18,7 @@
                       <div class="col-4">
 
                           <div class="form-group">
-                              <label class="form-control-label"> Date Effet de Police</label>
+                              <label class="form-control-label"> Date debut </label>
                               <input type="date" class="form-control" aria-describedby="width" formControlName="dateEffetPolice" />
                           </div>
 
@@ -26,7 +26,7 @@
                       <div class="col-4">
 
                           <div class="form-group">
-                              <label class="form-control-label">Date d'echange</label>
+                              <label class="form-control-label">Date fin</label>
                               <input type="date" class="form-control" aria-describedby="width" formControlName="dateEchange" />
                           </div>
 
@@ -34,7 +34,7 @@
 
                       <div class="col-4">
                           <div class="form-group">
-                              <label class="form-control-label">Date 1ere Mise en Service: </label>
+                              <label class="form-control-label">Date 1ére Mise en Service: </label>
                               <input type="date" class="form-control" aria-describedby="Vehicule 1ere Service" formControlName="datePremierMiseService" />
 
                           </div>
@@ -70,7 +70,7 @@
                       <div class="col-4">
 
                           <div class="form-group">
-                                  <label class="form-control-label">Nbr Place</label>
+                                  <label class="form-control-label">Nombre de places</label>
                   
                               <input type="text" class="form-control" aria-describedby="depth" formControlName="nbrPlace" />
                               <div *ngIf="this.formAuto.get('nbrPlace').hasError('pattern')" class="valid-feedback text-danger-900">
@@ -99,7 +99,7 @@
                       </div>
                       <div class="col-4">
                           <div class="form-group">
-                                  <label class="col-form-label"> Nbr Chevaux</label>
+                                  <label class="col-form-label"> Nombre de Chevaux</label>
                   
                               <input type="text" class="form-control" aria-describedby="Usage Vehicule" formControlName="nbrChevaux" />
                               <div *ngIf="this.formAuto.get('nbrChevaux').hasError('pattern')" class="valid-feedback text-danger-900">

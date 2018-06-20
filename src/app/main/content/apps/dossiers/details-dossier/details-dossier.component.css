@@ -7,6 +7,9 @@
   }
 
   #rechercher{
-    display:inline-block;
     float:right;
   }
+  input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+}

@@ -85,7 +85,7 @@ export class ModifierContratHabitationComponent implements OnInit {
       resp=>{
             
         this.messageStyle="alert alert-success text-center";
-        this.messageErrorText="Contrat Habitation Bient Modifier";
+        this.messageErrorText="Contrat Habitation a été bien modifié";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);
@@ -95,7 +95,7 @@ export class ModifierContratHabitationComponent implements OnInit {
       },
       err=>{
         this.messageStyle="alert alert-danger text-center";
-        this.messageErrorText="Erreur Dans Modification  du Contrat Habitation";
+        this.messageErrorText="Erreur lors du modification ";
           $(function() {
             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
               $(".alert").slideUp(500);

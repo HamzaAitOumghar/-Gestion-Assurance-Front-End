@@ -14,7 +14,7 @@
                     <img src="../assets/images/icon/user.png" height="52px" width="52px">
                 </div>
 
-                <div>Client Detail :</div>
+                <div>Client Détails :</div>
             </div>
 
             <button type="button" class="btn btn-secondary" [disabled]="!form.valid" (click)="enregitrerClient()">
@@ -35,7 +35,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link btn active" id="basic-info-tab" data-toggle="tab" href="#basic-info-tab-pane" role="tab" aria-controls="basic-info-tab-pane"
-                        aria-expanded="true">Client Info</a>
+                        aria-expanded="true">Informations du Client </a>
                 </li>
 
 
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label class="form-control-label">Prenom Client</label>
+                                        <label class="form-control-label">Prénom Client</label>
                                         <input type="text" class="form-control" aria-describedby="product tags" formControlName="prenom" />
                                         <div *ngIf="this.form.get('prenom').hasError('required')" class="valid-feedback text-primary-900">
                                             ce champ est obligatoire
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label class="form-control-label">Date De Naissance</label>
+                                        <label class="form-control-label">Date de Naissance</label>
                                         <input type="date" class="form-control" aria-describedby="product tags" formControlName="dateNaissance" />
                                         <div *ngIf="this.form.get('dateNaissance').hasError('required')" class="valid-feedback text-primary-900">
                                             ce champ est obligatoire
@@ -139,7 +139,7 @@
                                             ce champ est obligatoire
                                         </div>
                                         <div *ngIf="this.form.get('numTel').hasError('pattern')" class="valid-feedback text-danger-900">
-                                                Un Numero de Telephone est de la form : 0606060606 
+                                                le numéro de telephone doit être sous la forme : 06xxxxxxxx
                                         </div>
 
                                     </div>

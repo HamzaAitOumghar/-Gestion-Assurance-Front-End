@@ -1,4 +1,4 @@
-import { NgModule,Component, OnInit, Input, AfterViewInit,AfterContentInit } from '@angular/core';
+import { NgModule,Component, OnInit, Input, AfterViewInit,AfterContentInit, Output, EventEmitter } from '@angular/core';
 import { Client } from '../../../../../entities/Client';
 import { ClientService } from '../../../../../../service/client.service';
 import {FormGroup,FormControl, Validators} from '@angular/forms';
@@ -16,6 +16,8 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
    
 
   @Input() client:Client;
+  @Output() refrech: EventEmitter<any> = new EventEmitter();
+
   constructor(private serviceClient:ClientService) { 
   
   }
@@ -61,17 +63,18 @@ export class ModifierComponent implements OnInit ,AfterViewInit{
             res=>{
               
               this.messageStyle="alert alert-success text-center";
-              this.messageErrorText="Client a été bien modifier";
+              this.messageErrorText="le client a été bien modifié";
                 $(function() {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                     $(".alert").slideUp(500);
                     });
                       
                 }); 
+                this.refrech.emit();
             },
             err=>{
               this.messageStyle="alert alert-danger text-center";
-              this.messageErrorText="Erreur Dans l'ajout du client";
+              this.messageErrorText="Erreur lors de la modification du client";
                 $(function() {
                   $(".alert").fadeTo(2000, 500).slideUp(500, function(){
                     $(".alert").slideUp(500);
