@@ -378,80 +378,10 @@ export class AjouterDossierComponent implements OnInit {
             }
       );
       
-
-
-
-
-
-
-     //  this.clientService.getClientById(id).subscribe(
-    //    resp=>{
-    //       cl=resp;
-    //       this.formDossier.value.client=cl;
-      
-    //    }
-    //    ,err=>{
-
-    //    },
-    //    ()=>{
-
-    //     this.dossierService.addDossiers(this.formDossier.value).subscribe(
-    //       resp=>{
-    //           console.log("3lah !");
-    //           console.log(resp);
-
-    //         this.messageStyle="alert alert-success text-center";
-    //         this.messageErrorText="Dossier Bient Ajouter";
-    //           $(function() {
-    //             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-    //               $(".alert").slideUp(500);
-    //               });  
-    //           }); 
-              
-    //           if(sante!=null){
-    //             sante.dossier=resp;
-    //             this.santeService.ajouterContratSante(sante).subscribe(
-    //               resp=>{
-    //                 this.messageStyle="alert alert-success text-center";
-    //                 this.messageErrorText="Sante Bien Ajouter";
-    //                   $(function() {
-    //                     $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-    //                       $(".alert").slideUp(500);
-    //                       });  
-    //                   }); 
-    //               },
-    //               err=>{
-
-    //               }
-
-    //             )
-    //           }
-              
-    //       },
-    //       err=>{
-    //         this.messageStyle="alert alert-danger text-center";
-    //         this.messageErrorText="Erreur Dans l'ajout du Dosssier";
-    //           $(function() {
-    //             $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-    //               $(".alert").slideUp(500);
-    //               });  
-    //           }); 
-    //       }
-    //   );
-    //    }
-    //  );
-     
-    //  var client={
-    //    nom:cl.nom,
-    //    prenom:cl.prenom,
-    //    adresse:cl.adresse,
-    //    ville:cl.ville,
-    //    numTel:cl.numTel,
-    //    email:cl.email,
-    //    profession:cl.profession,
-    //    cin:cl.cin,
-    //    dateNaissance:cl.dateNaissance
-    //    }$
+      this.formDossier.reset();
+      this.formHabitation.reset();
+      this.formSante.reset();
+      this.formAuto.reset();
     
      
 

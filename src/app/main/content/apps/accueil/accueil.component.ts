@@ -77,13 +77,16 @@ export class AccueilComponent implements OnInit {
   }
   getContratClient(){
     if(this.detailsClient.idClient!=null){
+      console.log("Work");
       this.dossierService.getDossierByClientId(this.detailsClient.idClient).subscribe(
         resp=>{
- 
+          console.log("Work Dossier");
+          console.log(resp);
+
          this.autoService.getAllContratAutoInDossier(resp.id).subscribe(
           respAuto=>{
-           this.autoContrat=respAuto;
- 
+           this.autoContrat=respAuto; 
+           console.log(this.autoContrat);
           });
           this.habitationService.getAllContratHabitationInDossier(resp.id).subscribe(
            respHabit=>{
@@ -224,7 +227,7 @@ export class AccueilComponent implements OnInit {
                     data: {
                       labels: Months,
                       datasets: [{
-                        label: 'Evolution du Budget',
+                        label: 'Evolution du revenu',
                         backgroundColor: '#f53794',
                         borderColor: '#f53794',
                         data: total,

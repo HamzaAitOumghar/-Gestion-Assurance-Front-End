@@ -13,7 +13,7 @@
                     <img src="../assets/images/ecommerce/product-image-placeholder.png">
                 </div>
 
-                <div>Dossier Détails</div>
+                <div>Détails du dossier </div>
             </div>
 
         </div>
@@ -79,19 +79,19 @@
 
                                     <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Effet police : {{au.dateEffetPolice}}</span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date début : {{au.dateEffetPolice}}</span>
                                         </div>
                                         <div>
                                             <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin : {{au.dateEchange}}</span>
                                         </div>
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-success mt-1">Montant : {{au.montant}}</span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-success mt-1">Montant : {{au.montant}} DH</span>
                                         </div>
                                         <div class="row mt-1">
                                             <span class="badge badge-success m-1 " *ngFor='let ty of au.typeContrats'>{{ty.type}}</span>
                                         </div>
                                         <div>
-                                            <span class="badge badge-info mt-3">Vehicule</span>
+                                            <span class="badge badge-info mt-3">Véhicule</span>
                                         </div>
                                         <div id="clickVehicule">
                                             <a data-toggle="modal" data-target="#vehicule" (click)="affectationVehicule(au.vehicules)">
@@ -169,14 +169,14 @@
 
                                     <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Debut Contrat : {{s.dateContrat}} </span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date début : {{s.dateContrat}} </span>
                                         </div>
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date Fin Contrat {{s.dateFinContrat }}</span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin :  {{s.dateFinContrat }}</span>
                                         </div>
                                         <span class="badge badge-success m-1 " *ngFor='let ty of s.typeContrats'>{{ty.type}}</span>
                                         <div>
-                                            <span class="badge badge-info mt-3">Montant {{ s.montant}}</span>
+                                            <span class="badge badge-info mt-3">Montant {{ s.montant}} DH</span>
                                         </div>
 
                                     </div>
@@ -250,16 +250,16 @@
 
                                     <div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date Debut : {{h.dateDebut}} </span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-secondary mt-1">Date début : {{h.dateDebut}} </span>
                                         </div>
                                         <div>
-                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date Fin : {{h.dateFin}} </span>
+                                            <span style="display:inline-block;width: 170px" class="badge badge-danger mt-1">Date fin : {{h.dateFin}} </span>
                                         </div>
                                         <div>
                                             <span style="display:inline-block;width: 170px" class="badge badge-success mt-1"> {{h.typeLogement }} ( {{h.nbrPiece}} Piece)</span>
                                         </div>
                                         <div>
-                                            <span class="badge badge-info mt-3">Montant {{ h.montant}}</span>
+                                            <span class="badge badge-info mt-3">Montant {{ h.montant}} DH</span>
                                         </div>
 
                                         <span class="badge badge-success m-1 " *ngFor='let ty of h.typeContrats'>{{ty.type}}</span>

@@ -123,7 +123,7 @@
         </div>
     </div>
 </div>
-</div>
 <app-supprimer *ngIf="idCourant" (refrech)="onRefrech($event)" [idClient]="idCourant"></app-supprimer>
 <app-modifier *ngIf="cl" [client]="cl" (refrech)="onRefrech($event)"></app-modifier>
 <app-detail-client *ngIf="idCourant" [idClient]="idCourant"></app-detail-client>
+</div>

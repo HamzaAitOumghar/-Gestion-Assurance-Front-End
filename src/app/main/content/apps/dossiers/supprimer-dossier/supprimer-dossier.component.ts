@@ -18,11 +18,15 @@ export class SupprimerDossierComponent implements OnInit {
   }
 
   supprimerDossier(id){
+    console.log("Hamza"+id);
     this.serviceDossier.supprimerDossier(id).subscribe(
       data=>{
         this.refrech.emit();
       },err=>{
-        console.log("Erreur !"+err);
+        console.log("Erreur Suppression !"+err);
+      },
+      ()=>{
+        this.refrech.emit();
       }
     );
   }

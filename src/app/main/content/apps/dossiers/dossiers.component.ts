@@ -28,6 +28,7 @@ export class DossiersComponent implements OnInit {
     this.dossierService.getDossiers().subscribe(
       data=>{
         this.dossiers=data;
+        console.log(this.dossiers);
 
         $(function() {
           $('#e-commerce-products-table').DataTable(

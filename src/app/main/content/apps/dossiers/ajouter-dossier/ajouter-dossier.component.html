@@ -17,7 +17,8 @@
                 <div>Dossier détails</div>
             </div>
 
-            <button type="submit" class="btn bg-secondary-50" form="formAuto" (click)="enregistrer()">
+            <button type="submit" class="btn bg-secondary-50" form="formAuto" (click)="enregistrer()" [disabled]="!formDossier.valid"
+            >
                 Enregistrer
             </button>
 

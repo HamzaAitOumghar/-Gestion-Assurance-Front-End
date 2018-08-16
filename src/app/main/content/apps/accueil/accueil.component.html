@@ -6,6 +6,7 @@
         <div class=" bg-secondary text-auto  p-4">
             <div>
                 <span class="h2">Bonjour {{userdetails}}</span>
+
             </div>
         </div>
         <!-- / HEADER -->
@@ -22,14 +23,14 @@
 
                 <li class="nav-item" *ngIf="this.auth.isAdmin()!=2">
                     <a class="nav-link btn fuse-ripple-ready" id="budget-summary-tab" data-toggle="tab" href="#budget-summary-tab-pane" role="tab"
-                        aria-controls="budget-summary-tab-pane">Evolution de budget</a>
+                        aria-controls="budget-summary-tab-pane">Evolution du revenu</a>
                 </li>
                 <li class="nav-item" *ngIf="this.auth.isAdmin()==0">
-                    <a class="nav-link btn fuse-ripple-ready" id="addClientTab" data-toggle="tab" href="#addClient" role="tab" aria-controls="budget-summary-tab-pane">Ajouter Un Utilisateur</a>
+                    <a class="nav-link btn fuse-ripple-ready" id="addClientTab" data-toggle="tab" href="#addClient" role="tab" aria-controls="budget-summary-tab-pane">Créer un compte client</a>
                 </li>
                 <li class="nav-item" *ngIf="this.auth.isAdmin()==2">
                     <a class="nav-link btn fuse-ripple-ready" id="team-members-tab" data-toggle="tab" href="#team-members-tab-pane" role="tab"
-                        aria-controls="team-members-tab-pane" aria-expanded="true">Access Client</a>
+                        aria-controls="team-members-tab-pane" aria-expanded="true">Accès client</a>
                 </li>
             </ul>
 
@@ -38,7 +39,7 @@
 
                     <!-- WIDGET GROUP -->
                     <div class="widget-group row" *ngIf="this.auth.isAdmin()!=2">
-
+                        
                         <!-- WIDGET 1 -->
                         <div class="col-12 col-sm-6 col-xl-3 p-3">
 
@@ -208,7 +209,7 @@
 
                                 <div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
                                     <div class="col">
-                                        <span class="h6">Budget Par Type De Contrat</span>
+                                        <span class="h6">Revenu par type de contrat</span>
                                     </div>
                                     <div class="">
                                         <select id="widget6-option-select" class="h6 custom-select" (change)="onChange2($event.target.value)">
@@ -231,7 +232,7 @@
 
                                 <div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
                                     <div class="col">
-                                        <span class="h6">Budget En Géneral</span>
+                                        <span class="h6">Revenu total</span>
                                     </div>
                                 </div>
 
@@ -279,7 +280,7 @@
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
 
                                     <div class="col">
-                                        <span class="h5">Mes Info : </span>
+                                        <span class="h5">Mes informations : </span>
                                     </div>
 
                                 </div>
@@ -287,7 +288,7 @@
                                 <div class="divider"></div>
 
                                 <div class="widget-content">
-                                    <table class="table table-hover" *ngIf="detailsClient">
+                                    <table class="table table-hover text-center mx-auto" *ngIf="detailsClient">
                                         <tbody>
                                             <tr>
                                                 <th>Nom Complet </th>
@@ -314,25 +315,27 @@
                                                 <td>{{detailsClient.profession}}</td>
                                             </tr>
                                             <tr>
-                                                <th>Cin</th>
+                                                <th>CIN</th>
                                                 <td>{{detailsClient.cin}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
 
                                 </div>
+                                <div class="divider"></div>
+
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
 
-                                    <div class="col">
-                                        <span class="h5">Mes Contrats Auto: </span>
+                                    <div class="col mb-2">
+                                        <span class="h5 ">Mes Contrats Auto: </span>
                                     </div>
-                                    <table class="table table-hover">
+                                    <table class="table table-hover table-dark">
                                         <thead>
                                             <tr>
 
                                                 <th>Num Contrat </th>
-                                                <th>Date Debut</th>
-                                                <th>Date Fin</th>
+                                                <th>Date début</th>
+                                                <th>Date fin</th>
                                                 <th>Montant</th>
                                             </tr>
                                         </thead>
@@ -341,7 +344,7 @@
                                                 <th>{{c.idAuto}}</th>
                                                 <th>{{c.dateEffetPolice}}</th>
                                                 <th>{{c.dateEchange}}</th>
-                                                <th>{{c.montant}}</th>
+                                                <th>{{c.montant}} DH</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -350,16 +353,16 @@
                                 <div class="divider"></div>
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
 
-                                    <div class="col">
-                                        <span class="h5">Mes Contrats Sante: </span>
+                                    <div class="col mb-2">
+                                        <span class="h5 md-1">Mes Contrats Sante: </span>
                                     </div>
-                                    <table class="table table-hover">
+                                    <table class="table table-hover table-dark">
                                         <thead>
                                             <tr>
 
                                                 <th>Num Contrat </th>
-                                                <th>Date Debut</th>
-                                                <th>Date Fin</th>
+                                                <th>Date début</th>
+                                                <th>Date fin</th>
                                                 <th>Montant</th>
                                             </tr>
                                         </thead>
@@ -368,7 +371,7 @@
                                                 <th>{{c.numContratSante}}</th>
                                                 <th>{{c.dateContrat}}</th>
                                                 <th>{{c.dateFinContrat}}</th>
-                                                <th>{{c.montant}}</th>
+                                                <th>{{c.montant}} DH</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -377,20 +380,21 @@
 
 
                                 </div>
+                                <div class="divider"></div>
 
                                 <div class="widget-header px-4 py-6 row no-gutters align-items-center justify-content-between">
 
-                                    <div class="col">
-                                        <span class="h5">Mes Contrats Habitation: </span>
+                                    <div class="col mb-2">
+                                        <span class="h5 md-1">Mes Contrats Habitation: </span>
                                     </div>
-                                    <table class="table table-hover">
+                                    <table class="table table-hover table-dark">
                                         <thead>
                                             <tr>
                                                 <th>Num Contrat </th>
-                                                <th>Date Debut</th>
-                                                <th>Date Fin</th>
+                                                <th>Date début</th>
+                                                <th>Date fin</th>
                                                 <th>Type Logement</th>
-                                                <th>Nbr Piece</th>
+                                                <th>Adresse</th>
                                                 <th>Montant</th>
                                             </tr>
                                         </thead>
@@ -400,8 +404,8 @@
                                                 <th>{{c.dateDebut}}</th>
                                                 <th>{{c.dateFin}}</th>
                                                 <th>{{c.typeLogement}}</th>
-                                                <th>{{c.nbrPiece}}</th>
-                                                <th>{{c.montant}}</th>
+                                                <th>{{c.adresseHabitation}} {{c.ville}}</th>
+                                                <th>{{c.montant}} DH</th>
                                             </tr>
                                         </tbody>
                                     </table>

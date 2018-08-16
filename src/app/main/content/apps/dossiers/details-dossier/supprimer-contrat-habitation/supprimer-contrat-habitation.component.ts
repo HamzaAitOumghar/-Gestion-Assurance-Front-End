@@ -23,6 +23,8 @@ export class SupprimerContratHabitationComponent implements OnInit {
       }
       ,err=>{
 
+      },()=>{
+        
       }
     );
 

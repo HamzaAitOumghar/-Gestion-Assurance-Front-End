@@ -21,15 +21,15 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link ripple "  [routerLink]="['accueil']" data-page-url="/apps-contacts.html">
+            <a class="nav-link ripple "  [routerLink]="['accueil']">
               <i class="icon s-4 icon-tile-four"></i>
               <span>Accueil</span>
             </a>
           </li>
 
           <li class="nav-item" *ngIf="this.auth.isAdmin()!=2">
-            <a class="nav-link ripple "  [routerLink]="['client']" data-page-url="/apps-contacts.html">
-              <i class="icon s-4 icon-calendar-today"></i>
+            <a class="nav-link ripple "  [routerLink]="['client']">
+              <i class="icon s-4 icon-account-circle"></i>
               <span>Client</span>
             </a>
           </li>
@@ -62,7 +62,7 @@
                       [routerLink]="['dossiers']"
                       >
                           
-                          <span>Tous Les Dossiers</span>
+                          <span>Tous les dossiers</span>
                       </a>
                   </li>
           <li class="nav-item">
@@ -70,7 +70,7 @@
                  [routerLink]="['dossiers/ajouter']"
                 >
                   
-                  <span>Ajouter Dossier</span>
+                  <span>Ajouter dossier</span>
               </a>
           </li>
           </ul>
